@@ -16,6 +16,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-wrap');
 	grunt.loadNpmTasks('grunt-angular-gettext');
+	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-contrib-sass');
 
 
 	grunt.initConfig({
@@ -86,6 +88,29 @@ module.exports = function(grunt) {
 			},
 		},
 
+		sass: {
+			dist: {
+				options: {
+					style: 'expanded'
+				},
+				files: {
+					'../css/app.css': '../sass/app.scss' 
+				}
+			}
+		},
+
+		browserify: {
+			dist: {
+				options: {
+					transform: ['browserify-shim', 'vueify'],
+					paths: ['./']
+				},
+				files: {
+					'../js/public/app.js': '../js/app/main.js'
+				}
+			}
+		},
+
 		nggettext_extract: {
 			pot: {
 				files: {
@@ -108,6 +133,6 @@ module.exports = function(grunt) {
 	});
 
 	// make tasks available under simpler commands
-	grunt.registerTask('build', ['jshint', 'concat', 'wrap']);
+	grunt.registerTask('build', ['jshint', 'sass', 'browserify']);
 
 };
