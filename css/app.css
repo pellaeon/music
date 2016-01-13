@@ -1,0 +1,106 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+input, select, button {
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+input:required, input:invalid, select:required, select:invalid, button:required, button:invalid {
+  box-shadow: none;
+}
+input.dirty, select.dirty, button.dirty {
+  background: #fff5b0;
+}
+input[type="search"], select[type="search"], button[type="search"] {
+  border-radius: 12px;
+  height: 24px;
+  padding: 0 6px;
+}
+input[type="text"], select[type="text"], button[type="text"] {
+  display: block;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+}
+
+a, a:link, a:visited {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.clear::after, .clearfix::after {
+  content: " ";
+  clear: both;
+  display: block;
+}
+
+.side {
+  width: 256px;
+}
+
+.ir {
+  color: transparent;
+  font: 0/0 serif;
+}
+
+.control {
+  cursor: pointer;
+  color: #aaa;
+}
+.control:hover {
+  color: #fff;
+}
+
+p {
+  line-height: 20px;
+}
+
+.help {
+  opacity: .7;
+  font-size: 90%;
+  line-height: 16px;
+}
+
+label {
+  font-size: 110%;
+  margin-bottom: 8px;
+  display: block;
+}
+
+button, input[type="submit"], input[type="reset"], input[type="button"] {
+  background: #0191f7;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+button:active, input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active {
+  box-shadow: inset 0px 10px 10px -10px black;
+}
+
+body, html {
+  overflow: hidden;
+}
+
+[draggable] {
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+.form-row {
+  margin-top: 16px;
+}
+
+/*# sourceMappingURL=app.css.map */
