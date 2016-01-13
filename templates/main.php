@@ -16,28 +16,20 @@ if($version[0] < 8 || $version[0] === 8 && $version[1] < 2) {
 	\OCP\Util::addScript('music', 'public/pre-stable8.2-fixes');
 }
 
-\OCP\Util::addScript('music', 'vendor/angular/angular.min');
-\OCP\Util::addScript('music', 'vendor/angular-route/angular-route.min');
 \OCP\Util::addScript('music', 'vendor/soundmanager/script/soundmanager2-nodebug-jsmin');
-\OCP\Util::addScript('music', 'vendor/restangular/dist/restangular.min');
-\OCP\Util::addScript('music', 'vendor/angular-gettext/dist/angular-gettext.min');
-\OCP\Util::addScript('music', 'vendor/ngQueue/ngQueue.min');
 \OCP\Util::addScript('music', 'vendor/aurora/aurora');
 \OCP\Util::addScript('music', 'vendor/aurora/flac');
 \OCP\Util::addScript('music', 'vendor/aurora/mp3');
-\OCP\Util::addScript('music', 'vendor/js-cookie/src/js.cookie');
-\OCP\Util::addScript('music', 'public/app');
+#\OCP\Util::addScript('music', 'public/app');
 \OCP\Util::addScript('music', 'app/playerwrapper');
 
-\OCP\Util::addStyle('music', 'style-controls');
-\OCP\Util::addStyle('music', 'style-sidebar');
-\OCP\Util::addStyle('music', 'style');
-\OCP\Util::addStyle('music', 'mobile');
-\OCP\Util::addStyle('music', 'tablet');
+\OCP\Util::addStyle('music', 'app');
 
 ?>
 
+<app></app>
 
+<<<<<<< HEAD
 <div id="app" ng-app="Music" ng-cloak ng-init="started = false; lang = '<?php p($_['lang']) ?>'">
 
 	<script type="text/ng-template" id="overview.html">
@@ -120,3 +112,6 @@ if($version[0] < 8 || $version[0] === 8 && $version[1] < 2) {
 	</div>
 
 </div>
+=======
+<script src="/core/capps/music/js/public/main.js"></script>
+>>>>>>> Update# port koel's laravel-elixir and gulpfile here

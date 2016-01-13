@@ -270,8 +270,8 @@
 </script>
 
 <style lang="sass">
-    @import "resources/assets/sass/partials/_vars.scss";
-    @import "resources/assets/sass/partials/_mixins.scss";
+    @import "../../sass/partials/_vars.scss";
+    @import "../../sass/partials/_mixins.scss";
 
     @mixin hasSoftGradientOnTop($startColor) {
         position: relative;
@@ -505,7 +505,7 @@
         $volume-track-height: 8px;
         
 
-        @import "resources/assets/sass/vendors/_plyr.scss";
+        @import "../../sass/vendors/_plyr.scss";
 
         // Some little tweaks here and there
         .player {
