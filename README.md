@@ -89,6 +89,12 @@ The current music app can't be installed and ownCloud prints following error mes
 
 ## Development
 
+### Build .vue files
+
+	cd js/app
+	npm install
+	gulp
+
 ### L10n hints
 
 Sometimes translatable strings aren't detected. Try to move the `translate` attribute
