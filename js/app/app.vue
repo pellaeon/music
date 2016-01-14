@@ -8,7 +8,6 @@
         @keydown.176 = "playNext"
         @keydown.179 = "togglePlayback"
     >
-        <site-header></site-header>
         <main-wrapper></main-wrapper>
         <site-footer></site-footer>
         <overlay :state.sync="overlayState"></overlay>
@@ -18,7 +17,6 @@
 <script>
     import $ from 'jquery';
     
-    import siteHeader from './components/site-header/index.vue';
     import siteFooter from './components/site-footer/index.vue';
     import mainWrapper from './components/main-wrapper/index.vue';
     import overlay from './components/shared/overlay.vue';
@@ -28,7 +26,7 @@
     import playback from './services/playback';
 
     export default {
-        components: { siteHeader, siteFooter, mainWrapper, overlay },
+        components: { siteFooter, mainWrapper, overlay },
 
         replace: false,
 
