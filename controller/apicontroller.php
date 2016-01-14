@@ -89,19 +89,33 @@ class ApiController extends Controller {
 	 */
 	public function collection() {
 		/** @var Artist[] $allArtists */
+		$result['artists'] = [];
+		$result['interactions'] = [];
 		$allArtists = $this->artistBusinessLayer->findAll($this->userId);
-		$allArtistsById = array();
 		foreach ($allArtists as &$artist) {
-			$allArtistsById[$artist->getId()] = $artist->toCollection($this->l10n);
+			$artistCollection = $artist->toCollection($this->l10n);
+			$artistsAlbums = $this->albumBusinessLayer->findAllByArtist($artist->getId(), $this->userId);
+			foreach ( $artistsAlbums as &$album ) {
+				$albumCollection = $album->toCollection($this->urlGenerator, $this->l10n);
+				$albumTracks = $this->trackBusinessLayer->findAllByAlbum($album->getId(), $this->userId, $artist->getId());
+				foreach ( $albumTracks as &$track ) {
+					$trackC = $track->toCollection($this->urlGenerator, $this->userFolder);
+					if ( $trackC['number'] )
+						$albumCollection['songs'][$trackC['number']] = $trackC;
+					else
+						$albumCollection['songs'][] = $trackC;
+				}
+				$artistCollection['albums'][] = $albumCollection;
+			}
+			$result['artists'][] = $artistCollection;
 		}
 
-		$allAlbums = $this->albumBusinessLayer->findAll($this->userId);
+		/*
 		$allAlbumsById = array();
 		foreach ($allAlbums as &$album) {
 			$allAlbumsById[$album->getId()] = $album->toCollection($this->urlGenerator, $this->l10n);
 		}
 
-		/** @var Track[] $allTracks */
 		$allTracks = $this->trackBusinessLayer->findAll($this->userId);
 
 		$artists = array();
@@ -122,8 +136,9 @@ class ApiController extends Controller {
 				//ignore not found	
 			}
 		}
+		 */
 
-		return new JSONResponse($artists);
+		return new JSONResponse($result);
 	}
 
 	/**
