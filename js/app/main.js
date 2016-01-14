@@ -1,7 +1,7 @@
 //import $ from 'jquery';
 window.Vue = require('vue');
 Vue.use(require('vue-resource'));
-Vue.http.options.root = '/api';
+Vue.http.options.root = window.location.pathname+'api';
 Vue.http.headers.common['requesttoken'] = $('head').attr('data-requesttoken');
 Vue.config.debug = true;
 
