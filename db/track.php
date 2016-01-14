@@ -107,10 +107,7 @@ class Track extends Entity {
 		return array(
 			'title' => $this->getTitle(),
 			'number' => $this->getNumber(),
-			'artistName' => $this->getArtist()->getName(),
-			'artistId' => $this->getArtistId(),
-			'albumId' => $this->getAlbumId(),
-			'albumArtistId' => $this->getAlbum()->getAlbumArtistId(),
+			'album_id' => $this->getAlbumId(),
 			'files' => array($this->getMimetype() => $urlGenerator->getAbsoluteUrl('remote.php/webdav' . $relativePath)),
 			'id' => $this->getId(),
 		);

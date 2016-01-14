@@ -29,9 +29,9 @@
 
     #overlay {
         position: fixed;
-        top: 0;
+        top: 45px;
         left: 0;
-        z-index: 9999;
+        z-index: 1999;
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 1);
