@@ -8,6 +8,7 @@ elixir.config.publicPath = '../public';
 elixir.config.assetsPath = '';
 elixir.config.js.folder = '';
 elixir.config.js.outputFolder = '';
+elixir.config.js.browserify.options.debug = true;
 elixir(function (mix) {
     mix.browserify('main.js');
 });
