@@ -1,6 +1,5 @@
 import _ from 'lodash';
 
-import userStore from './user';
 import ls from '../services/ls';
 
 export default {
@@ -15,15 +14,9 @@ export default {
 
     /**
      * Init the store.
-     * 
-     * @param  {Object} user The user whose preferences we are managing.
      */
-    init(user = null) {
-        if (!user) {
-            user = userStore.current();
-        }
-
-        this.storeKey = `preferences_${user.id}`;
+    init() {
+        this.storeKey = `preferences`;
         _.extend(this.state, ls.get(this.storeKey, this.state));
     },
 
