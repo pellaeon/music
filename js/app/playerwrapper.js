@@ -48,6 +48,17 @@ PlayerWrapper.prototype.togglePlayback = function() {
 	}
 };
 
+PlayerWrapper.prototype.pause = function() {
+	switch(this.underlyingPlayer) {
+		case 'sm2':
+			this.sm2.pause('ownCloudSound');
+			break;
+		case 'aurora':
+			this.aurora.pause();
+			break;
+	}
+};
+
 PlayerWrapper.prototype.seek = function(percentage) {
 	console.log('seek to '+percentage);
 	switch(this.underlyingPlayer) {
@@ -123,4 +134,8 @@ PlayerWrapper.prototype.fromURL = function(typeAndURL) {
 			break;
 	}
 	return this;
+};
+
+PlayerWrapper.prototype.setVolume = function(vol) {
+	console.log("setVolume not implemented");// TODO
 };
