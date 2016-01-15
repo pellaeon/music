@@ -11,9 +11,4 @@ var App = require('./app.vue');
 // Enter night,
 // Take my hand,
 // We're off to never never land.
-new Vue({
-	el: 'div#content',
-	components: {
-		app: App
-	}
-});
+new Vue(require('./app.vue')).$mount('div#content');
