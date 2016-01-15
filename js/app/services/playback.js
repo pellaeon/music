@@ -22,11 +22,7 @@ export default {
     init(app) {
         this.app = app;
 
-        plyr.setup({
-            controls: [],
-        }); 
-
-        this.player = $('.player')[0].plyr;
+        this.player = new PlayerWrapper();
         this.$volumeInput = $('#volumeRange');
 
         /**
@@ -35,7 +31,7 @@ export default {
          * comes with a POST to api/interaction/play. If the user is not logged in anymore,
          * this call will result in a 401, following by a redirection to our login page.
          */
-        this.player.media.addEventListener('error', e => {
+        this.player.on('error', e => {
             this.playNext();
         });
 
@@ -49,7 +45,7 @@ export default {
         });
 
         // Listen to 'ended' event on the audio player and play the next song in the queue.
-        this.player.media.addEventListener('ended', e => {
+        this.player.on('ended', e => {
             songStore.scrobble(queueStore.current());
             
             if (preferenceStore.get('repeatMode') === 'REPEAT_ONE') {
@@ -90,7 +86,7 @@ export default {
         this.app.$broadcast('song:play', song);
 
         $('title').text(`${song.title} ♫ Koel`);
-        this.player.source(`/api/${song.id}/play`);
+		this.player.fromURL(this.getPlayableFileURL(song));
         this.player.play();
 
         // Register the play to the server
@@ -244,8 +240,7 @@ export default {
      */
     stop() {
         $('title').text(config.appTitle);
-        this.player.pause();
-        this.player.seek(0);
+        this.player.stop();
 
         this.app.$broadcast('song:stop');
     },
@@ -327,4 +322,22 @@ export default {
     playAllInAlbum(album, shuffle = true) {
         this.queueAndPlay(album.songs, true);
     },
+
+	/**
+	 * Get file webdav URL
+	 *
+	 * @param	{Object}	song
+	 */
+	getPlayableFileURL(song) {
+		for(var mimeType in track.files) {
+			if(mimeType=='audio/flac' || mimeType=='audio/mpeg' || mimeType=='audio/ogg') {
+				return {
+					'type': mimeType,
+					'url': track.files[mimeType]
+				};
+			}
+		}
+
+		return null;//TODO catch
+	}
 };

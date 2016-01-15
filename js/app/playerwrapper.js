@@ -54,6 +54,17 @@ PlayerWrapper.prototype.seekingSupported = function() {
 	return this.underlyingPlayer == 'sm2';
 };
 
+PlayerWrapper.prototype.pause = function() {
+	switch(this.underlyingPlayer) {
+		case 'sm2':
+			this.sm2.pause('ownCloudSound');
+			break;
+		case 'aurora':
+			this.aurora.pause();
+			break;
+	}
+};
+
 PlayerWrapper.prototype.seek = function(percentage) {
 	if (this.seekingSupported()) {
 		console.log('seek to '+percentage);
@@ -154,4 +165,8 @@ PlayerWrapper.prototype.fromURL = function(typeAndURL) {
 
 	// Set the current volume to the newly created player instance
 	this.setVolume(this.volume);
+};
+
+PlayerWrapper.prototype.setVolume = function(vol) {
+	console.log("setVolume not implemented");// TODO
 };
