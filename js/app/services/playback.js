@@ -329,11 +329,11 @@ export default {
 	 * @param	{Object}	song
 	 */
 	getPlayableFileURL(song) {
-		for(var mimeType in track.files) {
+		for(var mimeType in song.files) {
 			if(mimeType=='audio/flac' || mimeType=='audio/mpeg' || mimeType=='audio/ogg') {
 				return {
 					'type': mimeType,
-					'url': track.files[mimeType]
+					'url': song.files[mimeType]
 				};
 			}
 		}
