@@ -22,7 +22,7 @@
     "gulp": "^3.9.0",
     "ismobilejs": "^0.3.9",
     "jquery": "^2.1.4",
-    "laravel-elixir": "^4.1.0",
+    "laravel-elixir": "^4.2.0",
     "laravel-elixir-vueify": "^1.0.1",
     "local-storage": "^1.4.2",
     "lodash": "^3.10.1",
