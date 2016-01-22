@@ -141,6 +141,7 @@ The current music app can't be installed and ownCloud prints following error mes
 
 	cd js/app
 	npm install
+	bower install
 	gulp
 
 ### L10n hints

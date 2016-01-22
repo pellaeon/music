@@ -1,0 +1,29 @@
+{
+  "name": "owncloud-music",
+  "version": "0.0.1",
+  "authors": [
+    "An Phan <me@phanan.net>",
+    "Pellaeon Lin <pellaeon@cnmc.tw>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "audio",
+    "streaming",
+    "mp3"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/pellaeon/music/tree/vue",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "plyr": "~1.3.6",
+    "fontawesome": "~4.5.0"
+  }
+}
