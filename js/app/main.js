@@ -11,4 +11,4 @@ var App = require('./app.vue');
 // Enter night,
 // Take my hand,
 // We're off to never never land.
-new Vue(require('./app.vue')).$mount('div#content');
+window.VueRoot = new Vue(require('./app.vue')).$mount('div#content');

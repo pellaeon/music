@@ -14,6 +14,12 @@ export default {
 	$volumeInput: null,
 	repeatModes: ['NO_REPEAT', 'REPEAT_ALL', 'REPEAT_ONE'],
 
+	state: {
+		progress: 0,//msec
+		buffer: 0,//percent
+		duration: 0,//msec
+	},
+
 	/**
 	 * Initialize the playback service for this whole Koel app.
 	 *
@@ -44,8 +50,8 @@ export default {
 			this.setVolume($(e.target).val());
 		});
 
-		// Listen to 'ended' event on the audio player and play the next song in the queue.
-		this.player.on('ended', e => {
+		// Listen to 'end' event on the audio player and play the next song in the queue.
+		this.player.on('end', e => {
 			songStore.scrobble(queueStore.current());
 
 			if (preferenceStore.get('repeatMode') === 'REPEAT_ONE') {
@@ -56,6 +62,19 @@ export default {
 			}
 
 			this.playNext();
+		});
+
+		this.player.on('progress', e => {
+			//var now = new Date().getTime();
+			//while(new Date().getTime() < now + 100){ /* do nothing */ } 
+			if ( (e - this.state.progress)/this.state.duration > 1/100 )
+				this.state.progress = e;
+		});
+		this.player.on('buffer', e => {
+			this.state.buffer = e;
+		});
+		this.player.on('duration', e => {
+			this.state.duration = e;
 		});
 
 		// On init, set the volume to the value found in the local storage.
