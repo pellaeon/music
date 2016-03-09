@@ -65,10 +65,7 @@ export default {
 		});
 
 		this.player.on('progress', e => {
-			//var now = new Date().getTime();
-			//while(new Date().getTime() < now + 100){ /* do nothing */ } 
-			if ( (e - this.state.progress)/this.state.duration > 1/100 )
-				this.state.progress = e;
+			this.state.progress = e;
 		});
 		this.player.on('buffer', e => {
 			this.state.buffer = e;
