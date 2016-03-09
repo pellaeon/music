@@ -42,7 +42,6 @@
                 },
 
                 sharedState: sharedStore.state,
-                playback: playback,
             };
         },
 
