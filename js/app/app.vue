@@ -40,6 +40,9 @@
                     type: 'loading',
                     message: '',
                 },
+
+                sharedState: sharedStore.state,
+                playback: playback,
             };
         },
 

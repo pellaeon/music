@@ -147,7 +147,7 @@ PlayerWrapper.prototype.fromURL = function(typeAndURL) {
 			this.aurora.on('buffer', function(percent) {
 				self.trigger('buffer', percent);
 			});
-			this.aurora.on('progress', function(currentTime) {
+			this.aurora.on('progress', function(currentTime) {//currentTime is in msec
 				self.trigger('progress', currentTime);
 			});
 			this.aurora.on('ready', function() {

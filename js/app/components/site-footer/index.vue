@@ -28,8 +28,16 @@
                         <span class="album">{{ song.album.name }}</span>
                     </p>
 
-                    <div class="player">
-                        <audio controls></audio>
+                    <div class="player player-audio">
+                        <div class="player-controls">
+                            <div class="player-progress">
+                                <progress class="player-progress-played" max="100" value="{{ (playstate.progress/playstate.duration)*100 }}">
+									<span>{{ played }}</span>% played</progress>
+                                <progress class="player-progress-buffer" max="100" value="{{ playstate.buffer }}"><span>{{ buffered }}</span>% buffered</progress>
+                            </div>
+                            <span class="player-controls-left"></span>
+                            <span class="player-controls-right"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,6 +87,8 @@
                 liked: false,
 
                 prefs: preferenceStore.state,
+
+				playstate: playback.state,
             };
         },
 
@@ -524,6 +534,12 @@
 
         .player-controls-left, .player-controls-right {
             display: none;
+        }
+
+        .player-audio .player-progress {
+            bottom: auto;
+            top: 0;
+            background: #313131;
         }
 
 
