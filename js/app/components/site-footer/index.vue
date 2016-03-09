@@ -32,8 +32,8 @@
                         <div class="player-controls">
                             <div class="player-progress">
                                 <progress class="player-progress-played" max="100" value="{{ (playstate.progress/playstate.duration)*100 }}">
-									<span>{{ played }}</span>% played</progress>
-                                <progress class="player-progress-buffer" max="100" value="{{ playstate.buffer }}"><span>{{ buffered }}</span>% buffered</progress>
+									<span>{{ (playstate.progress/playstate.duration)*100 }}</span>% played</progress>
+                                <progress class="player-progress-buffer" max="100" value="{{ playstate.buffer }}"><span>{{ playstate.buffer }}</span>% buffered</progress>
                             </div>
                             <span class="player-controls-left"></span>
                             <span class="player-controls-right"></span>
