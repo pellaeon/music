@@ -14,24 +14,28 @@ namespace OCA\Music\Controller;
 
 use \OCP\AppFramework\Controller;
 use \OCP\IRequest;
+use \OCP\IURLGenerator;
 
 use \OCA\Music\Utility\Scanner;
 
 
 class PageController extends Controller {
 
+	private $appname;
 	private $l10n;
 	private $scanner;
 	private $status;
+	private $urlgenerator;
 
 	public function __construct($appname,
 								IRequest $request,
-								$l10n,
-								Scanner $scanner){
+								Scanner $scanner,
+								IURLGenerator $urlgenerator){
 		parent::__construct($appname, $request);
 
-		$this->l10n = $l10n;
+		$this->appname = $appname;
 		$this->scanner = $scanner;
+		$this->urlgenerator = $urlgenerator;
 	}
 
 
@@ -40,7 +44,6 @@ class PageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function index() {
-		$userLang = $this->l10n->getLanguageCode();
-		return $this->render('main', array('lang' => $userLang));
+		return $this->render('main', array('mainjs' => $this->urlgenerator->linkTo($this->appname, 'js/public/main.js')));
 	}
 }

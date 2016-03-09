@@ -95,8 +95,8 @@ class Music extends App {
 			return new PageController(
 				$c->query('AppName'),
 				$c->query('Request'),
-				$c->query('L10N'),
-				$c->query('Scanner')
+				$c->query('Scanner'),
+				$c->query('URLGenerator')
 			);
 		});
 
