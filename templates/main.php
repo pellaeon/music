@@ -31,4 +31,4 @@ if($version[0] < 8 || $version[0] === 8 && $version[1] < 2) {
 
 <app></app>
 
-<script src="/core/capps/music/js/public/main.js"></script>
+<script src="<?php echo $_['mainjs']; ?>"></script>
