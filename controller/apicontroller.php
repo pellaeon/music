@@ -100,10 +100,7 @@ class ApiController extends Controller {
 				$albumTracks = $this->trackBusinessLayer->findAllByAlbum($album->getId(), $this->userId, $artist->getId());
 				foreach ( $albumTracks as &$track ) {
 					$trackC = $track->toCollection($this->urlGenerator, $this->userFolder);
-					if ( $trackC['number'] )
-						$albumCollection['songs'][$trackC['number']] = $trackC;
-					else
-						$albumCollection['songs'][] = $trackC;
+					$albumCollection['songs'][] = $trackC;
 				}
 				$artistCollection['albums'][] = $albumCollection;
 			}

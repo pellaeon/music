@@ -32,7 +32,7 @@
                 <tr
                     v-for="item in items 
                         | caseInsensitiveOrderBy sortKey order
-                        | filterBy q in 'title'
+                        | filterBy q in 'title' 'album.name' 'album.artist.name'
                         | limitBy numOfItems"
                     is="song-item" 
                     data-song-id="{{ item.id }}" 
@@ -42,7 +42,6 @@
                     @dragstart="dragStart"
                 >
                 </tr>
-				<!-- TODO | filterBy q in 'title' 'album.name' 'album.artist.name' -->
             </tbody>
         </table>
 
