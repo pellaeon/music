@@ -262,7 +262,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./components/main-wrapper/index.vue":6,"./components/shared/overlay.vue":21,"./components/site-footer/index.vue":25,"./directives/focus":27,"./services/playback":52,"./stores/preference":58,"./stores/shared":61,"jquery":33,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],2:[function(require,module,exports){
+},{"./components/main-wrapper/index.vue":6,"./components/shared/overlay.vue":22,"./components/site-footer/index.vue":26,"./directives/focus":28,"./services/playback":53,"./stores/preference":59,"./stores/shared":62,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],2:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#albumInfo img.cover {\n  width: 100%;\n  height: auto; }\n\n/* line 11, stdin */\n#albumInfo .wiki {\n  margin-top: 16px; }\n\n/* line 15, stdin */\n#albumInfo .track-listing {\n  margin-top: 16px; }\n  /* line 18, stdin */\n  #albumInfo .track-listing h1 {\n    font-size: 20px;\n    margin-bottom: 0;\n    display: block; }\n  /* line 24, stdin */\n  #albumInfo .track-listing li {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    padding: 8px; }\n    /* line 29, stdin */\n    #albumInfo .track-listing li:nth-child(even) {\n      background: rgba(255, 255, 255, 0.05); }\n    /* line 33, stdin */\n    #albumInfo .track-listing li .no {\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 24px;\n          -ms-flex: 0 0 24px;\n              flex: 0 0 24px;\n      opacity: .5; }\n    /* line 38, stdin */\n    #albumInfo .track-listing li .title {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 42, stdin */\n    #albumInfo .track-listing li .length {\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 48px;\n          -ms-flex: 0 0 48px;\n              flex: 0 0 48px;\n      text-align: right;\n      opacity: .5; }\n")
 'use strict';
 
@@ -320,7 +320,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/playback":52,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],3:[function(require,module,exports){
+},{"../../../services/playback":53,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],3:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#artistInfo img.cool-guys-posing {\n  width: 100%;\n  height: auto; }\n\n/* line 11, stdin */\n#artistInfo .bio {\n  margin-top: 16px; }\n")
 'use strict';
 
@@ -378,7 +378,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/playback":52,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],4:[function(require,module,exports){
+},{"../../../services/playback":53,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],4:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#extra {\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 334px;\n      -ms-flex: 0 0 334px;\n          flex: 0 0 334px;\n  padding: 24px 16px 64px;\n  background: #212121;\n  max-height: calc(100vh - 112px);\n  overflow: auto;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch;\n  display: none;\n  color: #a0a0a0; }\n  /* line 19, stdin */\n  #extra.showing {\n    display: block; }\n  /* line 23, stdin */\n  #extra h1 {\n    font-weight: 100;\n    font-size: 28px;\n    margin-bottom: 16px;\n    line-height: 36px;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: initial;\n    -webkit-align-items: initial;\n        -ms-flex-align: initial;\n            align-items: initial; }\n    /* line 32, stdin */\n    #extra h1 span {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      margin-right: 12px; }\n    /* line 37, stdin */\n    #extra h1 a {\n      font-size: 14px; }\n      /* line 40, stdin */\n      #extra h1 a:hover {\n        color: #ff7d2e; }\n  /* line 47, stdin */\n  #extra .tabs .header {\n    border-bottom: 1px solid #5c5c5c; }\n    /* line 52, stdin */\n    #extra .tabs .header a {\n      padding: 8px 12px;\n      margin-left: 4px;\n      border-radius: 4px 4px 0 0;\n      text-transform: uppercase;\n      color: gainsboro;\n      opacity: .4;\n      border: 1px solid #5c5c5c;\n      margin-bottom: -1px;\n      float: left; }\n      /* line 63, stdin */\n      #extra .tabs .header a.active {\n        border-bottom: 1px solid #212121;\n        opacity: 1; }\n  /* line 70, stdin */\n  #extra .tabs .panes {\n    padding: 16px 0; }\n  /* line 75, stdin */\n  #extra .more {\n    margin-top: 8px;\n    border-radius: 3px;\n    background: #4c769a;\n    color: #fff;\n    padding: 4px 8px;\n    display: inline-block;\n    text-transform: uppercase;\n    font-size: 80%; }\n  /* line 86, stdin */\n  #extra footer {\n    margin-top: 24px;\n    font-size: 90%; }\n    /* line 90, stdin */\n    #extra footer a {\n      color: #fff;\n      font-weight: 500; }\n      /* line 94, stdin */\n      #extra footer a:hover {\n        color: #b90000; }\n  @media only screen and (max-device-width: 1024px) {\n    /* line 5, stdin */\n    #extra {\n      position: fixed;\n      height: calc(100vh - 112px);\n      padding-bottom: 64px;\n      width: 334px;\n      z-index: 5;\n      top: 48px;\n      right: -100%;\n      -webkit-transition: right .3s ease-in;\n      transition: right .3s ease-in; }\n      /* line 112, stdin */\n      #extra.showing {\n        right: 0; } }\n  @media only screen and (max-device-width: 667px) and (orientation: portrait) {\n    /* line 5, stdin */\n    #extra {\n      width: 100%; } }\n")
 'use strict';
 
@@ -476,7 +476,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/preference":58,"../../../stores/song":62,"./album-info.vue":2,"./artist-info.vue":3,"./lyrics.vue":5,"ismobilejs":32,"lodash":37,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],5:[function(require,module,exports){
+},{"../../../stores/preference":59,"../../../stores/song":63,"./album-info.vue":2,"./artist-info.vue":3,"./lyrics.vue":5,"ismobilejs":33,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -524,7 +524,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/song":62,"vue":48,"vue-hot-reload-api":39}],6:[function(require,module,exports){
+},{"../../../stores/song":63,"vue":49,"vue-hot-reload-api":40}],6:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#mainWrapper {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n")
 'use strict';
 
@@ -566,7 +566,98 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./extra/index.vue":4,"./main-content/index.vue":10,"./sidebar/index.vue":17,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],7:[function(require,module,exports){
+},{"./extra/index.vue":4,"./main-content/index.vue":11,"./sidebar/index.vue":18,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],7:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#albumsWrapper .albums {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #albumsWrapper .albums .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #albumsWrapper .albums .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n")
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _ismobilejs = require('ismobilejs');
+
+var _ismobilejs2 = _interopRequireDefault(_ismobilejs);
+
+var _albumItem = require('../../shared/album-item.vue');
+
+var _albumItem2 = _interopRequireDefault(_albumItem);
+
+var _infiniteScroll = require('../../../mixins/infinite-scroll');
+
+var _infiniteScroll2 = _interopRequireDefault(_infiniteScroll);
+
+var _album = require('../../../stores/album');
+
+var _album2 = _interopRequireDefault(_album);
+
+var _album3 = require('../../../stubs/album');
+
+var _album4 = _interopRequireDefault(_album3);
+
+var _playback = require('../../../services/playback');
+
+var _playback2 = _interopRequireDefault(_playback);
+
+var _shuffleSelected = require('../../../mixins/shuffle-selected');
+
+var _shuffleSelected2 = _interopRequireDefault(_shuffleSelected);
+
+var _songList = require('../../shared/song-list.vue');
+
+var _songList2 = _interopRequireDefault(_songList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+    mixins: [_infiniteScroll2.default, _shuffleSelected2.default],
+    components: { albumItem: _albumItem2.default, songList: _songList2.default },
+
+    data: function data() {
+        return {
+            perPage: 9,
+            numOfItems: 9,
+            q: '',
+            isPhone: _ismobilejs2.default.phone,
+            showingControls: false,
+            playState: _playback2.default.state
+        };
+    },
+
+
+    computed: {
+        album: function album() {
+            console.log(this.playState.currentAlbum);
+            return this.playState.currentAlbum;
+        }
+    },
+
+    events: {
+        /**
+         * When the application is ready, load the first batch of items.
+         */
+        'koel:ready': function koelReady() {
+            console.log('album-list-songs ready');
+        }
+    }
+};
+if (module.exports.__esModule) module.exports = module.exports.default
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div id=\"albumSongsWrapper\">\n        <h1 class=\"heading\">\n            <span>{{ album.name }}\n                <i class=\"fa fa-chevron-down toggler\" v-show=\"isPhone &amp;&amp; !showingControls\" @click=\"showingControls = true\"></i>\n                <i class=\"fa fa-chevron-up toggler\" v-show=\"isPhone &amp;&amp; showingControls\" @click.prevent=\"showingControls = false\"></i>\n            </span>\n        </h1>\n\n        <song-list :items=\"playState.currentAlbum.songs\" :selected-songs.sync=\"selectedSongs\" type=\"queue\"></song-list>\n\t</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/var/www/html/owncloud/capps/music/js/app/components/main-wrapper/main-content/album-list-songs.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 6, stdin */\n#albumsWrapper .albums {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #albumsWrapper .albums .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #albumsWrapper .albums .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+  }
+})()}
+},{"../../../mixins/infinite-scroll":30,"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/album":55,"../../../stubs/album":65,"../../shared/album-item.vue":20,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],8:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#albumsWrapper .albums {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #albumsWrapper .albums .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #albumsWrapper .albums .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n")
 'use strict';
 
@@ -640,7 +731,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/infinite-scroll":29,"../../../stores/album":54,"../../shared/album-item.vue":19,"ismobilejs":32,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],8:[function(require,module,exports){
+},{"../../../mixins/infinite-scroll":30,"../../../stores/album":55,"../../shared/album-item.vue":20,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],9:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#artistsWrapper .artists {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #artistsWrapper .artists .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #artistsWrapper .artists .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #artistsWrapper .artists {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #artistsWrapper .artists {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n")
 'use strict';
 
@@ -715,7 +806,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/infinite-scroll":29,"../../../stores/artist":55,"../../shared/artist-item.vue":20,"ismobilejs":32,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],9:[function(require,module,exports){
+},{"../../../mixins/infinite-scroll":30,"../../../stores/artist":56,"../../shared/artist-item.vue":21,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],10:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#songsWrapper button.play-shuffle i, #songsWrapper button.del i {\n  margin-right: 0 !important; }\n")
 'use strict';
 
@@ -786,7 +877,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":30,"../../../services/playback":52,"../../../stores/favorite":56,"../../shared/song-list.vue":23,"ismobilejs":32,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],10:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/favorite":57,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],11:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#mainContent {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  position: relative; }\n  /* line 9, stdin */\n  #mainContent h1.heading {\n    font-weight: 100;\n    font-size: 48px;\n    padding: 12px 24px;\n    border-bottom: 1px solid #282828;\n    min-height: 90px;\n    position: relative;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-align-content: stretch;\n        -ms-flex-line-pack: stretch;\n            align-content: stretch;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex; }\n    /* line 20, stdin */\n    #mainContent h1.heading span:first-child {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 24, stdin */\n    #mainContent h1.heading .buttons {\n      text-align: right;\n      z-index: 2;\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      position: relative; }\n      /* line 112, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #mainContent h1.heading .buttons button {\n        background-color: #ff7d2e;\n        font-size: 12px;\n        height: 28px;\n        padding: 0 16px;\n        line-height: 28px;\n        text-transform: uppercase;\n        display: inline-block;\n        border-radius: 14px 0px 0px 14px; }\n        /* line 124, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:last-of-type {\n          border-top-right-radius: 14px;\n          border-bottom-right-radius: 14px; }\n        /* line 129, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:not(:first-child) {\n          border-top-left-radius: 0;\n          border-bottom-left-radius: 0;\n          margin-left: 1px; }\n        /* line 135, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button i {\n          margin-right: 4px; }\n        /* line 139, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:hover {\n          background-color: #fa5e00; }\n        /* line 103, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:active {\n          box-shadow: inset 0px 10px 10px -10px black; }\n    /* line 31, stdin */\n    #mainContent h1.heading input[type=\"search\"] {\n      width: 128px;\n      -webkit-transition: width .3s;\n      transition: width .3s; }\n      /* line 35, stdin */\n      #mainContent h1.heading input[type=\"search\"]:focus {\n        width: 192px; }\n  /* line 41, stdin */\n  #mainContent .main-scroll-wrap {\n    padding: 24px 24px 64px;\n    height: calc(100vh - 200px);\n    overflow: auto;\n    overflow-y: scroll;\n    -webkit-overflow-scrolling: touch; }\n  /* line 51, stdin */\n  #mainContent .translucent {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    width: 100%;\n    -webkit-filter: blur(20px);\n    opacity: .07;\n    z-index: 0;\n    overflow: hidden;\n    background-size: cover;\n    background-position: center;\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-perspective: 1000;\n            perspective: 1000;\n    pointer-events: none; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 74, stdin */\n    #mainContent h1.heading {\n      font-size: 18px;\n      min-height: 0;\n      line-height: 24px;\n      text-align: center;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n      -webkit-flex-direction: column;\n          -ms-flex-direction: column;\n              flex-direction: column; }\n      /* line 81, stdin */\n      #mainContent h1.heading .toggler {\n        font-size: 14px;\n        margin-left: 4px;\n        color: #ff7d2e; }\n      /* line 87, stdin */\n      #mainContent h1.heading .buttons {\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n            -ms-flex-pack: center;\n                justify-content: center; }\n      /* line 91, stdin */\n      #mainContent h1.heading input[type=\"search\"], #mainContent h1.heading button {\n        margin-top: 12px; }\n    /* line 96, stdin */\n    #mainContent .main-scroll-wrap {\n      padding: 24px 16px 64px; } }\n")
 'use strict';
 
@@ -797,6 +888,10 @@ Object.defineProperty(exports, "__esModule", {
 var _albums = require('./albums.vue');
 
 var _albums2 = _interopRequireDefault(_albums);
+
+var _albumListSongs = require('./album-list-songs.vue');
+
+var _albumListSongs2 = _interopRequireDefault(_albumListSongs);
 
 var _artists = require('./artists.vue');
 
@@ -837,7 +932,7 @@ var _album2 = _interopRequireDefault(_album);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
-    components: { albums: _albums2.default, artists: _artists2.default, songs: _songs2.default, settings: _settings2.default, users: _users2.default, queue: _queue2.default, playlist: _playlist2.default, favorites: _favorites2.default, profile: _profile2.default },
+    components: { albums: _albums2.default, albumSongs: _albumListSongs2.default, artists: _artists2.default, songs: _songs2.default, settings: _settings2.default, users: _users2.default, queue: _queue2.default, playlist: _playlist2.default, favorites: _favorites2.default, profile: _profile2.default },
 
     props: ['songs', 'queue', 'albums', 'artists', 'users', 'settings', 'playlist', 'favorites', 'profile'],
 
@@ -869,7 +964,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <section id=\"mainContent\">\n        <div class=\"translucent\" :style=\"{ backgroundImage: albumCover ? 'url(' + albumCover + ')' : 'none' }\"></div>\n        <songs v-show=\"view == 'songs'\"></songs>\n        <queue v-show=\"view == 'queue'\"></queue>\n        <albums v-show=\"view == 'albums'\"></albums>\n        <artists v-show=\"view == 'artists'\"></artists>\n        <users v-show=\"view == 'users'\"></users>\n        <settings v-show=\"view == 'settings'\"></settings>\n        <playlist v-show=\"view == 'playlist'\"></playlist>\n        <favorites v-show=\"view == 'favorites'\"></favorites>\n        <profile v-show=\"view == 'profile'\"></profile>\n    </section>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <section id=\"mainContent\">\n        <div class=\"translucent\" :style=\"{ backgroundImage: albumCover ? 'url(' + albumCover + ')' : 'none' }\"></div>\n        <songs v-show=\"view == 'songs'\"></songs>\n        <queue v-show=\"view == 'queue'\"></queue>\n        <albums v-show=\"view == 'albums'\"></albums>\n        <album-songs v-show=\"view == 'albumSongs'\"></album-songs>\n        <artists v-show=\"view == 'artists'\"></artists>\n        <users v-show=\"view == 'users'\"></users>\n        <settings v-show=\"view == 'settings'\"></settings>\n        <playlist v-show=\"view == 'playlist'\"></playlist>\n        <favorites v-show=\"view == 'favorites'\"></favorites>\n        <profile v-show=\"view == 'profile'\"></profile>\n    </section>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -885,7 +980,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/album":54,"./albums.vue":7,"./artists.vue":8,"./favorites.vue":9,"./playlist.vue":11,"./profile.vue":12,"./queue.vue":13,"./settings.vue":14,"./songs.vue":15,"./users.vue":16,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],11:[function(require,module,exports){
+},{"../../../stores/album":55,"./album-list-songs.vue":7,"./albums.vue":8,"./artists.vue":9,"./favorites.vue":10,"./playlist.vue":12,"./profile.vue":13,"./queue.vue":14,"./settings.vue":15,"./songs.vue":16,"./users.vue":17,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],12:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#playlistWrapper button.play-shuffle i, #playlistWrapper button.del i {\n  margin-right: 0 !important; }\n\n/* line 12, stdin */\n#playlistWrapper button.del {\n  background-color: #c34848 !important; }\n  /* line 15, stdin */\n  #playlistWrapper button.del:hover {\n    background-color: #a33535 !important; }\n")
 'use strict';
 
@@ -985,7 +1080,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":30,"../../../services/playback":52,"../../../stores/playlist":57,"../../shared/song-list.vue":23,"ismobilejs":32,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],12:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/playlist":58,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],13:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#profileWrapper input[type=\"text\"], #profileWrapper input[type=\"email\"], #profileWrapper input[type=\"password\"] {\n  width: 192px; }\n\n/* line 11, stdin */\n#profileWrapper input.error {\n  box-shadow: 0 0 0px 1000px #ff867a inset; }\n\n/* line 17, stdin */\n#profileWrapper .change-pwd {\n  margin-top: 24px; }\n\n/* line 21, stdin */\n#profileWrapper .status {\n  margin-left: 8px;\n  color: #56a052; }\n\n/* line 26, stdin */\n#profileWrapper .preferences {\n  margin-top: 32px;\n  border-top: 1px solid #282828; }\n\n/* line 31, stdin */\n#profileWrapper .lastfm {\n  border-top: 1px solid #282828;\n  color: #a0a0a0;\n  margin-top: 16px;\n  padding-top: 16px; }\n  /* line 37, stdin */\n  #profileWrapper .lastfm a {\n    color: #ff7d2e; }\n  /* line 41, stdin */\n  #profileWrapper .lastfm h1 {\n    font-size: 24px;\n    margin-bottom: 16px; }\n  /* line 46, stdin */\n  #profileWrapper .lastfm .buttons {\n    margin-top: 16px; }\n    /* line 49, stdin */\n    #profileWrapper .lastfm .buttons .connect {\n      background: #d31f27; }\n    /* line 53, stdin */\n    #profileWrapper .lastfm .buttons .disconnect {\n      background: #3c3c3c; }\n\n@media only screen and (max-device-width: 667px) and (orientation: portrait) {\n  /* line 63, stdin */\n  #profileWrapper input[type=\"text\"], #profileWrapper input[type=\"email\"], #profileWrapper input[type=\"password\"] {\n    width: 100%;\n    height: 32px; } }\n")
 'use strict';
 
@@ -1112,7 +1207,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/http":50,"../../../stores/preference":58,"../../../stores/shared":61,"../../../stores/user":63,"jquery":33,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],13:[function(require,module,exports){
+},{"../../../services/http":51,"../../../stores/preference":59,"../../../stores/shared":62,"../../../stores/user":64,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],14:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#queueWrapper .none {\n  color: #a0a0a0;\n  margin-top: 16px; }\n\n/* line 13, stdin */\n#queueWrapper button.play-shuffle i {\n  margin-right: 0 !important; }\n\n/* line 18, stdin */\n#queueWrapper button.clear {\n  background-color: #4c769a !important; }\n  /* line 21, stdin */\n  #queueWrapper button.clear:hover {\n    background-color: #3b5c78 !important; }\n\n/* line 26, stdin */\n#queueWrapper button.save {\n  background-color: #56a052 !important; }\n  /* line 29, stdin */\n  #queueWrapper button.save:hover {\n    background-color: #447e41 !important; }\n\n/* line 34, stdin */\n#queueWrapper .form-save {\n  position: absolute;\n  bottom: -50px;\n  left: 0;\n  background: #56a052;\n  padding: 8px;\n  width: 100%;\n  border-radius: 5px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center; }\n  /* line 46, stdin */\n  #queueWrapper .form-save::before {\n    display: block;\n    content: \" \";\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-bottom: 10px solid #56a052;\n    position: absolute;\n    top: -7px;\n    left: calc(50% - 10px); }\n  /* line 59, stdin */\n  #queueWrapper .form-save input[type=\"text\"] {\n    width: 100%;\n    border-radius: 5px 0 0 5px;\n    height: 28px; }\n  /* line 65, stdin */\n  #queueWrapper .form-save button#saveQueueSubmit {\n    margin-top: 0;\n    border-radius: 0 5px 5px 0;\n    height: 28px;\n    margin-left: -2px; }\n")
 'use strict';
 
@@ -1233,7 +1328,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":30,"../../../services/playback":52,"../../../stores/playlist":57,"../../../stores/queue":59,"../../shared/song-list.vue":23,"ismobilejs":32,"lodash":37,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],14:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/playlist":58,"../../../stores/queue":60,"../../shared/song-list.vue":24,"ismobilejs":33,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],15:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#settingsWrapper input[type=\"text\"] {\n  width: 384px;\n  margin-top: 12px; }\n\n@media only screen and (max-device-width: 667px) and (orientation: portrait) {\n  /* line 14, stdin */\n  #settingsWrapper input[type=\"text\"] {\n    width: 100%; } }\n")
 'use strict';
 
@@ -1303,7 +1398,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/utils":53,"../../../stores/setting":60,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],15:[function(require,module,exports){
+},{"../../../services/utils":54,"../../../stores/setting":61,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#songsWrapper .none {\n  color: #a0a0a0;\n  margin-top: 16px; }\n")
 'use strict';
 
@@ -1375,7 +1470,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":30,"../../../services/playback":52,"../../../stores/song":62,"../../shared/song-list.vue":23,"ismobilejs":32,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],16:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/song":63,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],17:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("@-webkit-keyframes barberpole {\n  from {\n    background-position: 0 0; }\n  to {\n    background-position: 60px 30px; } }\n\n@keyframes barberpole {\n  from {\n    background-position: 0 0; }\n  to {\n    background-position: 60px 30px; } }\n\n/* line 11, stdin */\n#usersWrapper .users {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 16, stdin */\n  #usersWrapper .users .user-item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 376px;\n        -ms-flex: 0 0 376px;\n            flex: 0 0 376px;\n    margin-bottom: 16px; }\n    /* line 21, stdin */\n    #usersWrapper .users .user-item.editing {\n      background-size: 30px 30px;\n      background-image: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0.3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 75%, transparent 75%, transparent);\n      background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 75%, transparent 75%, transparent);\n      -webkit-animation: barberpole 2s linear infinite;\n              animation: barberpole 2s linear infinite; }\n    /* line 37, stdin */\n    #usersWrapper .users .user-item img {\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 128px;\n          -ms-flex: 0 0 128px;\n              flex: 0 0 128px; }\n    /* line 41, stdin */\n    #usersWrapper .users .user-item .right {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      padding: 16px;\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n      -webkit-flex-direction: column;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: justify;\n      -webkit-justify-content: space-between;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      background-color: rgba(255, 255, 255, 0.02); }\n    /* line 50, stdin */\n    #usersWrapper .users .user-item h1 {\n      font-size: 140%;\n      margin-bottom: 5px; }\n      /* line 54, stdin */\n      #usersWrapper .users .user-item h1 .you {\n        font-size: 14px;\n        color: #ff7d2e;\n        margin-left: 8px; }\n    /* line 61, stdin */\n    #usersWrapper .users .user-item .buttons {\n      display: none; }\n    /* line 66, stdin */\n    #usersWrapper .users .user-item:hover .buttons {\n      display: block; }\n    /* line 71, stdin */\n    #usersWrapper .users .user-item button {\n      font-size: 12px;\n      padding: 6px 14px;\n      background: transparent;\n      border: 1px solid rgba(255, 255, 255, 0.1); }\n      /* line 77, stdin */\n      #usersWrapper .users .user-item button.edit:hover {\n        background-color: #4c769a; }\n      /* line 81, stdin */\n      #usersWrapper .users .user-item button.delete:hover {\n        background-color: #c34848; }\n\n/* line 88, stdin */\n#usersWrapper .btn-create {\n  background: #56a052 !important; }\n  /* line 91, stdin */\n  #usersWrapper .btn-create:hover {\n    background: #447e41 !important; }\n\n/* line 96, stdin */\n#usersWrapper form.user-create, #usersWrapper form.user-edit {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n      -ms-flex-align: end;\n          align-items: flex-end;\n  margin-bottom: 32px;\n  padding-bottom: 32px;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }\n  /* line 103, stdin */\n  #usersWrapper form.user-create .input-col, #usersWrapper form.user-edit .input-col {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding-right: 8px; }\n    /* line 107, stdin */\n    #usersWrapper form.user-create .input-col input, #usersWrapper form.user-edit .input-col input {\n      height: 32px;\n      width: 100%; }\n  /* line 113, stdin */\n  #usersWrapper form.user-create button, #usersWrapper form.user-edit button {\n    height: 32px;\n    padding-top: 6px; }\n    /* line 117, stdin */\n    #usersWrapper form.user-create button.cancel, #usersWrapper form.user-edit button.cancel {\n      background: #c34848; }\n\n@media only screen and (max-device-width: 667px) and (orientation: portrait) {\n  /* line 126, stdin */\n  #usersWrapper form.user-create, #usersWrapper form.user-edit {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: stretch;\n    -webkit-align-items: stretch;\n        -ms-flex-align: stretch;\n                -ms-grid-row-align: stretch;\n            align-items: stretch; }\n    /* line 130, stdin */\n    #usersWrapper form.user-create .input-col, #usersWrapper form.user-edit .input-col {\n      padding-right: 0; }\n    /* line 134, stdin */\n    #usersWrapper form.user-create .input-col, #usersWrapper form.user-create .btn-col, #usersWrapper form.user-edit .input-col, #usersWrapper form.user-edit .btn-col {\n      margin-top: 12px; }\n  /* line 139, stdin */\n  #usersWrapper .users {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    /* line 142, stdin */\n    #usersWrapper .users .user-item {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n      /* line 145, stdin */\n      #usersWrapper .users .user-item img {\n        display: none; }\n      /* line 149, stdin */\n      #usersWrapper .users .user-item .buttons {\n        margin-top: 12px;\n        display: block; } }\n\n@media only screen and (min-device-width: 668px) and (max-device-width: 768px) and (orientation: portrait) {\n  /* line 161, stdin */\n  #usersWrapper .users {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    /* line 164, stdin */\n    #usersWrapper .users .user-item {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 168, stdin */\n    #usersWrapper .users .buttons {\n      margin-top: 12px;\n      display: block; } }\n")
 'use strict';
 
@@ -1528,7 +1623,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/user":63,"lodash":37,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],17:[function(require,module,exports){
+},{"../../../stores/user":64,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],18:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#sidebar {\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 256px;\n      -ms-flex: 0 0 256px;\n          flex: 0 0 256px;\n  background-color: #212121;\n  padding: 22px 0 0;\n  max-height: calc(100vh - 112px);\n  overflow: auto;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch; }\n  /* line 16, stdin */\n  #sidebar a.droppable {\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n    -webkit-transition: .3s;\n    transition: .3s;\n    -webkit-transform-origin: center left;\n            transform-origin: center left;\n    color: #fff;\n    background-color: rgba(0, 0, 0, 0.3); }\n  /* line 25, stdin */\n  #sidebar section {\n    margin-bottom: 32px; }\n    /* line 28, stdin */\n    #sidebar section h1 {\n      text-transform: uppercase;\n      letter-spacing: 1px;\n      padding: 0 16px;\n      margin-bottom: 12px; }\n      /* line 34, stdin */\n      #sidebar section h1 i {\n        float: right; }\n    /* line 39, stdin */\n    #sidebar section a {\n      display: block;\n      height: 36px;\n      line-height: 36px;\n      padding: 0 12px 0 16px;\n      border-left: 4px solid transparent; }\n      /* line 46, stdin */\n      #sidebar section a.active, #sidebar section a:hover {\n        border-left-color: #ff7d2e;\n        color: #fff;\n        background: rgba(255, 255, 255, 0.05); }\n      /* line 52, stdin */\n      #sidebar section a:hover {\n        border-left-color: #c74b00; }\n      /* line 56, stdin */\n      #sidebar section a::before {\n        width: 24px;\n        display: inline-block;\n        font-family: FontAwesome; }\n      /* line 62, stdin */\n      #sidebar section a.queue::before {\n        content: \"\\f0cb\"; }\n      /* line 66, stdin */\n      #sidebar section a.songs::before {\n        content: \"\\f001\"; }\n      /* line 70, stdin */\n      #sidebar section a.albums::before {\n        content: \"\\f152\"; }\n      /* line 74, stdin */\n      #sidebar section a.artists::before {\n        content: \"\\f130\"; }\n      /* line 78, stdin */\n      #sidebar section a.settings::before {\n        content: \"\\f013\"; }\n      /* line 82, stdin */\n      #sidebar section a.users::before {\n        content: \"\\f0c0\"; }\n  /* line 88, stdin */\n  #sidebar .new-ver {\n    margin: 16px;\n    padding: 16px;\n    border: 1px solid #a0a0a0;\n    color: #fff;\n    opacity: .3;\n    font-size: 90%;\n    display: block;\n    -webkit-transition: .3s;\n    transition: .3s; }\n    /* line 98, stdin */\n    #sidebar .new-ver:hover {\n      opacity: .7; }\n  @media only screen and (max-device-width: 667px) and (orientation: portrait) {\n    /* line 5, stdin */\n    #sidebar {\n      position: fixed;\n      height: calc(100vh - 112px);\n      padding-bottom: 64px;\n      width: 100%;\n      z-index: 99;\n      top: 48px;\n      left: -100%;\n      -webkit-transition: left .3s ease-in;\n      transition: left .3s ease-in; }\n      /* line 117, stdin */\n      #sidebar.showing {\n        left: 0; } }\n")
 'use strict';
 
@@ -1662,7 +1757,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/queue":59,"../../../stores/shared":61,"../../../stores/song":62,"../../../stores/user":63,"./playlists.vue":18,"ismobilejs":32,"jquery":33,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],18:[function(require,module,exports){
+},{"../../../stores/queue":60,"../../../stores/shared":62,"../../../stores/song":63,"../../../stores/user":64,"./playlists.vue":19,"ismobilejs":33,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],19:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#playlists .menu a::before {\n  content: \"\\f0f6\"; }\n\n/* line 11, stdin */\n#playlists .menu a.favorites::before {\n  content: \"\\f004\";\n  color: #bf2043; }\n\n/* line 16, stdin */\n#playlists .menu .playlist {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  /* line 19, stdin */\n  #playlists .menu .playlist input {\n    display: none;\n    width: calc(100% - 32px);\n    margin: 5px 16px; }\n  /* line 27, stdin */\n  #playlists .menu .playlist.editing a {\n    display: none; }\n  /* line 31, stdin */\n  #playlists .menu .playlist.editing input {\n    display: block; }\n\n/* line 38, stdin */\n#playlists form.create {\n  padding: 8px 16px; }\n  /* line 41, stdin */\n  #playlists form.create input[type=\"text\"] {\n    width: 100%; }\n")
 'use strict';
 
@@ -1849,7 +1944,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/favorite":56,"../../../stores/playlist":57,"../../../stores/song":62,"jquery":33,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],19:[function(require,module,exports){
+},{"../../../stores/favorite":57,"../../../stores/playlist":58,"../../../stores/song":63,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1888,7 +1983,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../services/playback":52,"vue":48,"vue-hot-reload-api":39}],20:[function(require,module,exports){
+},{"../../services/playback":53,"vue":49,"vue-hot-reload-api":40}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1931,7 +2026,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../services/playback":52,"../../stores/artist":55,"vue":48,"vue-hot-reload-api":39}],21:[function(require,module,exports){
+},{"../../services/playback":53,"../../stores/artist":56,"vue":49,"vue-hot-reload-api":40}],22:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#overlay {\n  position: fixed;\n  top: 45px;\n  left: 0;\n  z-index: 1999;\n  width: 100%;\n  height: 100%;\n  background-color: black;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  /* line 17, stdin */\n  #overlay .display {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n    /* line 20, stdin */\n    #overlay .display i {\n      margin-right: 6px; }\n  /* line 25, stdin */\n  #overlay button {\n    font-size: 12px;\n    margin-top: 16px; }\n  /* line 30, stdin */\n  #overlay.error {\n    color: #c34848; }\n  /* line 34, stdin */\n  #overlay.success {\n    color: #56a052; }\n  /* line 38, stdin */\n  #overlay.info {\n    color: #4c769a; }\n  /* line 42, stdin */\n  #overlay.loading {\n    color: #a0a0a0; }\n  /* line 46, stdin */\n  #overlay.warning {\n    color: #ff7d2e; }\n")
 'use strict';
 
@@ -1966,7 +2061,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./sound-bar.vue":24,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],22:[function(require,module,exports){
+},{"./sound-bar.vue":25,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],23:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n.song-item {\n  border-bottom: 1px solid #282828; }\n  /* line 8, stdin */\n  .song-item:hover {\n    background: rgba(255, 255, 255, 0.05); }\n  /* line 12, stdin */\n  .song-item .time {\n    color: #a0a0a0; }\n  /* line 16, stdin */\n  .song-item .title {\n    min-width: 192px; }\n  /* line 20, stdin */\n  .song-item.selected {\n    background-color: rgba(255, 255, 255, 0.08); }\n  /* line 24, stdin */\n  .song-item.playing {\n    color: #ff7d2e; }\n")
 'use strict';
 
@@ -2030,7 +2125,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../services/playback":52,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],23:[function(require,module,exports){
+},{"../../services/playback":53,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],24:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n.none {\n  color: #a0a0a0;\n  margin-top: 16px; }\n\n/* line 10, stdin */\n.song-list-wrap {\n  position: relative;\n  /**\n         * Since the Queue screen doesn't allow sorting, we reset the cursor style.\n         */ }\n  /* line 13, stdin */\n  .song-list-wrap table {\n    width: 100%; }\n  /* line 17, stdin */\n  .song-list-wrap td, .song-list-wrap th {\n    text-align: left;\n    padding: 8px;\n    vertical-align: middle; }\n    /* line 22, stdin */\n    .song-list-wrap td.time, .song-list-wrap th.time {\n      width: 72px;\n      text-align: right; }\n  /* line 28, stdin */\n  .song-list-wrap th {\n    color: #a0a0a0;\n    letter-spacing: 1px;\n    text-transform: uppercase;\n    cursor: pointer; }\n    /* line 34, stdin */\n    .song-list-wrap th i {\n      color: #ff7d2e;\n      font-size: 120%; }\n  /* line 40, stdin */\n  .song-list-wrap a.start {\n    color: #ff7d2e; }\n    /* line 43, stdin */\n    .song-list-wrap a.start:hover {\n      color: #fa5e00; }\n  /* line 51, stdin */\n  .song-list-wrap.queue th {\n    cursor: default; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 59, stdin */\n    .song-list-wrap table, .song-list-wrap tbody, .song-list-wrap tr {\n      display: block; }\n    /* line 63, stdin */\n    .song-list-wrap thead, .song-list-wrap tfoot {\n      display: none; }\n    /* line 67, stdin */\n    .song-list-wrap tr {\n      padding: 8px 0; }\n    /* line 71, stdin */\n    .song-list-wrap td {\n      display: inline;\n      padding: 0;\n      vertical-align: bottom; }\n      /* line 76, stdin */\n      .song-list-wrap td.album, .song-list-wrap td.time {\n        display: none; }\n      /* line 80, stdin */\n      .song-list-wrap td.artist {\n        opacity: .5;\n        font-size: 90%;\n        padding: 0 4px; } }\n")
 'use strict';
 
@@ -2412,7 +2507,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../mixins/infinite-scroll":29,"../../services/playback":52,"../../stores/favorite":56,"../../stores/playlist":57,"../../stores/queue":59,"../../stores/song":62,"./song-item.vue":22,"ismobilejs":32,"jquery":33,"lodash":37,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],24:[function(require,module,exports){
+},{"../../mixins/infinite-scroll":30,"../../services/playback":53,"../../stores/favorite":57,"../../stores/playlist":58,"../../stores/queue":60,"../../stores/song":63,"./song-item.vue":23,"ismobilejs":33,"jquery":34,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],25:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("@-webkit-keyframes sound {\n  0% {\n    opacity: .15;\n    height: 1px; }\n  100% {\n    opacity: 1;\n    height: 13px; } }\n\n@keyframes sound {\n  0% {\n    opacity: .15;\n    height: 1px; }\n  100% {\n    opacity: 1;\n    height: 13px; } }\n\n/* line 15, stdin */\n#bars {\n  width: 28px;\n  height: 13px;\n  position: relative;\n  display: inline-block; }\n  /* line 21, stdin */\n  #bars .bar {\n    background: #666;\n    bottom: 1px;\n    position: absolute;\n    width: 3px;\n    -webkit-animation: sound 0ms -800ms linear infinite alternate;\n            animation: sound 0ms -800ms linear infinite alternate; }\n  /* line 29, stdin */\n  #bars .bar:nth-child(1) {\n    left: 1px;\n    background: #754fa0;\n    -webkit-animation-duration: 474ms;\n            animation-duration: 474ms; }\n  /* line 30, stdin */\n  #bars .bar:nth-child(2) {\n    left: 5px;\n    background: #09b7bf;\n    -webkit-animation-duration: 433ms;\n            animation-duration: 433ms; }\n  /* line 31, stdin */\n  #bars .bar:nth-child(3) {\n    left: 9px;\n    background: #90d36b;\n    -webkit-animation-duration: 407ms;\n            animation-duration: 407ms; }\n  /* line 32, stdin */\n  #bars .bar:nth-child(4) {\n    left: 13px;\n    background: #ed1b72;\n    -webkit-animation-duration: 458ms;\n            animation-duration: 458ms; }\n  /* line 33, stdin */\n  #bars .bar:nth-child(5) {\n    left: 17px;\n    background: #f2d40d;\n    -webkit-animation-duration: 400ms;\n            animation-duration: 400ms; }\n")
 "use strict";
 
@@ -2474,7 +2569,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],25:[function(require,module,exports){
+},{"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],26:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 28, stdin */\n#mainFooter {\n  background: #282828;\n  position: fixed;\n  width: 100%;\n  height: 64px;\n  bottom: 0;\n  left: 0;\n  border-top: 1px solid #181818;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  z-index: 1000; }\n  /* line 41, stdin */\n  #mainFooter .media-info-wrap {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex; }\n  /* line 46, stdin */\n  #mainFooter .other-controls {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    position: relative;\n    text-transform: uppercase;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 334px;\n        -ms-flex: 0 0 334px;\n            flex: 0 0 334px;\n    color: #aaa; }\n    /* line 10, stdin */\n    #mainFooter .other-controls::before {\n      content: \" \";\n      position: absolute;\n      width: 100%;\n      height: 42.66667px;\n      top: -42.66667px;\n      left: 0;\n      background-image: -webkit-linear-gradient(top, rgba(24, 24, 24, 0) 0%, #181818 100%);\n      background-image: linear-gradient(to bottom, rgba(24, 24, 24, 0) 0%, #181818 100%);\n      pointer-events: none; }\n    /* line 50, stdin */\n    #mainFooter .other-controls.with-gradient {\n      position: relative; }\n      /* line 10, stdin */\n      #mainFooter .other-controls.with-gradient::before {\n        content: \" \";\n        position: absolute;\n        width: 100%;\n        height: 42.66667px;\n        top: -42.66667px;\n        left: 0;\n        background-image: -webkit-linear-gradient(top, rgba(33, 33, 33, 0) 0%, #212121 100%);\n        background-image: linear-gradient(to bottom, rgba(33, 33, 33, 0) 0%, #212121 100%);\n        pointer-events: none; }\n    /* line 58, stdin */\n    #mainFooter .other-controls .control {\n      display: inline-block;\n      padding: 0 8px; }\n      /* line 62, stdin */\n      #mainFooter .other-controls .control.active {\n        color: #fff; }\n      /* line 66, stdin */\n      #mainFooter .other-controls .control:last-child {\n        padding-right: 0; }\n    /* line 71, stdin */\n    #mainFooter .other-controls .repeat {\n      position: relative; }\n      /* line 74, stdin */\n      #mainFooter .other-controls .repeat.REPEAT_ALL, #mainFooter .other-controls .repeat.REPEAT_ONE {\n        color: #ff7d2e; }\n      /* line 78, stdin */\n      #mainFooter .other-controls .repeat.REPEAT_ONE::after {\n        content: \"1\";\n        position: absolute;\n        top: 0;\n        left: 0;\n        font-weight: 700;\n        font-size: 50%;\n        text-align: center;\n        width: 100%; }\n    /* line 94, stdin */\n    #mainFooter .other-controls .like.liked {\n      color: #bf2043; }\n    @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n      /* line 46, stdin */\n      #mainFooter .other-controls {\n        position: absolute !important;\n        right: 0;\n        height: 64px;\n        display: block;\n        text-align: right;\n        top: 0;\n        line-height: 64px;\n        width: 168px;\n        text-align: center; }\n        /* line 113, stdin */\n        #mainFooter .other-controls::before {\n          display: none; }\n        /* line 117, stdin */\n        #mainFooter .other-controls .queue {\n          display: none; }\n        /* line 121, stdin */\n        #mainFooter .other-controls .control {\n          margin: 0;\n          padding: 0 8px; } }\n\n/* line 129, stdin */\n#playerControls {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 256px;\n      -ms-flex: 0 0 256px;\n          flex: 0 0 256px;\n  font-size: 24px;\n  background: transparent;\n  position: relative; }\n  /* line 10, stdin */\n  #playerControls::before {\n    content: \" \";\n    position: absolute;\n    width: 100%;\n    height: 42.66667px;\n    top: -42.66667px;\n    left: 0;\n    background-image: -webkit-linear-gradient(top, rgba(33, 33, 33, 0) 0%, #212121 100%);\n    background-image: linear-gradient(to bottom, rgba(33, 33, 33, 0) 0%, #212121 100%);\n    pointer-events: none; }\n  /* line 137, stdin */\n  #playerControls .prev, #playerControls .next {\n    -webkit-transition: .3s;\n    transition: .3s; }\n  /* line 141, stdin */\n  #playerControls .play, #playerControls .pause {\n    font-size: 26px;\n    display: inline-block;\n    width: 42px;\n    height: 42px;\n    border-radius: 50%;\n    line-height: 40px;\n    text-align: center;\n    border: 1px solid #a0a0a0;\n    margin: 0 16px;\n    text-indent: 2px; }\n  /* line 154, stdin */\n  #playerControls .pause {\n    text-indent: 0;\n    font-size: 18px; }\n  /* line 159, stdin */\n  #playerControls .enabled {\n    opacity: 1; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 129, stdin */\n    #playerControls {\n      width: 50%;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      /* line 172, stdin */\n      #playerControls::before {\n        display: none; } }\n\n/* line 178, stdin */\n.middle-pane {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative; }\n  /* line 182, stdin */\n  .middle-pane .album-thumb {\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 64px;\n        -ms-flex: 0 0 64px;\n            flex: 0 0 64px;\n    height: 64px;\n    background: url(/public/img/covers/unknown-album.png);\n    background-size: 64px;\n    position: relative; }\n  /* line 10, stdin */\n  .middle-pane::before {\n    content: \" \";\n    position: absolute;\n    width: 100%;\n    height: 42.66667px;\n    top: -42.66667px;\n    left: 0;\n    background-image: -webkit-linear-gradient(top, rgba(24, 24, 24, 0) 0%, #181818 100%);\n    background-image: linear-gradient(to bottom, rgba(24, 24, 24, 0) 0%, #181818 100%);\n    pointer-events: none; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 178, stdin */\n    .middle-pane {\n      width: 100%;\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 8px; }\n      /* line 202, stdin */\n      .middle-pane .album-thumb {\n        display: none; }\n      /* line 206, stdin */\n      .middle-pane ::before {\n        display: none; }\n      /* line 210, stdin */\n      .middle-pane #progressPane {\n        width: 100%;\n        position: absolute;\n        top: 0; } }\n\n/* line 218, stdin */\n#progressPane {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  padding-top: 16px;\n  line-height: 18px;\n  background: rgba(1, 1, 1, 0.2);\n  position: relative; }\n  /* line 226, stdin */\n  #progressPane .meta {\n    font-size: 90%;\n    opacity: .4; }\n\n@-webkit-keyframes progress {\n  to {\n    background-position: 40px 0; } }\n\n@keyframes progress {\n  to {\n    background-position: 40px 0; } }\n  /* line 139, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n  #progressPane .sr-only {\n    position: absolute !important;\n    clip: rect(1px, 1px, 1px, 1px);\n    padding: 0 !important;\n    border: 0 !important;\n    height: 1px !important;\n    width: 1px !important;\n    overflow: hidden; }\n  /* line 152, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n  #progressPane .player {\n    position: relative;\n    max-width: 100%;\n    min-width: 290px; }\n    /* line 159, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player,\n    #progressPane .player *,\n    #progressPane .player *::after,\n    #progressPane .player *::before {\n      box-sizing: border-box; }\n    /* line 167, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-video-wrapper {\n      position: relative; }\n    /* line 170, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player video,\n    #progressPane .player audio {\n      width: 100%;\n      height: auto;\n      vertical-align: middle; }\n    /* line 178, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-video-embed {\n      padding-bottom: 56.25%;\n      /* 16:9 */\n      height: 0; }\n      /* line 182, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-video-embed iframe {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 0; }\n    /* line 193, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-captions {\n      display: none;\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      width: 100%;\n      padding: 0 0 0;\n      color: #fff;\n      font-size: 20px;\n      text-align: center;\n      -moz-osx-font-smoothing: grayscale;\n      -webkit-font-smoothing: antialiased; }\n      /* line 205, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-captions span {\n        border-radius: 2px;\n        padding: 3px 10px;\n        background: rgba(0, 0, 0, 0.9); }\n      /* line 210, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-captions span:empty {\n        display: none; }\n      @media (min-width: 768px) {\n        /* line 193, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-captions {\n          font-size: 24px; } }\n    /* line 218, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.captions-active #progressPane .player-captions {\n      display: block; }\n    /* line 221, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.fullscreen-active #progressPane .player-captions {\n      font-size: 32px; }\n    /* line 226, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-controls {\n      zoom: 1;\n      -moz-osx-font-smoothing: grayscale;\n      -webkit-font-smoothing: antialiased;\n      position: relative;\n      padding: 0;\n      background: #fff;\n      line-height: 1;\n      text-align: center;\n      box-shadow: 0 1px 1px rgba(52, 63, 74, 0.2); }\n      /* line 95, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls:before, #progressPane .player-controls:after {\n        content: '';\n        display: table; }\n      /* line 97, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls:after {\n        clear: both; }\n      /* line 237, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls-right {\n        display: block;\n        margin: 0 auto 0; }\n      @media (min-width: 560px) {\n        /* line 242, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls-left {\n          float: left; }\n        /* line 245, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls-right {\n          float: right;\n          margin-top: 0; } }\n      /* line 252, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls button {\n        display: inline-block;\n        vertical-align: middle;\n        margin: 0 2px;\n        padding: 0 0;\n        overflow: hidden;\n        border: 0;\n        background: transparent;\n        border-radius: 3px;\n        cursor: pointer;\n        color: #6B7D86;\n        -webkit-transition: background .3s ease, color .3s ease, opacity .3s ease;\n        transition: background .3s ease, color .3s ease, opacity .3s ease; }\n        /* line 265, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls button svg {\n          width: 18px;\n          height: 18px;\n          display: block;\n          fill: currentColor;\n          -webkit-transition: fill .3s ease;\n          transition: fill .3s ease; }\n        /* line 274, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls button.tab-focus, #progressPane .player-controls button:hover {\n          background: #ff7d2e;\n          color: #fff; }\n        /* line 280, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls button:focus {\n          outline: 0; }\n      /* line 286, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls .icon-exit-fullscreen,\n      #progressPane .player-controls .icon-muted,\n      #progressPane .player-controls .icon-captions-on {\n        display: none; }\n      /* line 293, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls .player-time {\n        display: inline-block;\n        vertical-align: middle;\n        margin-left: 0;\n        color: #6B7D86;\n        font-weight: 600;\n        font-size: 14px;\n        -moz-osx-font-smoothing: grayscale;\n        -webkit-font-smoothing: antialiased; }\n      /* line 304, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls .player-time + .player-time {\n        display: none; }\n        @media (min-width: 560px) {\n          /* line 304, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n          #progressPane .player-controls .player-time + .player-time {\n            display: inline-block; } }\n        /* line 312, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls .player-time + .player-time::before {\n          content: '\\2044';\n          margin-right: 0; }\n    /* line 320, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-tooltip {\n      position: absolute;\n      z-index: 2;\n      bottom: 100%;\n      margin-bottom: 0;\n      padding: 0 0;\n      opacity: 0;\n      background: #fff;\n      border-radius: 3px;\n      color: #6B7D86;\n      font-size: 14px;\n      line-height: 1.5;\n      font-weight: 600;\n      -webkit-transform: translate(-50%, 0) scale(0);\n              transform: translate(-50%, 0) scale(0);\n      -webkit-transform-origin: 50% 100%;\n              transform-origin: 50% 100%;\n      -webkit-transition: opacity .2s .1s ease, -webkit-transform .2s .1s ease;\n      transition: opacity .2s .1s ease, -webkit-transform .2s .1s ease;\n      transition: transform .2s .1s ease, opacity .2s .1s ease;\n      transition: transform .2s .1s ease, opacity .2s .1s ease, -webkit-transform .2s .1s ease; }\n      /* line 339, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-tooltip::after {\n        content: '';\n        display: block;\n        position: absolute;\n        left: 50%;\n        bottom: -5px;\n        margin-left: -5px;\n        width: 0;\n        height: 0;\n        -webkit-transition: inherit;\n        transition: inherit;\n        border-style: solid;\n        border-width: 5px 5px 0 5px;\n        border-color: #fff transparent transparent; }\n    /* line 354, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player button:hover .player-tooltip,\n    #progressPane .player button:focus .player-tooltip {\n      opacity: 1;\n      -webkit-transform: translate(-50%, 0) scale(1);\n              transform: translate(-50%, 0) scale(1); }\n    /* line 359, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player button:hover .player-tooltip {\n      z-index: 3; }\n    /* line 365, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-progress {\n      position: absolute;\n      bottom: 100%;\n      left: 0;\n      right: 0;\n      width: 100%;\n      height: 5px;\n      background: rgba(86, 93, 100, 0.2); }\n      /* line 374, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value], #progressPane .player-progress-played[value], #progressPane .player-progress-seek[type='range'] {\n        position: absolute;\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 5px;\n        margin: 0;\n        padding: 0;\n        vertical-align: top;\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        border: none;\n        background: transparent; }\n      /* line 393, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value]::-webkit-progress-bar, #progressPane .player-progress-played[value]::-webkit-progress-bar {\n        background: transparent; }\n      /* line 398, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value]::-webkit-progress-value, #progressPane .player-progress-played[value]::-webkit-progress-value {\n        background: currentColor; }\n      /* line 401, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value]::-moz-progress-bar, #progressPane .player-progress-played[value]::-moz-progress-bar {\n        background: currentColor; }\n      /* line 405, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-played[value] {\n        z-index: 2;\n        color: #ff7d2e; }\n      /* line 409, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value] {\n        color: rgba(86, 93, 100, 0.25); }\n      /* line 416, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-seek[type='range'] {\n        z-index: 4;\n        cursor: pointer;\n        outline: 0; }\n        /* line 422, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-webkit-slider-runnable-track {\n          background: none;\n          border: 0; }\n        /* line 425, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-webkit-slider-thumb {\n          -webkit-appearance: none;\n          background: transparent;\n          border: 0;\n          width: 0;\n          height: 0; }\n        /* line 431, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-moz-range-track {\n          background: none;\n          border: 0; }\n        /* line 434, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-moz-range-thumb {\n          -moz-appearance: none;\n          background: transparent;\n          border: 0;\n          width: 0;\n          height: 0; }\n        /* line 440, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-ms-track {\n          color: transparent;\n          background: none;\n          border: 0; }\n        /* line 444, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-ms-fill-lower, #progressPane .player-progress-seek[type='range']::-ms-fill-upper {\n          background: none;\n          border: 0; }\n        /* line 448, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-ms-thumb {\n          background: transparent;\n          border: 0;\n          width: 0;\n          height: 0; }\n        /* line 452, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']:focus {\n          outline: 0; }\n        /* line 455, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-moz-focus-outer {\n          border: 0; }\n    /* line 462, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.loading .player-progress-buffer {\n      -webkit-animation: progress 1s linear infinite;\n              animation: progress 1s linear infinite;\n      background-size: 40px 40px;\n      background-repeat: repeat-x;\n      background-color: rgba(86, 93, 100, 0.25);\n      background-image: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);\n      background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);\n      color: transparent; }\n    /* line 480, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-controls [data-player='pause'],\n    #progressPane .player.playing .player-controls [data-player='play'] {\n      display: none; }\n    /* line 484, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.playing .player-controls [data-player='pause'] {\n      display: inline-block; }\n    /* line 491, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-volume[type='range'] {\n      display: inline-block;\n      vertical-align: middle;\n      -webkit-appearance: none;\n      -moz-appearance: none;\n      -webkit-appearance: none;\n      width: 100px;\n      padding: 0;\n      cursor: pointer;\n      background: transparent;\n      border: none;\n      outline: 0 !important; }\n      /* line 505, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-webkit-slider-runnable-track {\n        height: 8px;\n        background: #e6e6e6;\n        border: 0;\n        border-radius: 4px; }\n      /* line 508, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-webkit-slider-thumb {\n        -webkit-appearance: none;\n        margin-top: -4px;\n        height: 16px;\n        width: 16px;\n        background: #6B7D86;\n        border: 0;\n        border-radius: 8px;\n        -webkit-transition: background .3s ease;\n        transition: background .3s ease;\n        cursor: ew-resize; }\n      /* line 515, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-moz-range-track {\n        height: 8px;\n        background: #e6e6e6;\n        border: 0;\n        border-radius: 4px; }\n      /* line 518, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-moz-range-thumb {\n        height: 16px;\n        width: 16px;\n        background: #6B7D86;\n        border: 0;\n        border-radius: 8px;\n        -webkit-transition: background .3s ease;\n        transition: background .3s ease;\n        cursor: ew-resize; }\n      /* line 523, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-ms-track {\n        height: 8px;\n        background: transparent;\n        border-color: transparent;\n        border-width: 4px 0;\n        color: transparent; }\n      /* line 530, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-ms-fill-lower, #progressPane .player-volume[type='range']::-ms-fill-upper {\n        height: 8px;\n        background: #e6e6e6;\n        border: 0;\n        border-radius: 4px; }\n      /* line 534, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-ms-thumb {\n        height: 16px;\n        width: 16px;\n        background: #6B7D86;\n        border: 0;\n        border-radius: 8px;\n        -webkit-transition: background .3s ease;\n        transition: background .3s ease;\n        cursor: ew-resize; }\n      /* line 538, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']:focus {\n        outline: 0; }\n        /* line 541, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-volume[type='range']:focus::-webkit-slider-thumb {\n          background: #ff7d2e; }\n        /* line 544, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-volume[type='range']:focus::-moz-range-thumb {\n          background: #ff7d2e; }\n        /* line 547, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-volume[type='range']:focus::-ms-thumb {\n          background: #ff7d2e; }\n    /* line 556, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.ios #progressPane .player-volume,\n    #progressPane .player.ios [data-player='mute'],\n    #progressPane .player-audio.ios #progressPane .player-controls-right {\n      display: none; }\n    /* line 562, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-audio.ios #progressPane .player-controls-left {\n      float: none; }\n    /* line 568, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-audio .player-controls {\n      padding-top: 0; }\n    /* line 571, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-audio .player-progress {\n      bottom: auto;\n      top: 0;\n      background: #313131; }\n    /* line 578, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-fullscreen, #progressPane .player.fullscreen-active {\n      position: fixed;\n      top: 0;\n      left: 0;\n      right: 0;\n      bottom: 0;\n      height: 100%;\n      width: 100%;\n      z-index: 10000000;\n      background: #000; }\n      /* line 590, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen video, #progressPane .player.fullscreen-active video {\n        height: 100%; }\n      /* line 593, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen .player-video-wrapper, #progressPane .player.fullscreen-active .player-video-wrapper {\n        height: 100%;\n        width: 100%; }\n      /* line 597, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen .player-controls, #progressPane .player.fullscreen-active .player-controls {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0; }\n      /* line 606, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing .player-controls, #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing .player-controls {\n        -webkit-transform: translateY(100%) translateY(0);\n                transform: translateY(100%) translateY(0);\n        -webkit-transition: -webkit-transform .3s .2s ease;\n        transition: -webkit-transform .3s .2s ease;\n        transition: transform .3s .2s ease;\n        transition: transform .3s .2s ease, -webkit-transform .3s .2s ease; }\n      /* line 610, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing.player-hover .player-controls, #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing.player-hover .player-controls {\n        -webkit-transform: translateY(0);\n                transform: translateY(0); }\n      /* line 613, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing .player-captions, #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing .player-captions {\n        bottom: 0;\n        -webkit-transition: bottom .3s .2s ease;\n        transition: bottom .3s .2s ease; }\n      /* line 620, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen .player-captions,\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing.player-hover .player-captions, #progressPane .player.fullscreen-active .player-captions,\n      #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing.player-hover .player-captions {\n        top: auto;\n        bottom: 90px; }\n        @media (min-width: 560px) {\n          /* line 620, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n          #progressPane .player-fullscreen .player-captions,\n          #progressPane .player-fullscreen.fullscreen-hide-controls.playing.player-hover .player-captions, #progressPane .player.fullscreen-active .player-captions,\n          #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing.player-hover .player-captions {\n            bottom: 60px; } }\n    /* line 632, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.fullscreen-active .icon-exit-fullscreen,\n    #progressPane .player.muted .player-controls .icon-muted,\n    #progressPane .player.captions-active .player-controls .icon-captions-on {\n      display: block; }\n      /* line 637, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player.fullscreen-active .icon-exit-fullscreen + svg,\n      #progressPane .player.muted .player-controls .icon-muted + svg,\n      #progressPane .player.captions-active .player-controls .icon-captions-on + svg {\n        display: none; }\n    /* line 643, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player [data-player='captions'],\n    #progressPane .player [data-player='fullscreen'] {\n      display: none; }\n    /* line 647, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.captions-enabled [data-player='captions'],\n    #progressPane .player.fullscreen-enabled [data-player='fullscreen'] {\n      display: inline-block; }\n  /* line 240, stdin */\n  #progressPane .player {\n    width: 100%;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  /* line 247, stdin */\n  #progressPane .player-controls {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%; }\n  /* line 254, stdin */\n  #progressPane .player-controls-left, #progressPane .player-controls-right {\n    display: none; }\n  /* line 258, stdin */\n  #progressPane .player-audio .player-progress {\n    bottom: auto;\n    top: 0;\n    background: #313131; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 218, stdin */\n    #progressPane {\n      top: -5px !important;\n      padding-top: 0; }\n      /* line 268, stdin */\n      #progressPane .meta, #progressPane .title {\n        display: none; } }\n\n/* line 277, stdin */\n#volume {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n  /* line 281, stdin */\n  #volume input[type=range] {\n    margin-top: -3px; }\n  /* line 285, stdin */\n  #volume i {\n    width: 16px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 277, stdin */\n    #volume {\n      display: none !important; } }\n")
 'use strict';
 
@@ -2741,18 +2836,18 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../config":26,"../../services/playback":52,"../../stores/favorite":56,"../../stores/preference":58,"../../stores/song":62,"../shared/sound-bar.vue":24,"vue":48,"vue-hot-reload-api":39,"vueify-insert-css":49}],26:[function(require,module,exports){
+},{"../../config":27,"../../services/playback":53,"../../stores/favorite":57,"../../stores/preference":59,"../../stores/song":63,"../shared/sound-bar.vue":25,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    unknownCover: '/public/img/covers/unknown-album.png',
-    appTitle: 'koel'
+    unknownCover: 'img/unknown-album.png',
+    appTitle: 'Music'
 };
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2771,7 +2866,7 @@ exports.default = function (value) {
     });
 };
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 'use strict';
 
 //import $ from 'jquery';
@@ -2789,7 +2884,7 @@ var App = require('./app.vue');
 // We're off to never never land.
 window.VueRoot = new Vue(require('./app.vue')).$mount('div#content');
 
-},{"./app.vue":1,"vue":48,"vue-resource":41}],29:[function(require,module,exports){
+},{"./app.vue":1,"vue":49,"vue-resource":42}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2838,7 +2933,7 @@ exports.default = {
     }
 };
 
-},{"jquery":33}],30:[function(require,module,exports){
+},{"jquery":34}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2881,7 +2976,7 @@ exports.default = {
     }
 };
 
-},{"../services/playback":52,"jquery":33}],31:[function(require,module,exports){
+},{"../services/playback":53,"jquery":34}],32:[function(require,module,exports){
 /*
  * JavaScript MD5 1.0.1
  * https://github.com/blueimp/JavaScript-MD5
@@ -3157,7 +3252,7 @@ exports.default = {
     }
 }(this));
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 /**
  * isMobile.js v0.3.9
  *
@@ -3285,7 +3380,7 @@ exports.default = {
 
 })(this);
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.1
  * http://jquery.com/
@@ -13118,7 +13213,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -13165,7 +13260,7 @@ module.exports = accessor;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./stub":35,"./tracking":36}],35:[function(require,module,exports){
+},{"./stub":36,"./tracking":37}],36:[function(require,module,exports){
 'use strict';
 
 var ms = {};
@@ -13199,7 +13294,7 @@ module.exports = {
   clear: clear
 };
 
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -13257,7 +13352,7 @@ module.exports = {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 (function (global){
 /**
  * @license
@@ -25613,7 +25708,7 @@ module.exports = {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -25706,7 +25801,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -26006,7 +26101,7 @@ function format (id) {
   return id.match(/[^\/]+\.vue$/)[0]
 }
 
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /**
  * Service for sending network requests.
  */
@@ -26168,7 +26263,7 @@ module.exports = function (_) {
     return _.http = Http;
 };
 
-},{"./lib/jsonp":42,"./lib/promise":43,"./lib/xhr":45}],41:[function(require,module,exports){
+},{"./lib/jsonp":43,"./lib/promise":44,"./lib/xhr":46}],42:[function(require,module,exports){
 /**
  * Install plugin.
  */
@@ -26209,7 +26304,7 @@ if (window.Vue) {
 }
 
 module.exports = install;
-},{"./http":40,"./lib/util":44,"./resource":46,"./url":47}],42:[function(require,module,exports){
+},{"./http":41,"./lib/util":45,"./resource":47,"./url":48}],43:[function(require,module,exports){
 /**
  * JSONP request.
  */
@@ -26261,7 +26356,7 @@ module.exports = function (_, options) {
 
 };
 
-},{"./promise":43}],43:[function(require,module,exports){
+},{"./promise":44}],44:[function(require,module,exports){
 /**
  * Promises/A+ polyfill v1.1.0 (https://github.com/bramstein/promis)
  */
@@ -26473,7 +26568,7 @@ if (window.MutationObserver) {
 
 module.exports = window.Promise || Promise;
 
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 /**
  * Utility functions.
  */
@@ -26555,7 +26650,7 @@ module.exports = function (Vue) {
     return _;
 };
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 /**
  * XMLHttp request.
  */
@@ -26608,7 +26703,7 @@ module.exports = function (_, options) {
     return promise;
 };
 
-},{"./promise":43}],46:[function(require,module,exports){
+},{"./promise":44}],47:[function(require,module,exports){
 /**
  * Service for interacting with RESTful services.
  */
@@ -26721,7 +26816,7 @@ module.exports = function (_) {
     return _.resource = Resource;
 };
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 /**
  * Service for URL templating.
  */
@@ -26880,7 +26975,7 @@ module.exports = function (_) {
     return _.url = Url;
 };
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.17
@@ -36575,7 +36670,7 @@ if (devtools) {
 module.exports = Vue;
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"_process":38}],49:[function(require,module,exports){
+},{"_process":39}],50:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -36595,7 +36690,7 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36674,7 +36769,7 @@ exports.default = {
     }
 };
 
-},{"lodash":37}],51:[function(require,module,exports){
+},{"lodash":38}],52:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36703,7 +36798,7 @@ exports.default = {
     }
 };
 
-},{"local-storage":34}],52:[function(require,module,exports){
+},{"local-storage":35}],53:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36734,6 +36829,14 @@ var _album = require('../stores/album');
 
 var _album2 = _interopRequireDefault(_album);
 
+var _artist3 = require('../stubs/artist');
+
+var _artist4 = _interopRequireDefault(_artist3);
+
+var _album3 = require('../stubs/album');
+
+var _album4 = _interopRequireDefault(_album3);
+
 var _preference = require('../stores/preference');
 
 var _preference2 = _interopRequireDefault(_preference);
@@ -36753,9 +36856,12 @@ exports.default = {
 	state: {
 		progress: 0, //msec
 		buffer: 0, //percent
-		duration: 0 },
+		duration: 0, //msec
 
-	//msec
+		currentAlbum: _album4.default,
+		currentArtist: _artist4.default
+	},
+
 	/**
   * Initialize the playback service for this whole Koel app.
   *
@@ -36937,11 +37043,8 @@ exports.default = {
 
 		var prev = this.prevSong();
 
-		if (!prev && _preference2.default.get('repeatMode') === 'NO_REPEAT') {
-			this.stop();
-
-			return;
-		}
+		this.stop();
+		if (!prev && _preference2.default.get('repeatMode') === 'NO_REPEAT') return;
 
 		this.play(prev);
 	},
@@ -36955,9 +37058,7 @@ exports.default = {
 		var next = this.nextSong();
 
 		this.stop();
-		if (!next && _preference2.default.get('repeatMode') === 'NO_REPEAT') {
-			return;
-		}
+		if (!next && _preference2.default.get('repeatMode') === 'NO_REPEAT') return;
 
 		this.play(next);
 	},
@@ -37054,6 +37155,7 @@ exports.default = {
 			songs = _lodash2.default.shuffle(songs);
 		}
 
+		this.stop();
 		_queue2.default.clear();
 
 		_queue2.default.queue(songs, true);
@@ -37105,7 +37207,9 @@ exports.default = {
 	playAllInAlbum: function playAllInAlbum(album) {
 		var shuffle = arguments.length <= 1 || arguments[1] === undefined ? true : arguments[1];
 
-		this.queueAndPlay(album.songs, true);
+		this.state.currentAlbum = album;
+		_queue2.default.queue(album.songs, true);
+		this.app.loadMainView('albumSongs');
 	},
 
 
@@ -37128,7 +37232,7 @@ exports.default = {
 	}
 };
 
-},{"../config":26,"../stores/album":54,"../stores/artist":55,"../stores/preference":58,"../stores/queue":59,"../stores/song":62,"jquery":33,"lodash":37}],53:[function(require,module,exports){
+},{"../config":27,"../stores/album":55,"../stores/artist":56,"../stores/preference":59,"../stores/queue":60,"../stores/song":63,"../stubs/album":65,"../stubs/artist":66,"jquery":34,"lodash":38}],54:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37179,7 +37283,7 @@ exports.default = {
     }
 };
 
-},{}],54:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37256,7 +37360,7 @@ exports.default = {
     }
 };
 
-},{"../services/utils":53,"../stubs/album":64,"./song":62,"lodash":37}],55:[function(require,module,exports){
+},{"../services/utils":54,"../stubs/album":65,"./song":63,"lodash":38}],56:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37356,7 +37460,7 @@ exports.default = {
     }
 };
 
-},{"../config":26,"./album":54,"lodash":37}],56:[function(require,module,exports){
+},{"../config":27,"./album":55,"lodash":38}],57:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37481,7 +37585,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":50,"../services/utils":53,"lodash":37}],57:[function(require,module,exports){
+},{"../services/http":51,"../services/utils":54,"lodash":38}],58:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37596,7 +37700,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":50,"../stubs/playlist":66,"./shared":61,"./song":62,"lodash":37}],58:[function(require,module,exports){
+},{"../services/http":51,"../stubs/playlist":67,"./shared":62,"./song":63,"lodash":38}],59:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37642,7 +37746,7 @@ exports.default = {
     }
 };
 
-},{"../services/ls":51,"lodash":37}],59:[function(require,module,exports){
+},{"../services/ls":52,"lodash":38}],60:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37804,7 +37908,7 @@ exports.default = {
     }
 };
 
-},{"../stubs/song":68,"lodash":37}],60:[function(require,module,exports){
+},{"../stubs/song":69,"lodash":38}],61:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37846,7 +37950,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":50,"../stubs/settings":67}],61:[function(require,module,exports){
+},{"../services/http":51,"../stubs/settings":68}],62:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37926,7 +38030,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":50,"./artist":55,"./playlist":57,"./preference":58,"./queue":59,"./setting":60,"./song":62,"./user":63,"lodash":37}],62:[function(require,module,exports){
+},{"../services/http":51,"./artist":56,"./playlist":58,"./preference":59,"./queue":60,"./setting":61,"./song":63,"./user":64,"lodash":38}],63:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38135,7 +38239,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":50,"../services/utils":53,"../stubs/song":68,"./favorite":56,"./user":63,"lodash":37}],63:[function(require,module,exports){
+},{"../services/http":51,"../services/utils":54,"../stubs/song":69,"./favorite":57,"./user":64,"lodash":38}],64:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38335,7 +38439,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":50,"../stubs/user":69,"./shared":61,"blueimp-md5":31,"lodash":37}],64:[function(require,module,exports){
+},{"../services/http":51,"../stubs/user":70,"./shared":62,"blueimp-md5":32,"lodash":38}],65:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38361,7 +38465,7 @@ exports.default = {
     songs: []
 };
 
-},{"../config":26,"./artist":65}],65:[function(require,module,exports){
+},{"../config":27,"./artist":66}],66:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38374,7 +38478,7 @@ exports.default = {
     albums: []
 };
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38385,7 +38489,7 @@ exports.default = {
     songs: []
 };
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38395,7 +38499,7 @@ exports.default = {
     media_path: ''
 };
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38421,7 +38525,7 @@ exports.default = {
 	files: {}
 };
 
-},{"./album":64}],69:[function(require,module,exports){
+},{"./album":65}],70:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38435,7 +38539,7 @@ exports.default = {
     is_admin: false
 };
 
-},{}]},{},[28])
+},{}]},{},[29])
 
 
 //# sourceMappingURL=main.js.map
