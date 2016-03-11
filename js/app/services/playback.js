@@ -190,11 +190,9 @@ export default {
 
 		var prev = this.prevSong();
 
-		if (!prev && preferenceStore.get('repeatMode') === 'NO_REPEAT') {
-			this.stop();
-
+		this.stop();
+		if (!prev && preferenceStore.get('repeatMode') === 'NO_REPEAT')
 			return;
-		}
 
 		this.play(prev);
 	},
@@ -207,9 +205,8 @@ export default {
 		var next = this.nextSong();
 
 		this.stop();
-		if (!next && preferenceStore.get('repeatMode') === 'NO_REPEAT') {
+		if (!next && preferenceStore.get('repeatMode') === 'NO_REPEAT')
 			return;
-		}
 
 		this.play(next);
 	},
