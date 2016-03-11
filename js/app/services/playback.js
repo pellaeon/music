@@ -5,6 +5,8 @@ import queueStore from '../stores/queue';
 import songStore from '../stores/song';
 import artistStore from '../stores/artist';
 import albumStore from '../stores/album';
+import artistStub from '../stubs/artist';
+import albumStub from '../stubs/album';
 import preferenceStore from '../stores/preference';
 import config from '../config';
 
@@ -18,6 +20,9 @@ export default {
 		progress: 0,//msec
 		buffer: 0,//percent
 		duration: 0,//msec
+
+		currentAlbum: albumStub,
+		currentArtist: artistStub,
 	},
 
 	/**
@@ -332,7 +337,9 @@ export default {
 	 * @param  {Boolean} shuffle Whether to shuffle the songs
 	 */
 	playAllInAlbum(album, shuffle = true) {
-		this.queueAndPlay(album.songs, true);
+		this.state.currentAlbum = album;
+		queueStore.queue(album.songs, true);
+		this.app.loadMainView('albumSongs');
 	},
 
 	/**

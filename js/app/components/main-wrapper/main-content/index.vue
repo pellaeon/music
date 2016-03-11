@@ -4,6 +4,7 @@
         <songs v-show="view == 'songs'"></songs>
         <queue v-show="view == 'queue'"></queue>
         <albums v-show="view == 'albums'"></albums>
+        <album-songs v-show="view == 'albumSongs'"></album-songs>
         <artists v-show="view == 'artists'"></artists>
         <users v-show="view == 'users'"></users>
         <settings v-show="view == 'settings'"></settings>
@@ -15,6 +16,7 @@
 
 <script>
     import albums from './albums.vue';
+    import albumSongs from './album-list-songs.vue';
     import artists from './artists.vue';
     import songs from './songs.vue';
     import settings from './settings.vue';
@@ -26,7 +28,7 @@
     import albumStore from '../../../stores/album';
 
     export default {
-        components: { albums, artists, songs, settings, users, queue, playlist, favorites, profile },
+        components: { albums, albumSongs, artists, songs, settings, users, queue, playlist, favorites, profile },
 
         props: ['songs', 'queue', 'albums', 'artists', 'users', 'settings', 'playlist', 'favorites', 'profile'],
 
