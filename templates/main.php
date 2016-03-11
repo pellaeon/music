@@ -25,9 +25,9 @@ if($version[0] < 8 || $version[0] === 8 && $version[1] < 2) {
 
 \OCP\Util::addStyle('music', 'app');
 \OCP\Util::addStyle('music', 'vendor');
+\OCP\Util::addStyle('music', 'font');
 
 ?>
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext,vietnamese,greek-ext,greek,cyrillic,cyrillic-ext" rel="stylesheet">
 
 <app></app>
 
