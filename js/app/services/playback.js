@@ -206,10 +206,8 @@ export default {
 	playNext() {
 		var next = this.nextSong();
 
+		this.stop();
 		if (!next && preferenceStore.get('repeatMode') === 'NO_REPEAT') {
-			//  Nothing lasts forever, even cold November rain.
-			this.stop();
-
 			return;
 		}
 
