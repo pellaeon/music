@@ -289,6 +289,7 @@ export default {
 			songs = _.shuffle(songs);
 		}
 
+		this.stop();
 		queueStore.clear();
 
 		queueStore.queue(songs, true);
