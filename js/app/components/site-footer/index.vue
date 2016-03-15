@@ -32,7 +32,7 @@
                         <div class="player-controls">
                             <div class="player-progress">
                                 <progress class="player-progress-played" max="100" value="{{ (playstate.progress/playstate.duration)*100 }}">
-									<span>{{ (playstate.progress/playstate.duration)*100 }}</span>% played</progress>
+                                    <span>{{ (playstate.progress/playstate.duration)*100 }}</span>% played</progress>
                                 <progress class="player-progress-buffer" max="100" value="{{ playstate.buffer }}"><span>{{ playstate.buffer }}</span>% buffered</progress>
                             </div>
                             <span class="player-controls-left"></span>
@@ -88,7 +88,7 @@
 
                 prefs: preferenceStore.state,
 
-				playstate: playback.state,
+                playstate: playback.state,
             };
         },
 
@@ -540,6 +540,10 @@
             bottom: auto;
             top: 0;
             background: #313131;
+        }
+
+        h3.title {
+            margin: 0;
         }
 
 
