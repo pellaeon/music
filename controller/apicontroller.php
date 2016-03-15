@@ -24,6 +24,7 @@ use \OCP\IRequest;
 use \OCP\IURLGenerator;
 
 use \OCP\AppFramework\Db\DoesNotExistException;
+use \OCP\Files\NotFoundException;
 
 use \OCA\Music\BusinessLayer\TrackBusinessLayer;
 use \OCA\Music\BusinessLayer\ArtistBusinessLayer;
@@ -98,8 +99,13 @@ class ApiController extends Controller {
 			foreach ( $artistsAlbums as &$album ) {
 				$albumCollection = $album->toCollection($this->urlGenerator, $this->l10n);
 				$albumTracks = $this->trackBusinessLayer->findAllByAlbum($album->getId(), $this->userId, $artist->getId());
+				$albumCollection['songs'] = array();
 				foreach ( $albumTracks as &$track ) {
-					$trackC = $track->toCollection($this->urlGenerator, $this->userFolder);
+					try {
+						$trackC = $track->toCollection($this->urlGenerator, $this->userFolder);
+					} catch ( NotFoundException $e ) {
+						continue;
+					}
 					$albumCollection['songs'][] = $trackC;
 				}
 				$artistCollection['albums'][] = $albumCollection;
