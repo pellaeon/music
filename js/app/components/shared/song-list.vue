@@ -394,12 +394,14 @@
 
         table {
             width: 100%;
+            table-layout: fixed;
         }
 
         td, th {
             text-align: left;
             padding: 8px;
             vertical-align: middle;
+            white-space: normal;
 
             &.time {
                 width: 72px;
@@ -440,6 +442,7 @@
         and (orientation : portrait) {
             table, tbody, tr {
                 display: block;
+                table-layout: fixed;
             }
 
             thead, tfoot {
@@ -454,6 +457,7 @@
                 display: inline;
                 padding: 0;
                 vertical-align: bottom;
+                white-space: normal;
 
                 &.album, &.time {
                     display: none;
