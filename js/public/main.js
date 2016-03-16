@@ -2842,8 +2842,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    unknownCover: '/public/img/covers/unknown-album.png',
-    appTitle: 'koel'
+    unknownCover: 'img/unknown-album.png',
+    appTitle: 'Music'
 };
 
 },{}],28:[function(require,module,exports){
@@ -36936,6 +36936,8 @@ exports.default = {
 		if (!song) {
 			return;
 		}
+
+		this.stop();
 
 		// Set the song as the current song
 		_queue2.default.current(song);
