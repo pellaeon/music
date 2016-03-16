@@ -98,6 +98,8 @@ export default {
 			return;
 		}
 
+		this.stop();
+
 		// Set the song as the current song
 		queueStore.current(song);
 
