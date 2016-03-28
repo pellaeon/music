@@ -159,7 +159,8 @@ exports.default = {
          * @param string view The view, which can be found under components/main-wrapper/main-content.
          */
         loadMainView: function loadMainView(view) {
-            this.$broadcast('main-content-view:load', view);
+            //this.$broadcast('main-content-view:load', view);
+            router.go(view); //for capability
         },
 
 
@@ -171,14 +172,6 @@ exports.default = {
         loadPlaylist: function loadPlaylist(playlist) {
             this.$broadcast('playlist:load', playlist);
             this.loadMainView('playlist');
-        },
-
-
-        /**
-         * Load the Favorites view.
-         */
-        loadFavorites: function loadFavorites() {
-            this.loadMainView('favorites');
         },
 
 
@@ -262,7 +255,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./components/main-wrapper/index.vue":6,"./components/shared/overlay.vue":22,"./components/site-footer/index.vue":26,"./directives/focus":28,"./services/playback":53,"./stores/preference":59,"./stores/shared":62,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],2:[function(require,module,exports){
+},{"./components/main-wrapper/index.vue":6,"./components/shared/overlay.vue":22,"./components/site-footer/index.vue":26,"./directives/focus":28,"./services/playback":54,"./stores/preference":60,"./stores/shared":63,"jquery":34,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],2:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#albumInfo img.cover {\n  width: 100%;\n  height: auto; }\n\n/* line 11, stdin */\n#albumInfo .wiki {\n  margin-top: 16px; }\n\n/* line 15, stdin */\n#albumInfo .track-listing {\n  margin-top: 16px; }\n  /* line 18, stdin */\n  #albumInfo .track-listing h1 {\n    font-size: 20px;\n    margin-bottom: 0;\n    display: block; }\n  /* line 24, stdin */\n  #albumInfo .track-listing li {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n    -webkit-justify-content: space-between;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    padding: 8px; }\n    /* line 29, stdin */\n    #albumInfo .track-listing li:nth-child(even) {\n      background: rgba(255, 255, 255, 0.05); }\n    /* line 33, stdin */\n    #albumInfo .track-listing li .no {\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 24px;\n          -ms-flex: 0 0 24px;\n              flex: 0 0 24px;\n      opacity: .5; }\n    /* line 38, stdin */\n    #albumInfo .track-listing li .title {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 42, stdin */\n    #albumInfo .track-listing li .length {\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 48px;\n          -ms-flex: 0 0 48px;\n              flex: 0 0 48px;\n      text-align: right;\n      opacity: .5; }\n")
 'use strict';
 
@@ -320,7 +313,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/playback":53,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],3:[function(require,module,exports){
+},{"../../../services/playback":54,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],3:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#artistInfo img.cool-guys-posing {\n  width: 100%;\n  height: auto; }\n\n/* line 11, stdin */\n#artistInfo .bio {\n  margin-top: 16px; }\n")
 'use strict';
 
@@ -378,7 +371,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/playback":53,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],4:[function(require,module,exports){
+},{"../../../services/playback":54,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],4:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#extra {\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 334px;\n      -ms-flex: 0 0 334px;\n          flex: 0 0 334px;\n  padding: 24px 16px 64px;\n  background: #212121;\n  max-height: calc(100vh - 112px);\n  overflow: auto;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch;\n  display: none;\n  color: #a0a0a0; }\n  /* line 19, stdin */\n  #extra.showing {\n    display: block; }\n  /* line 23, stdin */\n  #extra h1 {\n    font-weight: 100;\n    font-size: 28px;\n    margin-bottom: 16px;\n    line-height: 36px;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: initial;\n    -webkit-align-items: initial;\n        -ms-flex-align: initial;\n            align-items: initial; }\n    /* line 32, stdin */\n    #extra h1 span {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      margin-right: 12px; }\n    /* line 37, stdin */\n    #extra h1 a {\n      font-size: 14px; }\n      /* line 40, stdin */\n      #extra h1 a:hover {\n        color: #ff7d2e; }\n  /* line 47, stdin */\n  #extra .tabs .header {\n    border-bottom: 1px solid #5c5c5c; }\n    /* line 52, stdin */\n    #extra .tabs .header a {\n      padding: 8px 12px;\n      margin-left: 4px;\n      border-radius: 4px 4px 0 0;\n      text-transform: uppercase;\n      color: gainsboro;\n      opacity: .4;\n      border: 1px solid #5c5c5c;\n      margin-bottom: -1px;\n      float: left; }\n      /* line 63, stdin */\n      #extra .tabs .header a.active {\n        border-bottom: 1px solid #212121;\n        opacity: 1; }\n  /* line 70, stdin */\n  #extra .tabs .panes {\n    padding: 16px 0; }\n  /* line 75, stdin */\n  #extra .more {\n    margin-top: 8px;\n    border-radius: 3px;\n    background: #4c769a;\n    color: #fff;\n    padding: 4px 8px;\n    display: inline-block;\n    text-transform: uppercase;\n    font-size: 80%; }\n  /* line 86, stdin */\n  #extra footer {\n    margin-top: 24px;\n    font-size: 90%; }\n    /* line 90, stdin */\n    #extra footer a {\n      color: #fff;\n      font-weight: 500; }\n      /* line 94, stdin */\n      #extra footer a:hover {\n        color: #b90000; }\n  @media only screen and (max-device-width: 1024px) {\n    /* line 5, stdin */\n    #extra {\n      position: fixed;\n      height: calc(100vh - 112px);\n      padding-bottom: 64px;\n      width: 334px;\n      z-index: 5;\n      top: 48px;\n      right: -100%;\n      -webkit-transition: right .3s ease-in;\n      transition: right .3s ease-in; }\n      /* line 112, stdin */\n      #extra.showing {\n        right: 0; } }\n  @media only screen and (max-device-width: 667px) and (orientation: portrait) {\n    /* line 5, stdin */\n    #extra {\n      width: 100%; } }\n")
 'use strict';
 
@@ -476,7 +469,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/preference":59,"../../../stores/song":63,"./album-info.vue":2,"./artist-info.vue":3,"./lyrics.vue":5,"ismobilejs":33,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],5:[function(require,module,exports){
+},{"../../../stores/preference":60,"../../../stores/song":64,"./album-info.vue":2,"./artist-info.vue":3,"./lyrics.vue":5,"ismobilejs":33,"lodash":38,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -524,7 +517,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/song":63,"vue":49,"vue-hot-reload-api":40}],6:[function(require,module,exports){
+},{"../../../stores/song":64,"vue":50,"vue-hot-reload-api":40}],6:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#mainWrapper {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1; }\n")
 'use strict';
 
@@ -566,7 +559,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./extra/index.vue":4,"./main-content/index.vue":11,"./sidebar/index.vue":18,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],7:[function(require,module,exports){
+},{"./extra/index.vue":4,"./main-content/index.vue":11,"./sidebar/index.vue":18,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],7:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#albumsWrapper .albums {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #albumsWrapper .albums .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #albumsWrapper .albums .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n")
 'use strict';
 
@@ -656,7 +649,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/infinite-scroll":30,"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/album":55,"../../../stubs/album":65,"../../shared/album-item.vue":20,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],8:[function(require,module,exports){
+},{"../../../mixins/infinite-scroll":30,"../../../mixins/shuffle-selected":31,"../../../services/playback":54,"../../../stores/album":56,"../../../stubs/album":66,"../../shared/album-item.vue":20,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],8:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#albumsWrapper .albums {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #albumsWrapper .albums .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #albumsWrapper .albums .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #albumsWrapper .albums .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #albumsWrapper .albums .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #albumsWrapper .albums {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n")
 'use strict';
 
@@ -730,7 +723,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/infinite-scroll":30,"../../../stores/album":55,"../../shared/album-item.vue":20,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],9:[function(require,module,exports){
+},{"../../../mixins/infinite-scroll":30,"../../../stores/album":56,"../../shared/album-item.vue":20,"ismobilejs":33,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],9:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#artistsWrapper .artists {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 12, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n  #artistsWrapper .artists .item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 256px;\n        -ms-flex: 0 0 256px;\n            flex: 0 0 256px;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    margin-bottom: 16px; }\n    /* line 18, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item .cover {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n          -ms-flex-align: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center;\n      display: flex;\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 256px;\n          -ms-flex: 0 0 256px;\n              flex: 0 0 256px;\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: center center;\n      position: relative; }\n      /* line 28, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover .control {\n        display: none;\n        width: 96px;\n        height: 96px;\n        text-align: center;\n        line-height: 96px;\n        font-size: 54px;\n        background: #111;\n        border-radius: 50%;\n        text-indent: 5px;\n        opacity: .7;\n        border: 1px solid transparent;\n        -webkit-transition: .3s;\n        transition: .3s; }\n        /* line 43, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #artistsWrapper .artists .item .cover .control:hover {\n          opacity: 1;\n          border-color: #fff;\n          -webkit-transform: scale(1.1);\n                  transform: scale(1.1); }\n      /* line 50, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover:before {\n        content: \" \";\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        z-index: 0;\n        -webkit-transition: .3s;\n        transition: .3s; }\n      /* line 62, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover:hover:before {\n        background-color: rgba(0, 0, 0, 0.4); }\n      /* line 66, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #artistsWrapper .artists .item .cover:hover .control {\n        display: block; }\n    /* line 72, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item footer {\n      padding: 16px;\n      background: #333;\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 78, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item .name {\n      font-weight: 500; }\n    /* line 82, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n    #artistsWrapper .artists .item .meta {\n      color: #a0a0a0;\n      margin-top: 4px;\n      font-size: 12px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 6, stdin */\n    #artistsWrapper .artists {\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n          -ms-flex-pack: center;\n              justify-content: center; } }\n  @media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {\n    /* line 6, stdin */\n    #artistsWrapper .artists {\n      -webkit-justify-content: space-around;\n          -ms-flex-pack: distribute;\n              justify-content: space-around; } }\n")
 'use strict';
 
@@ -805,7 +798,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/infinite-scroll":30,"../../../stores/artist":56,"../../shared/artist-item.vue":21,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],10:[function(require,module,exports){
+},{"../../../mixins/infinite-scroll":30,"../../../stores/artist":57,"../../shared/artist-item.vue":21,"ismobilejs":33,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],10:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#songsWrapper button.play-shuffle i, #songsWrapper button.del i {\n  margin-right: 0 !important; }\n")
 'use strict';
 
@@ -876,7 +869,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/favorite":57,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],11:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":54,"../../../stores/favorite":58,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],11:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#mainContent {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  position: relative; }\n  /* line 9, stdin */\n  #mainContent h1.heading {\n    font-weight: 100;\n    font-size: 48px;\n    padding: 12px 24px;\n    border-bottom: 1px solid #282828;\n    min-height: 90px;\n    position: relative;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-align-content: stretch;\n        -ms-flex-line-pack: stretch;\n            align-content: stretch;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex; }\n    /* line 20, stdin */\n    #mainContent h1.heading span:first-child {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 24, stdin */\n    #mainContent h1.heading .buttons {\n      text-align: right;\n      z-index: 2;\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      position: relative; }\n      /* line 112, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n      #mainContent h1.heading .buttons button {\n        background-color: #ff7d2e;\n        font-size: 12px;\n        height: 28px;\n        padding: 0 16px;\n        line-height: 28px;\n        text-transform: uppercase;\n        display: inline-block;\n        border-radius: 14px 0px 0px 14px; }\n        /* line 124, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:last-of-type {\n          border-top-right-radius: 14px;\n          border-bottom-right-radius: 14px; }\n        /* line 129, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:not(:first-child) {\n          border-top-left-radius: 0;\n          border-bottom-left-radius: 0;\n          margin-left: 1px; }\n        /* line 135, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button i {\n          margin-right: 4px; }\n        /* line 139, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:hover {\n          background-color: #fa5e00; }\n        /* line 103, /var/www/html/owncloud/capps/music/sass/partials/_mixins.scss */\n        #mainContent h1.heading .buttons button:active {\n          box-shadow: inset 0px 10px 10px -10px black; }\n    /* line 31, stdin */\n    #mainContent h1.heading input[type=\"search\"] {\n      width: 128px;\n      -webkit-transition: width .3s;\n      transition: width .3s; }\n      /* line 35, stdin */\n      #mainContent h1.heading input[type=\"search\"]:focus {\n        width: 192px; }\n  /* line 41, stdin */\n  #mainContent .main-scroll-wrap {\n    padding: 24px 24px 64px;\n    height: calc(100vh - 200px);\n    overflow: auto;\n    overflow-y: scroll;\n    -webkit-overflow-scrolling: touch; }\n  /* line 51, stdin */\n  #mainContent .translucent {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    width: 100%;\n    -webkit-filter: blur(20px);\n    opacity: .07;\n    z-index: 0;\n    overflow: hidden;\n    background-size: cover;\n    background-position: center;\n    -webkit-transform: translateZ(0);\n            transform: translateZ(0);\n    -webkit-backface-visibility: hidden;\n            backface-visibility: hidden;\n    -webkit-perspective: 1000;\n            perspective: 1000;\n    pointer-events: none; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 74, stdin */\n    #mainContent h1.heading {\n      font-size: 18px;\n      min-height: 0;\n      line-height: 24px;\n      text-align: center;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n      -webkit-flex-direction: column;\n          -ms-flex-direction: column;\n              flex-direction: column; }\n      /* line 81, stdin */\n      #mainContent h1.heading .toggler {\n        font-size: 14px;\n        margin-left: 4px;\n        color: #ff7d2e; }\n      /* line 87, stdin */\n      #mainContent h1.heading .buttons {\n        -webkit-box-pack: center;\n        -webkit-justify-content: center;\n            -ms-flex-pack: center;\n                justify-content: center; }\n      /* line 91, stdin */\n      #mainContent h1.heading input[type=\"search\"], #mainContent h1.heading button {\n        margin-top: 12px; }\n    /* line 96, stdin */\n    #mainContent .main-scroll-wrap {\n      padding: 24px 16px 64px; } }\n")
 'use strict';
 
@@ -937,17 +930,12 @@ exports.default = {
 
     data: function data() {
         return {
-            view: 'queue', // The default view
             albumCover: null
         };
     },
 
 
     events: {
-        'main-content-view:load': function mainContentViewLoad(view) {
-            this.view = view;
-        },
-
         /**
          * When a new song is played, find it cover for the translucent effect.
          * 
@@ -963,7 +951,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <section id=\"mainContent\">\n        <div class=\"translucent\" :style=\"{ backgroundImage: albumCover ? 'url(' + albumCover + ')' : 'none' }\"></div>\n        <songs v-show=\"view == 'songs'\"></songs>\n        <queue v-show=\"view == 'queue'\"></queue>\n        <albums v-show=\"view == 'albums'\"></albums>\n        <album-songs v-show=\"view == 'albumSongs'\"></album-songs>\n        <artists v-show=\"view == 'artists'\"></artists>\n        <users v-show=\"view == 'users'\"></users>\n        <settings v-show=\"view == 'settings'\"></settings>\n        <playlist v-show=\"view == 'playlist'\"></playlist>\n        <favorites v-show=\"view == 'favorites'\"></favorites>\n        <profile v-show=\"view == 'profile'\"></profile>\n    </section>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <section id=\"mainContent\">\n        <div class=\"translucent\" :style=\"{ backgroundImage: albumCover ? 'url(' + albumCover + ')' : 'none' }\"></div>\n        <router-view></router-view>\n    </section>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -979,7 +967,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/album":55,"./album-list-songs.vue":7,"./albums.vue":8,"./artists.vue":9,"./favorites.vue":10,"./playlist.vue":12,"./profile.vue":13,"./queue.vue":14,"./settings.vue":15,"./songs.vue":16,"./users.vue":17,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],12:[function(require,module,exports){
+},{"../../../stores/album":56,"./album-list-songs.vue":7,"./albums.vue":8,"./artists.vue":9,"./favorites.vue":10,"./playlist.vue":12,"./profile.vue":13,"./queue.vue":14,"./settings.vue":15,"./songs.vue":16,"./users.vue":17,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],12:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#playlistWrapper button.play-shuffle i, #playlistWrapper button.del i {\n  margin-right: 0 !important; }\n\n/* line 12, stdin */\n#playlistWrapper button.del {\n  background-color: #c34848 !important; }\n  /* line 15, stdin */\n  #playlistWrapper button.del:hover {\n    background-color: #a33535 !important; }\n")
 'use strict';
 
@@ -1079,7 +1067,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/playlist":58,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],13:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":54,"../../../stores/playlist":59,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],13:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#profileWrapper input[type=\"text\"], #profileWrapper input[type=\"email\"], #profileWrapper input[type=\"password\"] {\n  width: 192px; }\n\n/* line 11, stdin */\n#profileWrapper input.error {\n  box-shadow: 0 0 0px 1000px #ff867a inset; }\n\n/* line 17, stdin */\n#profileWrapper .change-pwd {\n  margin-top: 24px; }\n\n/* line 21, stdin */\n#profileWrapper .status {\n  margin-left: 8px;\n  color: #56a052; }\n\n/* line 26, stdin */\n#profileWrapper .preferences {\n  margin-top: 32px;\n  border-top: 1px solid #282828; }\n\n/* line 31, stdin */\n#profileWrapper .lastfm {\n  border-top: 1px solid #282828;\n  color: #a0a0a0;\n  margin-top: 16px;\n  padding-top: 16px; }\n  /* line 37, stdin */\n  #profileWrapper .lastfm a {\n    color: #ff7d2e; }\n  /* line 41, stdin */\n  #profileWrapper .lastfm h1 {\n    font-size: 24px;\n    margin-bottom: 16px; }\n  /* line 46, stdin */\n  #profileWrapper .lastfm .buttons {\n    margin-top: 16px; }\n    /* line 49, stdin */\n    #profileWrapper .lastfm .buttons .connect {\n      background: #d31f27; }\n    /* line 53, stdin */\n    #profileWrapper .lastfm .buttons .disconnect {\n      background: #3c3c3c; }\n\n@media only screen and (max-device-width: 667px) and (orientation: portrait) {\n  /* line 63, stdin */\n  #profileWrapper input[type=\"text\"], #profileWrapper input[type=\"email\"], #profileWrapper input[type=\"password\"] {\n    width: 100%;\n    height: 32px; } }\n")
 'use strict';
 
@@ -1206,7 +1194,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/http":51,"../../../stores/preference":59,"../../../stores/shared":62,"../../../stores/user":64,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],14:[function(require,module,exports){
+},{"../../../services/http":52,"../../../stores/preference":60,"../../../stores/shared":63,"../../../stores/user":65,"jquery":34,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],14:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#queueWrapper .none {\n  color: #a0a0a0;\n  margin-top: 16px; }\n\n/* line 13, stdin */\n#queueWrapper button.play-shuffle i {\n  margin-right: 0 !important; }\n\n/* line 18, stdin */\n#queueWrapper button.clear {\n  background-color: #4c769a !important; }\n  /* line 21, stdin */\n  #queueWrapper button.clear:hover {\n    background-color: #3b5c78 !important; }\n\n/* line 26, stdin */\n#queueWrapper button.save {\n  background-color: #56a052 !important; }\n  /* line 29, stdin */\n  #queueWrapper button.save:hover {\n    background-color: #447e41 !important; }\n\n/* line 34, stdin */\n#queueWrapper .form-save {\n  position: absolute;\n  bottom: -50px;\n  left: 0;\n  background: #56a052;\n  padding: 8px;\n  width: 100%;\n  border-radius: 5px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center; }\n  /* line 46, stdin */\n  #queueWrapper .form-save::before {\n    display: block;\n    content: \" \";\n    width: 0;\n    height: 0;\n    border-left: 10px solid transparent;\n    border-right: 10px solid transparent;\n    border-bottom: 10px solid #56a052;\n    position: absolute;\n    top: -7px;\n    left: calc(50% - 10px); }\n  /* line 59, stdin */\n  #queueWrapper .form-save input[type=\"text\"] {\n    width: 100%;\n    border-radius: 5px 0 0 5px;\n    height: 28px; }\n  /* line 65, stdin */\n  #queueWrapper .form-save button#saveQueueSubmit {\n    margin-top: 0;\n    border-radius: 0 5px 5px 0;\n    height: 28px;\n    margin-left: -2px; }\n")
 'use strict';
 
@@ -1327,7 +1315,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/playlist":58,"../../../stores/queue":60,"../../shared/song-list.vue":24,"ismobilejs":33,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],15:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":54,"../../../stores/playlist":59,"../../../stores/queue":61,"../../shared/song-list.vue":24,"ismobilejs":33,"lodash":38,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],15:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#settingsWrapper input[type=\"text\"] {\n  width: 384px;\n  margin-top: 12px; }\n\n@media only screen and (max-device-width: 667px) and (orientation: portrait) {\n  /* line 14, stdin */\n  #settingsWrapper input[type=\"text\"] {\n    width: 100%; } }\n")
 'use strict';
 
@@ -1397,7 +1385,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../services/utils":54,"../../../stores/setting":61,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],16:[function(require,module,exports){
+},{"../../../services/utils":55,"../../../stores/setting":62,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 6, stdin */\n#songsWrapper .none {\n  color: #a0a0a0;\n  margin-top: 16px; }\n")
 'use strict';
 
@@ -1469,7 +1457,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../mixins/shuffle-selected":31,"../../../services/playback":53,"../../../stores/song":63,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],17:[function(require,module,exports){
+},{"../../../mixins/shuffle-selected":31,"../../../services/playback":54,"../../../stores/song":64,"../../shared/song-list.vue":24,"ismobilejs":33,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],17:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("@-webkit-keyframes barberpole {\n  from {\n    background-position: 0 0; }\n  to {\n    background-position: 60px 30px; } }\n\n@keyframes barberpole {\n  from {\n    background-position: 0 0; }\n  to {\n    background-position: 60px 30px; } }\n\n/* line 11, stdin */\n#usersWrapper .users {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-flex-wrap: wrap;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n  /* line 16, stdin */\n  #usersWrapper .users .user-item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 376px;\n        -ms-flex: 0 0 376px;\n            flex: 0 0 376px;\n    margin-bottom: 16px; }\n    /* line 21, stdin */\n    #usersWrapper .users .user-item.editing {\n      background-size: 30px 30px;\n      background-image: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0.3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 75%, transparent 75%, transparent);\n      background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.3) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 75%, transparent 75%, transparent);\n      -webkit-animation: barberpole 2s linear infinite;\n              animation: barberpole 2s linear infinite; }\n    /* line 37, stdin */\n    #usersWrapper .users .user-item img {\n      -webkit-box-flex: 0;\n      -webkit-flex: 0 0 128px;\n          -ms-flex: 0 0 128px;\n              flex: 0 0 128px; }\n    /* line 41, stdin */\n    #usersWrapper .users .user-item .right {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1;\n      padding: 16px;\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n      -webkit-flex-direction: column;\n          -ms-flex-direction: column;\n              flex-direction: column;\n      -webkit-box-pack: justify;\n      -webkit-justify-content: space-between;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      background-color: rgba(255, 255, 255, 0.02); }\n    /* line 50, stdin */\n    #usersWrapper .users .user-item h1 {\n      font-size: 140%;\n      margin-bottom: 5px; }\n      /* line 54, stdin */\n      #usersWrapper .users .user-item h1 .you {\n        font-size: 14px;\n        color: #ff7d2e;\n        margin-left: 8px; }\n    /* line 61, stdin */\n    #usersWrapper .users .user-item .buttons {\n      display: none; }\n    /* line 66, stdin */\n    #usersWrapper .users .user-item:hover .buttons {\n      display: block; }\n    /* line 71, stdin */\n    #usersWrapper .users .user-item button {\n      font-size: 12px;\n      padding: 6px 14px;\n      background: transparent;\n      border: 1px solid rgba(255, 255, 255, 0.1); }\n      /* line 77, stdin */\n      #usersWrapper .users .user-item button.edit:hover {\n        background-color: #4c769a; }\n      /* line 81, stdin */\n      #usersWrapper .users .user-item button.delete:hover {\n        background-color: #c34848; }\n\n/* line 88, stdin */\n#usersWrapper .btn-create {\n  background: #56a052 !important; }\n  /* line 91, stdin */\n  #usersWrapper .btn-create:hover {\n    background: #447e41 !important; }\n\n/* line 96, stdin */\n#usersWrapper form.user-create, #usersWrapper form.user-edit {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n      -ms-flex-align: end;\n          align-items: flex-end;\n  margin-bottom: 32px;\n  padding-bottom: 32px;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }\n  /* line 103, stdin */\n  #usersWrapper form.user-create .input-col, #usersWrapper form.user-edit .input-col {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    padding-right: 8px; }\n    /* line 107, stdin */\n    #usersWrapper form.user-create .input-col input, #usersWrapper form.user-edit .input-col input {\n      height: 32px;\n      width: 100%; }\n  /* line 113, stdin */\n  #usersWrapper form.user-create button, #usersWrapper form.user-edit button {\n    height: 32px;\n    padding-top: 6px; }\n    /* line 117, stdin */\n    #usersWrapper form.user-create button.cancel, #usersWrapper form.user-edit button.cancel {\n      background: #c34848; }\n\n@media only screen and (max-device-width: 667px) and (orientation: portrait) {\n  /* line 126, stdin */\n  #usersWrapper form.user-create, #usersWrapper form.user-edit {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: stretch;\n    -webkit-align-items: stretch;\n        -ms-flex-align: stretch;\n                -ms-grid-row-align: stretch;\n            align-items: stretch; }\n    /* line 130, stdin */\n    #usersWrapper form.user-create .input-col, #usersWrapper form.user-edit .input-col {\n      padding-right: 0; }\n    /* line 134, stdin */\n    #usersWrapper form.user-create .input-col, #usersWrapper form.user-create .btn-col, #usersWrapper form.user-edit .input-col, #usersWrapper form.user-edit .btn-col {\n      margin-top: 12px; }\n  /* line 139, stdin */\n  #usersWrapper .users {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    /* line 142, stdin */\n    #usersWrapper .users .user-item {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n      /* line 145, stdin */\n      #usersWrapper .users .user-item img {\n        display: none; }\n      /* line 149, stdin */\n      #usersWrapper .users .user-item .buttons {\n        margin-top: 12px;\n        display: block; } }\n\n@media only screen and (min-device-width: 668px) and (max-device-width: 768px) and (orientation: portrait) {\n  /* line 161, stdin */\n  #usersWrapper .users {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n    /* line 164, stdin */\n    #usersWrapper .users .user-item {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n          -ms-flex: 1;\n              flex: 1; }\n    /* line 168, stdin */\n    #usersWrapper .users .buttons {\n      margin-top: 12px;\n      display: block; } }\n")
 'use strict';
 
@@ -1622,7 +1610,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/user":64,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],18:[function(require,module,exports){
+},{"../../../stores/user":65,"lodash":38,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],18:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#sidebar {\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 256px;\n      -ms-flex: 0 0 256px;\n          flex: 0 0 256px;\n  background-color: #212121;\n  padding: 22px 0 0;\n  max-height: calc(100vh - 112px);\n  overflow: auto;\n  overflow-y: scroll;\n  -webkit-overflow-scrolling: touch; }\n  /* line 16, stdin */\n  #sidebar a.droppable {\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2);\n    -webkit-transition: .3s;\n    transition: .3s;\n    -webkit-transform-origin: center left;\n            transform-origin: center left;\n    color: #fff;\n    background-color: rgba(0, 0, 0, 0.3); }\n  /* line 25, stdin */\n  #sidebar section {\n    margin-bottom: 32px; }\n    /* line 28, stdin */\n    #sidebar section h1 {\n      text-transform: uppercase;\n      letter-spacing: 1px;\n      padding: 0 16px;\n      margin-bottom: 12px; }\n      /* line 34, stdin */\n      #sidebar section h1 i {\n        float: right; }\n    /* line 39, stdin */\n    #sidebar section a {\n      display: block;\n      height: 36px;\n      line-height: 36px;\n      padding: 0 12px 0 16px;\n      border-left: 4px solid transparent; }\n      /* line 46, stdin */\n      #sidebar section a.active, #sidebar section a:hover {\n        border-left-color: #ff7d2e;\n        color: #fff;\n        background: rgba(255, 255, 255, 0.05); }\n      /* line 52, stdin */\n      #sidebar section a:hover {\n        border-left-color: #c74b00; }\n      /* line 56, stdin */\n      #sidebar section a::before {\n        width: 24px;\n        display: inline-block;\n        font-family: FontAwesome; }\n      /* line 62, stdin */\n      #sidebar section a.queue::before {\n        content: \"\\f0cb\"; }\n      /* line 66, stdin */\n      #sidebar section a.songs::before {\n        content: \"\\f001\"; }\n      /* line 70, stdin */\n      #sidebar section a.albums::before {\n        content: \"\\f152\"; }\n      /* line 74, stdin */\n      #sidebar section a.artists::before {\n        content: \"\\f130\"; }\n      /* line 78, stdin */\n      #sidebar section a.settings::before {\n        content: \"\\f013\"; }\n      /* line 82, stdin */\n      #sidebar section a.users::before {\n        content: \"\\f0c0\"; }\n  /* line 88, stdin */\n  #sidebar .new-ver {\n    margin: 16px;\n    padding: 16px;\n    border: 1px solid #a0a0a0;\n    color: #fff;\n    opacity: .3;\n    font-size: 90%;\n    display: block;\n    -webkit-transition: .3s;\n    transition: .3s; }\n    /* line 98, stdin */\n    #sidebar .new-ver:hover {\n      opacity: .7; }\n  @media only screen and (max-device-width: 667px) and (orientation: portrait) {\n    /* line 5, stdin */\n    #sidebar {\n      position: fixed;\n      height: calc(100vh - 112px);\n      padding-bottom: 64px;\n      width: 100%;\n      z-index: 99;\n      top: 48px;\n      left: -100%;\n      -webkit-transition: left .3s ease-in;\n      transition: left .3s ease-in; }\n      /* line 117, stdin */\n      #sidebar.showing {\n        left: 0; } }\n")
 'use strict';
 
@@ -1665,7 +1653,6 @@ exports.default = {
 
     data: function data() {
         return {
-            currentView: 'queue',
             user: _user2.default.state,
             showing: !_ismobilejs2.default.phone,
             sharedState: _shared2.default.state
@@ -1721,15 +1708,6 @@ exports.default = {
     },
 
     events: {
-        'main-content-view:load': function mainContentViewLoad(view) {
-            this.currentView = view;
-
-            // Hide the sidebar if on mobile
-            if (_ismobilejs2.default.phone) {
-                this.showing = false;
-            }
-        },
-
         /**
          * Listen to sidebar:toggle event to show or hide the sidebar.
          * This should only be triggered on a mobile device.
@@ -1740,7 +1718,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <nav class=\"side side-nav\" id=\"sidebar\" :class=\"{ showing: showing }\">\n        <section class=\"music\">\n            <h1>Your Music</h1>\n\n            <ul class=\"menu\">\n                <li>\n                    <a class=\"queue\" :class=\"[currentView == 'queue' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('queue')\" @dragleave=\"removeDroppableState\" @dragover.prevent=\"allowDrop\" @drop.stop=\"handleDrop($event)\">Current Queue</a>\n                </li>\n                <li>\n                    <a class=\"songs\" :class=\"[currentView == 'songs' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('songs')\">All Songs</a>\n                </li>\n                <li>\n                    <a class=\"albums\" :class=\"[currentView == 'albums' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('albums')\">Albums</a>\n                </li>\n                <li>\n                    <a class=\"artists\" :class=\"[currentView == 'artists' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('artists')\">Artists</a>\n                </li>\n            </ul>\n        </section>\n\n        <playlists :current-view=\"currentView\"></playlists>\n        \n        <section v-if=\"user.current.is_admin\" class=\"manage\">\n            <h1>Manage</h1>\n\n            <ul class=\"menu\">\n                <li>\n                    <a class=\"settings\" :class=\"[currentView == 'settings' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('settings')\">Settings</a>\n                    </li>\n                <li>\n                    <a class=\"users\" :class=\"[currentView == 'users' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('users')\">Users</a>\n                </li>\n            </ul>\n        </section>\n\n        <a href=\"https://github.com/phanan/koel/releases\" target=\"_blank\" v-show=\"user.current.is_admin &amp;&amp; sharedState.currentVersion < sharedState.latestVersion\" class=\"new-ver\">\n            Koel version {{ sharedState.latestVersion }} is available!\n        </a>\n    </nav>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <nav class=\"side side-nav\" id=\"sidebar\" :class=\"{ showing: showing }\">\n        <section class=\"music\">\n            <h1>Your Music</h1>\n\n            <ul class=\"menu\">\n                <li>\n                    <a class=\"queue\" v-link=\"{ path: '/queue', activeClass: 'active' }\" @dragleave=\"removeDroppableState\" @dragover.prevent=\"allowDrop\" @drop.stop=\"handleDrop($event)\">Current Queue</a>\n                </li>\n                <li>\n                    <a class=\"songs\" v-link=\"{ path: '/songs', activeClass: 'active' }\">All Songs</a>\n                </li>\n                <li>\n                    <a class=\"albums\" v-link=\"{ path: '/albums', activeClass: 'active' }\">Albums</a>\n                </li>\n                <li>\n                    <a class=\"artists\" v-link=\"{ path: '/artists', activeClass: 'active' }\">Artists</a>\n                </li>\n            </ul>\n        </section>\n\n        <playlists :current-view=\"currentView\"></playlists>\n        \n        <section v-if=\"user.current.is_admin\" class=\"manage\">\n            <!-- TODO remove-->\n            <h1>Manage</h1>\n\n            <ul class=\"menu\">\n                <li>\n                    <a class=\"settings\" :class=\"[currentView == 'settings' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('settings')\">Settings</a>\n                    </li>\n                <li>\n                    <a class=\"users\" :class=\"[currentView == 'users' ? 'active' : '']\" @click.prevent=\"$root.loadMainView('users')\">Users</a>\n                </li>\n            </ul>\n        </section>\n\n        <a href=\"https://github.com/phanan/koel/releases\" target=\"_blank\" v-show=\"user.current.is_admin &amp;&amp; sharedState.currentVersion < sharedState.latestVersion\" class=\"new-ver\">\n            Koel version {{ sharedState.latestVersion }} is available!\n        </a>\n    </nav>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1756,7 +1734,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/queue":60,"../../../stores/shared":62,"../../../stores/song":63,"../../../stores/user":64,"./playlists.vue":19,"ismobilejs":33,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],19:[function(require,module,exports){
+},{"../../../stores/queue":61,"../../../stores/shared":63,"../../../stores/song":64,"../../../stores/user":65,"./playlists.vue":19,"ismobilejs":33,"jquery":34,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],19:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 7, stdin */\n#playlists .menu a::before {\n  content: \"\\f0f6\"; }\n\n/* line 11, stdin */\n#playlists .menu a.favorites::before {\n  content: \"\\f004\";\n  color: #bf2043; }\n\n/* line 16, stdin */\n#playlists .menu .playlist {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none; }\n  /* line 19, stdin */\n  #playlists .menu .playlist input {\n    display: none;\n    width: calc(100% - 32px);\n    margin: 5px 16px; }\n  /* line 27, stdin */\n  #playlists .menu .playlist.editing a {\n    display: none; }\n  /* line 31, stdin */\n  #playlists .menu .playlist.editing input {\n    display: block; }\n\n/* line 38, stdin */\n#playlists form.create {\n  padding: 8px 16px; }\n  /* line 41, stdin */\n  #playlists form.create input[type=\"text\"] {\n    width: 100%; }\n")
 'use strict';
 
@@ -1813,7 +1791,6 @@ exports.default = {
          */
         loadFavorites: function loadFavorites() {
             this.currentPlaylist = null;
-            this.$root.loadFavorites();
         },
 
 
@@ -1927,7 +1904,7 @@ exports.default = {
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <section id=\"playlists\">\n        <h1>Playlists <i class=\"fa fa-plus-circle control\" @click=\"this.creating = !this.creating\"></i></h1>\n\n        <form v-show=\"creating\" @submit.prevent=\"store\" class=\"create\">\n            <input type=\"text\" @keyup.esc.prevent=\"creating = false\" v-model=\"newName\" v-koel-focus=\"creating\" placeholder=\"↵ to save\" required=\"\">\n        </form>\n\n        <ul class=\"menu\">\n            <li>\n                <a class=\"favorites\" @click.prevent=\"loadFavorites\" :class=\"[currentView == 'favorites' ? 'active' : '']\" @dragleave=\"removeDroppableState\" @dragover.prevent=\"allowDrop\" @drop.stop=\"handleDrop(null, $event)\">Favorites</a>\n            </li>\n\n            <li v-for=\"p in state.playlists\" @dblclick.prevent=\"edit(p)\" class=\"playlist\" :class=\"{ editing: p == editedPlaylist }\">\n                <a @click.prevent=\"load(p)\" @dragleave=\"removeDroppableState\" @dragover.prevent=\"allowDrop\" @drop.stop=\"handleDrop(p, $event)\" :class=\"[(currentView == 'playlist' &amp;&amp; currentPlaylist == p)  ? 'active' : '']\">\n                    {{ p.name }}\n                </a>\n\n                <input type=\"text\" @keyup.esc=\"cancelEdit(p)\" @keyup.enter=\"update(p)\" @blur=\"update(p)\" v-model=\"p.name\" v-koel-focus=\"p == editedPlaylist\" required=\"\">\n            </li>\n        </ul>\n    </section>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <section id=\"playlists\">\n        <h1>Playlists <i class=\"fa fa-plus-circle control\" @click=\"this.creating = !this.creating\"></i></h1>\n\n        <form v-show=\"creating\" @submit.prevent=\"store\" class=\"create\">\n            <input type=\"text\" @keyup.esc.prevent=\"creating = false\" v-model=\"newName\" v-koel-focus=\"creating\" placeholder=\"↵ to save\" required=\"\">\n        </form>\n\n        <ul class=\"menu\">\n            <li>\n                <a class=\"favorites\" v-link=\"{ path: '/favorites', activeClass: 'active' }\" @click.prevent=\"loadFavorites\" @dragleave=\"removeDroppableState\" @dragover.prevent=\"allowDrop\" @drop.stop=\"handleDrop(null, $event)\">Favorites</a>\n            </li>\n\n            <li v-for=\"p in state.playlists\" @dblclick.prevent=\"edit(p)\" class=\"playlist\" :class=\"{ editing: p == editedPlaylist }\">\n                <a @click.prevent=\"load(p)\" @dragleave=\"removeDroppableState\" @dragover.prevent=\"allowDrop\" @drop.stop=\"handleDrop(p, $event)\" :class=\"[(currentView == 'playlist' &amp;&amp; currentPlaylist == p)  ? 'active' : '']\"><!-- TODO handle playlists router -->\n                    {{ p.name }}\n                </a>\n\n                <input type=\"text\" @keyup.esc=\"cancelEdit(p)\" @keyup.enter=\"update(p)\" @blur=\"update(p)\" v-model=\"p.name\" v-koel-focus=\"p == editedPlaylist\" required=\"\">\n            </li>\n        </ul>\n    </section>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1943,7 +1920,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../../stores/favorite":57,"../../../stores/playlist":58,"../../../stores/song":63,"jquery":34,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],20:[function(require,module,exports){
+},{"../../../stores/favorite":58,"../../../stores/playlist":59,"../../../stores/song":64,"jquery":34,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1982,7 +1959,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../services/playback":53,"vue":49,"vue-hot-reload-api":40}],21:[function(require,module,exports){
+},{"../../services/playback":54,"vue":50,"vue-hot-reload-api":40}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2025,7 +2002,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../services/playback":53,"../../stores/artist":56,"vue":49,"vue-hot-reload-api":40}],22:[function(require,module,exports){
+},{"../../services/playback":54,"../../stores/artist":57,"vue":50,"vue-hot-reload-api":40}],22:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n#overlay {\n  position: fixed;\n  top: 45px;\n  left: 0;\n  z-index: 1999;\n  width: 100%;\n  height: 100%;\n  background-color: black;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n  /* line 17, stdin */\n  #overlay .display {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n    /* line 20, stdin */\n    #overlay .display i {\n      margin-right: 6px; }\n  /* line 25, stdin */\n  #overlay button {\n    font-size: 12px;\n    margin-top: 16px; }\n  /* line 30, stdin */\n  #overlay.error {\n    color: #c34848; }\n  /* line 34, stdin */\n  #overlay.success {\n    color: #56a052; }\n  /* line 38, stdin */\n  #overlay.info {\n    color: #4c769a; }\n  /* line 42, stdin */\n  #overlay.loading {\n    color: #a0a0a0; }\n  /* line 46, stdin */\n  #overlay.warning {\n    color: #ff7d2e; }\n")
 'use strict';
 
@@ -2060,7 +2037,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"./sound-bar.vue":25,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],23:[function(require,module,exports){
+},{"./sound-bar.vue":25,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],23:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n.song-item {\n  border-bottom: 1px solid #282828; }\n  /* line 8, stdin */\n  .song-item:hover {\n    background: rgba(255, 255, 255, 0.05); }\n  /* line 12, stdin */\n  .song-item .time {\n    color: #a0a0a0; }\n  /* line 16, stdin */\n  .song-item .title {\n    min-width: 192px; }\n  /* line 20, stdin */\n  .song-item.selected {\n    background-color: rgba(255, 255, 255, 0.08); }\n  /* line 24, stdin */\n  .song-item.playing {\n    color: #ff7d2e; }\n")
 'use strict';
 
@@ -2124,7 +2101,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../services/playback":53,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],24:[function(require,module,exports){
+},{"../../services/playback":54,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],24:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 5, stdin */\n.none {\n  color: #a0a0a0;\n  margin-top: 16px; }\n\n/* line 10, stdin */\n.song-list-wrap {\n  position: relative;\n  /**\n         * Since the Queue screen doesn't allow sorting, we reset the cursor style.\n         */ }\n  /* line 13, stdin */\n  .song-list-wrap table {\n    width: 100%;\n    table-layout: fixed; }\n  /* line 18, stdin */\n  .song-list-wrap td, .song-list-wrap th {\n    text-align: left;\n    padding: 8px;\n    vertical-align: middle;\n    white-space: normal; }\n    /* line 24, stdin */\n    .song-list-wrap td.time, .song-list-wrap th.time {\n      width: 72px;\n      text-align: right; }\n  /* line 30, stdin */\n  .song-list-wrap th {\n    color: #a0a0a0;\n    letter-spacing: 1px;\n    text-transform: uppercase;\n    cursor: pointer; }\n    /* line 36, stdin */\n    .song-list-wrap th i {\n      color: #ff7d2e;\n      font-size: 120%; }\n  /* line 42, stdin */\n  .song-list-wrap a.start {\n    color: #ff7d2e; }\n    /* line 45, stdin */\n    .song-list-wrap a.start:hover {\n      color: #fa5e00; }\n  /* line 53, stdin */\n  .song-list-wrap.queue th {\n    cursor: default; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 61, stdin */\n    .song-list-wrap table, .song-list-wrap tbody, .song-list-wrap tr {\n      display: block;\n      table-layout: fixed; }\n    /* line 66, stdin */\n    .song-list-wrap thead, .song-list-wrap tfoot {\n      display: none; }\n    /* line 70, stdin */\n    .song-list-wrap tr {\n      padding: 8px 0; }\n    /* line 74, stdin */\n    .song-list-wrap td {\n      display: inline;\n      padding: 0;\n      vertical-align: bottom;\n      white-space: normal; }\n      /* line 80, stdin */\n      .song-list-wrap td.album, .song-list-wrap td.time {\n        display: none; }\n      /* line 84, stdin */\n      .song-list-wrap td.artist {\n        opacity: .5;\n        font-size: 90%;\n        padding: 0 4px; } }\n")
 'use strict';
 
@@ -2506,7 +2483,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../mixins/infinite-scroll":30,"../../services/playback":53,"../../stores/favorite":57,"../../stores/playlist":58,"../../stores/queue":60,"../../stores/song":63,"./song-item.vue":23,"ismobilejs":33,"jquery":34,"lodash":38,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],25:[function(require,module,exports){
+},{"../../mixins/infinite-scroll":30,"../../services/playback":54,"../../stores/favorite":58,"../../stores/playlist":59,"../../stores/queue":61,"../../stores/song":64,"./song-item.vue":23,"ismobilejs":33,"jquery":34,"lodash":38,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],25:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("@-webkit-keyframes sound {\n  0% {\n    opacity: .15;\n    height: 1px; }\n  100% {\n    opacity: 1;\n    height: 13px; } }\n\n@keyframes sound {\n  0% {\n    opacity: .15;\n    height: 1px; }\n  100% {\n    opacity: 1;\n    height: 13px; } }\n\n/* line 15, stdin */\n#bars {\n  width: 28px;\n  height: 13px;\n  position: relative;\n  display: inline-block; }\n  /* line 21, stdin */\n  #bars .bar {\n    background: #666;\n    bottom: 1px;\n    position: absolute;\n    width: 3px;\n    -webkit-animation: sound 0ms -800ms linear infinite alternate;\n            animation: sound 0ms -800ms linear infinite alternate; }\n  /* line 29, stdin */\n  #bars .bar:nth-child(1) {\n    left: 1px;\n    background: #754fa0;\n    -webkit-animation-duration: 474ms;\n            animation-duration: 474ms; }\n  /* line 30, stdin */\n  #bars .bar:nth-child(2) {\n    left: 5px;\n    background: #09b7bf;\n    -webkit-animation-duration: 433ms;\n            animation-duration: 433ms; }\n  /* line 31, stdin */\n  #bars .bar:nth-child(3) {\n    left: 9px;\n    background: #90d36b;\n    -webkit-animation-duration: 407ms;\n            animation-duration: 407ms; }\n  /* line 32, stdin */\n  #bars .bar:nth-child(4) {\n    left: 13px;\n    background: #ed1b72;\n    -webkit-animation-duration: 458ms;\n            animation-duration: 458ms; }\n  /* line 33, stdin */\n  #bars .bar:nth-child(5) {\n    left: 17px;\n    background: #f2d40d;\n    -webkit-animation-duration: 400ms;\n            animation-duration: 400ms; }\n")
 "use strict";
 
@@ -2568,7 +2545,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],26:[function(require,module,exports){
+},{"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],26:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 28, stdin */\n#mainFooter {\n  background: #282828;\n  position: fixed;\n  width: 100%;\n  height: 64px;\n  bottom: 0;\n  left: 0;\n  border-top: 1px solid #181818;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  z-index: 1000; }\n  /* line 41, stdin */\n  #mainFooter .media-info-wrap {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex; }\n  /* line 46, stdin */\n  #mainFooter .other-controls {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    position: relative;\n    text-transform: uppercase;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 334px;\n        -ms-flex: 0 0 334px;\n            flex: 0 0 334px;\n    color: #aaa; }\n    /* line 10, stdin */\n    #mainFooter .other-controls::before {\n      content: \" \";\n      position: absolute;\n      width: 100%;\n      height: 42.66667px;\n      top: -42.66667px;\n      left: 0;\n      background-image: -webkit-linear-gradient(top, rgba(24, 24, 24, 0) 0%, #181818 100%);\n      background-image: linear-gradient(to bottom, rgba(24, 24, 24, 0) 0%, #181818 100%);\n      pointer-events: none; }\n    /* line 50, stdin */\n    #mainFooter .other-controls.with-gradient {\n      position: relative; }\n      /* line 10, stdin */\n      #mainFooter .other-controls.with-gradient::before {\n        content: \" \";\n        position: absolute;\n        width: 100%;\n        height: 42.66667px;\n        top: -42.66667px;\n        left: 0;\n        background-image: -webkit-linear-gradient(top, rgba(33, 33, 33, 0) 0%, #212121 100%);\n        background-image: linear-gradient(to bottom, rgba(33, 33, 33, 0) 0%, #212121 100%);\n        pointer-events: none; }\n    /* line 58, stdin */\n    #mainFooter .other-controls .control {\n      display: inline-block;\n      padding: 0 8px; }\n      /* line 62, stdin */\n      #mainFooter .other-controls .control.active {\n        color: #fff; }\n      /* line 66, stdin */\n      #mainFooter .other-controls .control:last-child {\n        padding-right: 0; }\n    /* line 71, stdin */\n    #mainFooter .other-controls .repeat {\n      position: relative; }\n      /* line 74, stdin */\n      #mainFooter .other-controls .repeat.REPEAT_ALL, #mainFooter .other-controls .repeat.REPEAT_ONE {\n        color: #ff7d2e; }\n      /* line 78, stdin */\n      #mainFooter .other-controls .repeat.REPEAT_ONE::after {\n        content: \"1\";\n        position: absolute;\n        top: 0;\n        left: 0;\n        font-weight: 700;\n        font-size: 50%;\n        text-align: center;\n        width: 100%; }\n    /* line 94, stdin */\n    #mainFooter .other-controls .like.liked {\n      color: #bf2043; }\n    @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n      /* line 46, stdin */\n      #mainFooter .other-controls {\n        position: absolute !important;\n        right: 0;\n        height: 64px;\n        display: block;\n        text-align: right;\n        top: 0;\n        line-height: 64px;\n        width: 168px;\n        text-align: center; }\n        /* line 113, stdin */\n        #mainFooter .other-controls::before {\n          display: none; }\n        /* line 117, stdin */\n        #mainFooter .other-controls .queue {\n          display: none; }\n        /* line 121, stdin */\n        #mainFooter .other-controls .control {\n          margin: 0;\n          padding: 0 8px; } }\n\n/* line 129, stdin */\n#playerControls {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 256px;\n      -ms-flex: 0 0 256px;\n          flex: 0 0 256px;\n  font-size: 24px;\n  background: transparent;\n  position: relative; }\n  /* line 10, stdin */\n  #playerControls::before {\n    content: \" \";\n    position: absolute;\n    width: 100%;\n    height: 42.66667px;\n    top: -42.66667px;\n    left: 0;\n    background-image: -webkit-linear-gradient(top, rgba(33, 33, 33, 0) 0%, #212121 100%);\n    background-image: linear-gradient(to bottom, rgba(33, 33, 33, 0) 0%, #212121 100%);\n    pointer-events: none; }\n  /* line 137, stdin */\n  #playerControls .prev, #playerControls .next {\n    -webkit-transition: .3s;\n    transition: .3s; }\n  /* line 141, stdin */\n  #playerControls .play, #playerControls .pause {\n    font-size: 26px;\n    display: inline-block;\n    width: 42px;\n    height: 42px;\n    border-radius: 50%;\n    line-height: 40px;\n    text-align: center;\n    border: 1px solid #a0a0a0;\n    margin: 0 16px;\n    text-indent: 2px; }\n  /* line 154, stdin */\n  #playerControls .pause {\n    text-indent: 0;\n    font-size: 18px; }\n  /* line 159, stdin */\n  #playerControls .enabled {\n    opacity: 1; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 129, stdin */\n    #playerControls {\n      width: 50%;\n      position: absolute;\n      top: 0;\n      left: 0; }\n      /* line 172, stdin */\n      #playerControls::before {\n        display: none; } }\n\n/* line 178, stdin */\n.middle-pane {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative; }\n  /* line 182, stdin */\n  .middle-pane .album-thumb {\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 64px;\n        -ms-flex: 0 0 64px;\n            flex: 0 0 64px;\n    height: 64px;\n    background: url(/public/img/covers/unknown-album.png);\n    background-size: 64px;\n    position: relative; }\n  /* line 10, stdin */\n  .middle-pane::before {\n    content: \" \";\n    position: absolute;\n    width: 100%;\n    height: 42.66667px;\n    top: -42.66667px;\n    left: 0;\n    background-image: -webkit-linear-gradient(top, rgba(24, 24, 24, 0) 0%, #181818 100%);\n    background-image: linear-gradient(to bottom, rgba(24, 24, 24, 0) 0%, #181818 100%);\n    pointer-events: none; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 178, stdin */\n    .middle-pane {\n      width: 100%;\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: 8px; }\n      /* line 202, stdin */\n      .middle-pane .album-thumb {\n        display: none; }\n      /* line 206, stdin */\n      .middle-pane ::before {\n        display: none; }\n      /* line 210, stdin */\n      .middle-pane #progressPane {\n        width: 100%;\n        position: absolute;\n        top: 0; } }\n\n/* line 218, stdin */\n#progressPane {\n  -webkit-box-flex: 1;\n  -webkit-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  text-align: center;\n  padding-top: 16px;\n  line-height: 18px;\n  background: rgba(1, 1, 1, 0.2);\n  position: relative; }\n  /* line 226, stdin */\n  #progressPane .meta {\n    font-size: 90%;\n    opacity: .4; }\n\n@-webkit-keyframes progress {\n  to {\n    background-position: 40px 0; } }\n\n@keyframes progress {\n  to {\n    background-position: 40px 0; } }\n  /* line 139, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n  #progressPane .sr-only {\n    position: absolute !important;\n    clip: rect(1px, 1px, 1px, 1px);\n    padding: 0 !important;\n    border: 0 !important;\n    height: 1px !important;\n    width: 1px !important;\n    overflow: hidden; }\n  /* line 152, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n  #progressPane .player {\n    position: relative;\n    max-width: 100%;\n    min-width: 290px; }\n    /* line 159, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player,\n    #progressPane .player *,\n    #progressPane .player *::after,\n    #progressPane .player *::before {\n      box-sizing: border-box; }\n    /* line 167, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-video-wrapper {\n      position: relative; }\n    /* line 170, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player video,\n    #progressPane .player audio {\n      width: 100%;\n      height: auto;\n      vertical-align: middle; }\n    /* line 178, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-video-embed {\n      padding-bottom: 56.25%;\n      /* 16:9 */\n      height: 0; }\n      /* line 182, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-video-embed iframe {\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 0; }\n    /* line 193, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-captions {\n      display: none;\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      width: 100%;\n      padding: 0 0 0;\n      color: #fff;\n      font-size: 20px;\n      text-align: center;\n      -moz-osx-font-smoothing: grayscale;\n      -webkit-font-smoothing: antialiased; }\n      /* line 205, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-captions span {\n        border-radius: 2px;\n        padding: 3px 10px;\n        background: rgba(0, 0, 0, 0.9); }\n      /* line 210, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-captions span:empty {\n        display: none; }\n      @media (min-width: 768px) {\n        /* line 193, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-captions {\n          font-size: 24px; } }\n    /* line 218, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.captions-active #progressPane .player-captions {\n      display: block; }\n    /* line 221, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.fullscreen-active #progressPane .player-captions {\n      font-size: 32px; }\n    /* line 226, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-controls {\n      zoom: 1;\n      -moz-osx-font-smoothing: grayscale;\n      -webkit-font-smoothing: antialiased;\n      position: relative;\n      padding: 0;\n      background: #fff;\n      line-height: 1;\n      text-align: center;\n      box-shadow: 0 1px 1px rgba(52, 63, 74, 0.2); }\n      /* line 95, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls:before, #progressPane .player-controls:after {\n        content: '';\n        display: table; }\n      /* line 97, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls:after {\n        clear: both; }\n      /* line 237, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls-right {\n        display: block;\n        margin: 0 auto 0; }\n      @media (min-width: 560px) {\n        /* line 242, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls-left {\n          float: left; }\n        /* line 245, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls-right {\n          float: right;\n          margin-top: 0; } }\n      /* line 252, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls button {\n        display: inline-block;\n        vertical-align: middle;\n        margin: 0 2px;\n        padding: 0 0;\n        overflow: hidden;\n        border: 0;\n        background: transparent;\n        border-radius: 3px;\n        cursor: pointer;\n        color: #6B7D86;\n        -webkit-transition: background .3s ease, color .3s ease, opacity .3s ease;\n        transition: background .3s ease, color .3s ease, opacity .3s ease; }\n        /* line 265, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls button svg {\n          width: 18px;\n          height: 18px;\n          display: block;\n          fill: currentColor;\n          -webkit-transition: fill .3s ease;\n          transition: fill .3s ease; }\n        /* line 274, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls button.tab-focus, #progressPane .player-controls button:hover {\n          background: #ff7d2e;\n          color: #fff; }\n        /* line 280, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls button:focus {\n          outline: 0; }\n      /* line 286, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls .icon-exit-fullscreen,\n      #progressPane .player-controls .icon-muted,\n      #progressPane .player-controls .icon-captions-on {\n        display: none; }\n      /* line 293, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls .player-time {\n        display: inline-block;\n        vertical-align: middle;\n        margin-left: 0;\n        color: #6B7D86;\n        font-weight: 600;\n        font-size: 14px;\n        -moz-osx-font-smoothing: grayscale;\n        -webkit-font-smoothing: antialiased; }\n      /* line 304, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-controls .player-time + .player-time {\n        display: none; }\n        @media (min-width: 560px) {\n          /* line 304, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n          #progressPane .player-controls .player-time + .player-time {\n            display: inline-block; } }\n        /* line 312, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-controls .player-time + .player-time::before {\n          content: '\\2044';\n          margin-right: 0; }\n    /* line 320, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-tooltip {\n      position: absolute;\n      z-index: 2;\n      bottom: 100%;\n      margin-bottom: 0;\n      padding: 0 0;\n      opacity: 0;\n      background: #fff;\n      border-radius: 3px;\n      color: #6B7D86;\n      font-size: 14px;\n      line-height: 1.5;\n      font-weight: 600;\n      -webkit-transform: translate(-50%, 0) scale(0);\n              transform: translate(-50%, 0) scale(0);\n      -webkit-transform-origin: 50% 100%;\n              transform-origin: 50% 100%;\n      -webkit-transition: opacity .2s .1s ease, -webkit-transform .2s .1s ease;\n      transition: opacity .2s .1s ease, -webkit-transform .2s .1s ease;\n      transition: transform .2s .1s ease, opacity .2s .1s ease;\n      transition: transform .2s .1s ease, opacity .2s .1s ease, -webkit-transform .2s .1s ease; }\n      /* line 339, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-tooltip::after {\n        content: '';\n        display: block;\n        position: absolute;\n        left: 50%;\n        bottom: -5px;\n        margin-left: -5px;\n        width: 0;\n        height: 0;\n        -webkit-transition: inherit;\n        transition: inherit;\n        border-style: solid;\n        border-width: 5px 5px 0 5px;\n        border-color: #fff transparent transparent; }\n    /* line 354, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player button:hover .player-tooltip,\n    #progressPane .player button:focus .player-tooltip {\n      opacity: 1;\n      -webkit-transform: translate(-50%, 0) scale(1);\n              transform: translate(-50%, 0) scale(1); }\n    /* line 359, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player button:hover .player-tooltip {\n      z-index: 3; }\n    /* line 365, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-progress {\n      position: absolute;\n      bottom: 100%;\n      left: 0;\n      right: 0;\n      width: 100%;\n      height: 5px;\n      background: rgba(86, 93, 100, 0.2); }\n      /* line 374, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value], #progressPane .player-progress-played[value], #progressPane .player-progress-seek[type='range'] {\n        position: absolute;\n        left: 0;\n        top: 0;\n        width: 100%;\n        height: 5px;\n        margin: 0;\n        padding: 0;\n        vertical-align: top;\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        border: none;\n        background: transparent; }\n      /* line 393, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value]::-webkit-progress-bar, #progressPane .player-progress-played[value]::-webkit-progress-bar {\n        background: transparent; }\n      /* line 398, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value]::-webkit-progress-value, #progressPane .player-progress-played[value]::-webkit-progress-value {\n        background: currentColor; }\n      /* line 401, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value]::-moz-progress-bar, #progressPane .player-progress-played[value]::-moz-progress-bar {\n        background: currentColor; }\n      /* line 405, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-played[value] {\n        z-index: 2;\n        color: #ff7d2e; }\n      /* line 409, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-buffer[value] {\n        color: rgba(86, 93, 100, 0.25); }\n      /* line 416, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-progress-seek[type='range'] {\n        z-index: 4;\n        cursor: pointer;\n        outline: 0; }\n        /* line 422, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-webkit-slider-runnable-track {\n          background: none;\n          border: 0; }\n        /* line 425, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-webkit-slider-thumb {\n          -webkit-appearance: none;\n          background: transparent;\n          border: 0;\n          width: 0;\n          height: 0; }\n        /* line 431, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-moz-range-track {\n          background: none;\n          border: 0; }\n        /* line 434, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-moz-range-thumb {\n          -moz-appearance: none;\n          background: transparent;\n          border: 0;\n          width: 0;\n          height: 0; }\n        /* line 440, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-ms-track {\n          color: transparent;\n          background: none;\n          border: 0; }\n        /* line 444, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-ms-fill-lower, #progressPane .player-progress-seek[type='range']::-ms-fill-upper {\n          background: none;\n          border: 0; }\n        /* line 448, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-ms-thumb {\n          background: transparent;\n          border: 0;\n          width: 0;\n          height: 0; }\n        /* line 452, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']:focus {\n          outline: 0; }\n        /* line 455, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-progress-seek[type='range']::-moz-focus-outer {\n          border: 0; }\n    /* line 462, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.loading .player-progress-buffer {\n      -webkit-animation: progress 1s linear infinite;\n              animation: progress 1s linear infinite;\n      background-size: 40px 40px;\n      background-repeat: repeat-x;\n      background-color: rgba(86, 93, 100, 0.25);\n      background-image: -webkit-linear-gradient(135deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);\n      background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);\n      color: transparent; }\n    /* line 480, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-controls [data-player='pause'],\n    #progressPane .player.playing .player-controls [data-player='play'] {\n      display: none; }\n    /* line 484, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.playing .player-controls [data-player='pause'] {\n      display: inline-block; }\n    /* line 491, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-volume[type='range'] {\n      display: inline-block;\n      vertical-align: middle;\n      -webkit-appearance: none;\n      -moz-appearance: none;\n      -webkit-appearance: none;\n      width: 100px;\n      padding: 0;\n      cursor: pointer;\n      background: transparent;\n      border: none;\n      outline: 0 !important; }\n      /* line 505, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-webkit-slider-runnable-track {\n        height: 8px;\n        background: #e6e6e6;\n        border: 0;\n        border-radius: 4px; }\n      /* line 508, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-webkit-slider-thumb {\n        -webkit-appearance: none;\n        margin-top: -4px;\n        height: 16px;\n        width: 16px;\n        background: #6B7D86;\n        border: 0;\n        border-radius: 8px;\n        -webkit-transition: background .3s ease;\n        transition: background .3s ease;\n        cursor: ew-resize; }\n      /* line 515, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-moz-range-track {\n        height: 8px;\n        background: #e6e6e6;\n        border: 0;\n        border-radius: 4px; }\n      /* line 518, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-moz-range-thumb {\n        height: 16px;\n        width: 16px;\n        background: #6B7D86;\n        border: 0;\n        border-radius: 8px;\n        -webkit-transition: background .3s ease;\n        transition: background .3s ease;\n        cursor: ew-resize; }\n      /* line 523, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-ms-track {\n        height: 8px;\n        background: transparent;\n        border-color: transparent;\n        border-width: 4px 0;\n        color: transparent; }\n      /* line 530, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-ms-fill-lower, #progressPane .player-volume[type='range']::-ms-fill-upper {\n        height: 8px;\n        background: #e6e6e6;\n        border: 0;\n        border-radius: 4px; }\n      /* line 534, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']::-ms-thumb {\n        height: 16px;\n        width: 16px;\n        background: #6B7D86;\n        border: 0;\n        border-radius: 8px;\n        -webkit-transition: background .3s ease;\n        transition: background .3s ease;\n        cursor: ew-resize; }\n      /* line 538, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-volume[type='range']:focus {\n        outline: 0; }\n        /* line 541, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-volume[type='range']:focus::-webkit-slider-thumb {\n          background: #ff7d2e; }\n        /* line 544, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-volume[type='range']:focus::-moz-range-thumb {\n          background: #ff7d2e; }\n        /* line 547, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n        #progressPane .player-volume[type='range']:focus::-ms-thumb {\n          background: #ff7d2e; }\n    /* line 556, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.ios #progressPane .player-volume,\n    #progressPane .player.ios [data-player='mute'],\n    #progressPane .player-audio.ios #progressPane .player-controls-right {\n      display: none; }\n    /* line 562, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-audio.ios #progressPane .player-controls-left {\n      float: none; }\n    /* line 568, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-audio .player-controls {\n      padding-top: 0; }\n    /* line 571, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-audio .player-progress {\n      bottom: auto;\n      top: 0;\n      background: #313131; }\n    /* line 578, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player-fullscreen, #progressPane .player.fullscreen-active {\n      position: fixed;\n      top: 0;\n      left: 0;\n      right: 0;\n      bottom: 0;\n      height: 100%;\n      width: 100%;\n      z-index: 10000000;\n      background: #000; }\n      /* line 590, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen video, #progressPane .player.fullscreen-active video {\n        height: 100%; }\n      /* line 593, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen .player-video-wrapper, #progressPane .player.fullscreen-active .player-video-wrapper {\n        height: 100%;\n        width: 100%; }\n      /* line 597, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen .player-controls, #progressPane .player.fullscreen-active .player-controls {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        right: 0; }\n      /* line 606, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing .player-controls, #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing .player-controls {\n        -webkit-transform: translateY(100%) translateY(0);\n                transform: translateY(100%) translateY(0);\n        -webkit-transition: -webkit-transform .3s .2s ease;\n        transition: -webkit-transform .3s .2s ease;\n        transition: transform .3s .2s ease;\n        transition: transform .3s .2s ease, -webkit-transform .3s .2s ease; }\n      /* line 610, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing.player-hover .player-controls, #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing.player-hover .player-controls {\n        -webkit-transform: translateY(0);\n                transform: translateY(0); }\n      /* line 613, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing .player-captions, #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing .player-captions {\n        bottom: 0;\n        -webkit-transition: bottom .3s .2s ease;\n        transition: bottom .3s .2s ease; }\n      /* line 620, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player-fullscreen .player-captions,\n      #progressPane .player-fullscreen.fullscreen-hide-controls.playing.player-hover .player-captions, #progressPane .player.fullscreen-active .player-captions,\n      #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing.player-hover .player-captions {\n        top: auto;\n        bottom: 90px; }\n        @media (min-width: 560px) {\n          /* line 620, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n          #progressPane .player-fullscreen .player-captions,\n          #progressPane .player-fullscreen.fullscreen-hide-controls.playing.player-hover .player-captions, #progressPane .player.fullscreen-active .player-captions,\n          #progressPane .player.fullscreen-active.fullscreen-hide-controls.playing.player-hover .player-captions {\n            bottom: 60px; } }\n    /* line 632, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.fullscreen-active .icon-exit-fullscreen,\n    #progressPane .player.muted .player-controls .icon-muted,\n    #progressPane .player.captions-active .player-controls .icon-captions-on {\n      display: block; }\n      /* line 637, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n      #progressPane .player.fullscreen-active .icon-exit-fullscreen + svg,\n      #progressPane .player.muted .player-controls .icon-muted + svg,\n      #progressPane .player.captions-active .player-controls .icon-captions-on + svg {\n        display: none; }\n    /* line 643, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player [data-player='captions'],\n    #progressPane .player [data-player='fullscreen'] {\n      display: none; }\n    /* line 647, /var/www/html/owncloud/capps/music/sass/vendors/_plyr.scss */\n    #progressPane .player.captions-enabled [data-player='captions'],\n    #progressPane .player.fullscreen-enabled [data-player='fullscreen'] {\n      display: inline-block; }\n  /* line 240, stdin */\n  #progressPane .player {\n    width: 100%;\n    position: absolute;\n    top: 0;\n    left: 0; }\n  /* line 247, stdin */\n  #progressPane .player-controls {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%; }\n  /* line 254, stdin */\n  #progressPane .player-controls-left, #progressPane .player-controls-right {\n    display: none; }\n  /* line 258, stdin */\n  #progressPane .player-audio .player-progress {\n    bottom: auto;\n    top: 0;\n    background: #313131; }\n  /* line 264, stdin */\n  #progressPane h3.title {\n    margin: 0; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 218, stdin */\n    #progressPane {\n      top: -5px !important;\n      padding-top: 0; }\n      /* line 272, stdin */\n      #progressPane .meta, #progressPane .title {\n        display: none; } }\n\n/* line 281, stdin */\n#volume {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n  /* line 285, stdin */\n  #volume input[type=range] {\n    margin-top: -3px; }\n  /* line 289, stdin */\n  #volume i {\n    width: 16px; }\n  @media only screen and (max-device-width: 768px) and (orientation: portrait) {\n    /* line 281, stdin */\n    #volume {\n      display: none !important; } }\n")
 'use strict';
 
@@ -2835,15 +2812,15 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
-},{"../../config":27,"../../services/playback":53,"../../stores/favorite":57,"../../stores/preference":59,"../../stores/song":63,"../shared/sound-bar.vue":25,"vue":49,"vue-hot-reload-api":40,"vueify-insert-css":50}],27:[function(require,module,exports){
+},{"../../config":27,"../../services/playback":54,"../../stores/favorite":58,"../../stores/preference":60,"../../stores/song":64,"../shared/sound-bar.vue":25,"vue":50,"vue-hot-reload-api":40,"vueify-insert-css":51}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.default = {
-    unknownCover: 'img/unknown-album.png',
-    appTitle: 'Music'
+    unknownCover: '/public/img/covers/unknown-album.png',
+    appTitle: 'koel'
 };
 
 },{}],28:[function(require,module,exports){
@@ -2870,20 +2847,67 @@ exports.default = function (value) {
 
 //import $ from 'jquery';
 window.Vue = require('vue');
+var VueRouter = require('vue-router');
+Vue.use(VueRouter);
 Vue.use(require('vue-resource'));
 Vue.http.options.root = window.location.pathname + 'api';
 Vue.http.headers.common['requesttoken'] = $('head').attr('data-requesttoken');
 Vue.config.debug = true;
 
+var isMobile = require('ismobilejs');
+
 var App = require('./app.vue');
+var albums = require('./components/main-wrapper/main-content/albums.vue');
+var albumSongs = require('./components/main-wrapper/main-content/album-list-songs.vue');
+var artists = require('./components/main-wrapper/main-content/artists.vue');
+var songs = require('./components/main-wrapper/main-content/songs.vue');
+var settings = require('./components/main-wrapper/main-content/settings.vue');
+var users = require('./components/main-wrapper/main-content/users.vue');
+var queue = require('./components/main-wrapper/main-content/queue.vue');
+var playlist = require('./components/main-wrapper/main-content/playlist.vue');
+var favorites = require('./components/main-wrapper/main-content/favorites.vue');
+var profile = require('./components/main-wrapper/main-content/profile.vue');
+
+var preferenceStore = require('./stores/preference');
+
+var router = new VueRouter();
+router.map({
+	'/': {
+		component: queue
+	},
+	'/albums': {
+		component: albums
+	},
+	'/artists': {
+		component: artists
+	},
+	'/songs': {
+		component: songs
+	},
+	'/favorites': {
+		component: favorites
+	},
+	'/queue': {
+		component: queue
+	}
+});
+
+/*
+router.beforeEach(function (transition) {
+	if (isMobile.phone) {
+		preferenceStore.state.showExtraPanel = false;
+	}
+});*/
 
 // Exit light,
 // Enter night,
 // Take my hand,
 // We're off to never never land.
-window.VueRoot = new Vue(require('./app.vue')).$mount('div#content');
+//window.vueroot = new vue(require('./app.vue')).$mount('div#content');
+var App = require('./app.vue');
+router.start(App, 'div#content');
 
-},{"./app.vue":1,"vue":49,"vue-resource":42}],30:[function(require,module,exports){
+},{"./app.vue":1,"./components/main-wrapper/main-content/album-list-songs.vue":7,"./components/main-wrapper/main-content/albums.vue":8,"./components/main-wrapper/main-content/artists.vue":9,"./components/main-wrapper/main-content/favorites.vue":10,"./components/main-wrapper/main-content/playlist.vue":12,"./components/main-wrapper/main-content/profile.vue":13,"./components/main-wrapper/main-content/queue.vue":14,"./components/main-wrapper/main-content/settings.vue":15,"./components/main-wrapper/main-content/songs.vue":16,"./components/main-wrapper/main-content/users.vue":17,"./stores/preference":60,"ismobilejs":33,"vue":50,"vue-resource":42,"vue-router":49}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2975,7 +2999,7 @@ exports.default = {
     }
 };
 
-},{"../services/playback":53,"jquery":34}],32:[function(require,module,exports){
+},{"../services/playback":54,"jquery":34}],32:[function(require,module,exports){
 /*
  * JavaScript MD5 1.0.1
  * https://github.com/blueimp/JavaScript-MD5
@@ -26975,6 +26999,2656 @@ module.exports = function (_) {
 };
 
 },{}],49:[function(require,module,exports){
+/*!
+ * vue-router v0.7.11
+ * (c) 2016 Evan You
+ * Released under the MIT License.
+ */
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  global.VueRouter = factory();
+}(this, function () { 'use strict';
+
+  var babelHelpers = {};
+
+  babelHelpers.classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
+  function Target(path, matcher, delegate) {
+    this.path = path;
+    this.matcher = matcher;
+    this.delegate = delegate;
+  }
+
+  Target.prototype = {
+    to: function to(target, callback) {
+      var delegate = this.delegate;
+
+      if (delegate && delegate.willAddRoute) {
+        target = delegate.willAddRoute(this.matcher.target, target);
+      }
+
+      this.matcher.add(this.path, target);
+
+      if (callback) {
+        if (callback.length === 0) {
+          throw new Error("You must have an argument in the function passed to `to`");
+        }
+        this.matcher.addChild(this.path, target, callback, this.delegate);
+      }
+      return this;
+    }
+  };
+
+  function Matcher(target) {
+    this.routes = {};
+    this.children = {};
+    this.target = target;
+  }
+
+  Matcher.prototype = {
+    add: function add(path, handler) {
+      this.routes[path] = handler;
+    },
+
+    addChild: function addChild(path, target, callback, delegate) {
+      var matcher = new Matcher(target);
+      this.children[path] = matcher;
+
+      var match = generateMatch(path, matcher, delegate);
+
+      if (delegate && delegate.contextEntered) {
+        delegate.contextEntered(target, match);
+      }
+
+      callback(match);
+    }
+  };
+
+  function generateMatch(startingPath, matcher, delegate) {
+    return function (path, nestedCallback) {
+      var fullPath = startingPath + path;
+
+      if (nestedCallback) {
+        nestedCallback(generateMatch(fullPath, matcher, delegate));
+      } else {
+        return new Target(startingPath + path, matcher, delegate);
+      }
+    };
+  }
+
+  function addRoute(routeArray, path, handler) {
+    var len = 0;
+    for (var i = 0, l = routeArray.length; i < l; i++) {
+      len += routeArray[i].path.length;
+    }
+
+    path = path.substr(len);
+    var route = { path: path, handler: handler };
+    routeArray.push(route);
+  }
+
+  function eachRoute(baseRoute, matcher, callback, binding) {
+    var routes = matcher.routes;
+
+    for (var path in routes) {
+      if (routes.hasOwnProperty(path)) {
+        var routeArray = baseRoute.slice();
+        addRoute(routeArray, path, routes[path]);
+
+        if (matcher.children[path]) {
+          eachRoute(routeArray, matcher.children[path], callback, binding);
+        } else {
+          callback.call(binding, routeArray);
+        }
+      }
+    }
+  }
+
+  function map (callback, addRouteCallback) {
+    var matcher = new Matcher();
+
+    callback(generateMatch("", matcher, this.delegate));
+
+    eachRoute([], matcher, function (route) {
+      if (addRouteCallback) {
+        addRouteCallback(this, route);
+      } else {
+        this.add(route);
+      }
+    }, this);
+  }
+
+  var specials = ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'];
+
+  var escapeRegex = new RegExp('(\\' + specials.join('|\\') + ')', 'g');
+
+  function isArray(test) {
+    return Object.prototype.toString.call(test) === "[object Array]";
+  }
+
+  // A Segment represents a segment in the original route description.
+  // Each Segment type provides an `eachChar` and `regex` method.
+  //
+  // The `eachChar` method invokes the callback with one or more character
+  // specifications. A character specification consumes one or more input
+  // characters.
+  //
+  // The `regex` method returns a regex fragment for the segment. If the
+  // segment is a dynamic of star segment, the regex fragment also includes
+  // a capture.
+  //
+  // A character specification contains:
+  //
+  // * `validChars`: a String with a list of all valid characters, or
+  // * `invalidChars`: a String with a list of all invalid characters
+  // * `repeat`: true if the character specification can repeat
+
+  function StaticSegment(string) {
+    this.string = string;
+  }
+  StaticSegment.prototype = {
+    eachChar: function eachChar(callback) {
+      var string = this.string,
+          ch;
+
+      for (var i = 0, l = string.length; i < l; i++) {
+        ch = string.charAt(i);
+        callback({ validChars: ch });
+      }
+    },
+
+    regex: function regex() {
+      return this.string.replace(escapeRegex, '\\$1');
+    },
+
+    generate: function generate() {
+      return this.string;
+    }
+  };
+
+  function DynamicSegment(name) {
+    this.name = name;
+  }
+  DynamicSegment.prototype = {
+    eachChar: function eachChar(callback) {
+      callback({ invalidChars: "/", repeat: true });
+    },
+
+    regex: function regex() {
+      return "([^/]+)";
+    },
+
+    generate: function generate(params) {
+      var val = params[this.name];
+      return val == null ? ":" + this.name : val;
+    }
+  };
+
+  function StarSegment(name) {
+    this.name = name;
+  }
+  StarSegment.prototype = {
+    eachChar: function eachChar(callback) {
+      callback({ invalidChars: "", repeat: true });
+    },
+
+    regex: function regex() {
+      return "(.+)";
+    },
+
+    generate: function generate(params) {
+      var val = params[this.name];
+      return val == null ? ":" + this.name : val;
+    }
+  };
+
+  function EpsilonSegment() {}
+  EpsilonSegment.prototype = {
+    eachChar: function eachChar() {},
+    regex: function regex() {
+      return "";
+    },
+    generate: function generate() {
+      return "";
+    }
+  };
+
+  function parse(route, names, specificity) {
+    // normalize route as not starting with a "/". Recognition will
+    // also normalize.
+    if (route.charAt(0) === "/") {
+      route = route.substr(1);
+    }
+
+    var segments = route.split("/"),
+        results = [];
+
+    // A routes has specificity determined by the order that its different segments
+    // appear in. This system mirrors how the magnitude of numbers written as strings
+    // works.
+    // Consider a number written as: "abc". An example would be "200". Any other number written
+    // "xyz" will be smaller than "abc" so long as `a > z`. For instance, "199" is smaller
+    // then "200", even though "y" and "z" (which are both 9) are larger than "0" (the value
+    // of (`b` and `c`). This is because the leading symbol, "2", is larger than the other
+    // leading symbol, "1".
+    // The rule is that symbols to the left carry more weight than symbols to the right
+    // when a number is written out as a string. In the above strings, the leading digit
+    // represents how many 100's are in the number, and it carries more weight than the middle
+    // number which represents how many 10's are in the number.
+    // This system of number magnitude works well for route specificity, too. A route written as
+    // `a/b/c` will be more specific than `x/y/z` as long as `a` is more specific than
+    // `x`, irrespective of the other parts.
+    // Because of this similarity, we assign each type of segment a number value written as a
+    // string. We can find the specificity of compound routes by concatenating these strings
+    // together, from left to right. After we have looped through all of the segments,
+    // we convert the string to a number.
+    specificity.val = '';
+
+    for (var i = 0, l = segments.length; i < l; i++) {
+      var segment = segments[i],
+          match;
+
+      if (match = segment.match(/^:([^\/]+)$/)) {
+        results.push(new DynamicSegment(match[1]));
+        names.push(match[1]);
+        specificity.val += '3';
+      } else if (match = segment.match(/^\*([^\/]+)$/)) {
+        results.push(new StarSegment(match[1]));
+        specificity.val += '2';
+        names.push(match[1]);
+      } else if (segment === "") {
+        results.push(new EpsilonSegment());
+        specificity.val += '1';
+      } else {
+        results.push(new StaticSegment(segment));
+        specificity.val += '4';
+      }
+    }
+
+    specificity.val = +specificity.val;
+
+    return results;
+  }
+
+  // A State has a character specification and (`charSpec`) and a list of possible
+  // subsequent states (`nextStates`).
+  //
+  // If a State is an accepting state, it will also have several additional
+  // properties:
+  //
+  // * `regex`: A regular expression that is used to extract parameters from paths
+  //   that reached this accepting state.
+  // * `handlers`: Information on how to convert the list of captures into calls
+  //   to registered handlers with the specified parameters
+  // * `types`: How many static, dynamic or star segments in this route. Used to
+  //   decide which route to use if multiple registered routes match a path.
+  //
+  // Currently, State is implemented naively by looping over `nextStates` and
+  // comparing a character specification against a character. A more efficient
+  // implementation would use a hash of keys pointing at one or more next states.
+
+  function State(charSpec) {
+    this.charSpec = charSpec;
+    this.nextStates = [];
+  }
+
+  State.prototype = {
+    get: function get(charSpec) {
+      var nextStates = this.nextStates;
+
+      for (var i = 0, l = nextStates.length; i < l; i++) {
+        var child = nextStates[i];
+
+        var isEqual = child.charSpec.validChars === charSpec.validChars;
+        isEqual = isEqual && child.charSpec.invalidChars === charSpec.invalidChars;
+
+        if (isEqual) {
+          return child;
+        }
+      }
+    },
+
+    put: function put(charSpec) {
+      var state;
+
+      // If the character specification already exists in a child of the current
+      // state, just return that state.
+      if (state = this.get(charSpec)) {
+        return state;
+      }
+
+      // Make a new state for the character spec
+      state = new State(charSpec);
+
+      // Insert the new state as a child of the current state
+      this.nextStates.push(state);
+
+      // If this character specification repeats, insert the new state as a child
+      // of itself. Note that this will not trigger an infinite loop because each
+      // transition during recognition consumes a character.
+      if (charSpec.repeat) {
+        state.nextStates.push(state);
+      }
+
+      // Return the new state
+      return state;
+    },
+
+    // Find a list of child states matching the next character
+    match: function match(ch) {
+      // DEBUG "Processing `" + ch + "`:"
+      var nextStates = this.nextStates,
+          child,
+          charSpec,
+          chars;
+
+      // DEBUG "  " + debugState(this)
+      var returned = [];
+
+      for (var i = 0, l = nextStates.length; i < l; i++) {
+        child = nextStates[i];
+
+        charSpec = child.charSpec;
+
+        if (typeof (chars = charSpec.validChars) !== 'undefined') {
+          if (chars.indexOf(ch) !== -1) {
+            returned.push(child);
+          }
+        } else if (typeof (chars = charSpec.invalidChars) !== 'undefined') {
+          if (chars.indexOf(ch) === -1) {
+            returned.push(child);
+          }
+        }
+      }
+
+      return returned;
+    }
+
+    /** IF DEBUG
+    , debug: function() {
+      var charSpec = this.charSpec,
+          debug = "[",
+          chars = charSpec.validChars || charSpec.invalidChars;
+       if (charSpec.invalidChars) { debug += "^"; }
+      debug += chars;
+      debug += "]";
+       if (charSpec.repeat) { debug += "+"; }
+       return debug;
+    }
+    END IF **/
+  };
+
+  /** IF DEBUG
+  function debug(log) {
+    console.log(log);
+  }
+
+  function debugState(state) {
+    return state.nextStates.map(function(n) {
+      if (n.nextStates.length === 0) { return "( " + n.debug() + " [accepting] )"; }
+      return "( " + n.debug() + " <then> " + n.nextStates.map(function(s) { return s.debug() }).join(" or ") + " )";
+    }).join(", ")
+  }
+  END IF **/
+
+  // Sort the routes by specificity
+  function sortSolutions(states) {
+    return states.sort(function (a, b) {
+      return b.specificity.val - a.specificity.val;
+    });
+  }
+
+  function recognizeChar(states, ch) {
+    var nextStates = [];
+
+    for (var i = 0, l = states.length; i < l; i++) {
+      var state = states[i];
+
+      nextStates = nextStates.concat(state.match(ch));
+    }
+
+    return nextStates;
+  }
+
+  var oCreate = Object.create || function (proto) {
+    function F() {}
+    F.prototype = proto;
+    return new F();
+  };
+
+  function RecognizeResults(queryParams) {
+    this.queryParams = queryParams || {};
+  }
+  RecognizeResults.prototype = oCreate({
+    splice: Array.prototype.splice,
+    slice: Array.prototype.slice,
+    push: Array.prototype.push,
+    length: 0,
+    queryParams: null
+  });
+
+  function findHandler(state, path, queryParams) {
+    var handlers = state.handlers,
+        regex = state.regex;
+    var captures = path.match(regex),
+        currentCapture = 1;
+    var result = new RecognizeResults(queryParams);
+
+    for (var i = 0, l = handlers.length; i < l; i++) {
+      var handler = handlers[i],
+          names = handler.names,
+          params = {};
+
+      for (var j = 0, m = names.length; j < m; j++) {
+        params[names[j]] = captures[currentCapture++];
+      }
+
+      result.push({ handler: handler.handler, params: params, isDynamic: !!names.length });
+    }
+
+    return result;
+  }
+
+  function addSegment(currentState, segment) {
+    segment.eachChar(function (ch) {
+      var state;
+
+      currentState = currentState.put(ch);
+    });
+
+    return currentState;
+  }
+
+  function decodeQueryParamPart(part) {
+    // http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1
+    part = part.replace(/\+/gm, '%20');
+    return decodeURIComponent(part);
+  }
+
+  // The main interface
+
+  var RouteRecognizer = function RouteRecognizer() {
+    this.rootState = new State();
+    this.names = {};
+  };
+
+  RouteRecognizer.prototype = {
+    add: function add(routes, options) {
+      var currentState = this.rootState,
+          regex = "^",
+          specificity = {},
+          handlers = [],
+          allSegments = [],
+          name;
+
+      var isEmpty = true;
+
+      for (var i = 0, l = routes.length; i < l; i++) {
+        var route = routes[i],
+            names = [];
+
+        var segments = parse(route.path, names, specificity);
+
+        allSegments = allSegments.concat(segments);
+
+        for (var j = 0, m = segments.length; j < m; j++) {
+          var segment = segments[j];
+
+          if (segment instanceof EpsilonSegment) {
+            continue;
+          }
+
+          isEmpty = false;
+
+          // Add a "/" for the new segment
+          currentState = currentState.put({ validChars: "/" });
+          regex += "/";
+
+          // Add a representation of the segment to the NFA and regex
+          currentState = addSegment(currentState, segment);
+          regex += segment.regex();
+        }
+
+        var handler = { handler: route.handler, names: names };
+        handlers.push(handler);
+      }
+
+      if (isEmpty) {
+        currentState = currentState.put({ validChars: "/" });
+        regex += "/";
+      }
+
+      currentState.handlers = handlers;
+      currentState.regex = new RegExp(regex + "$");
+      currentState.specificity = specificity;
+
+      if (name = options && options.as) {
+        this.names[name] = {
+          segments: allSegments,
+          handlers: handlers
+        };
+      }
+    },
+
+    handlersFor: function handlersFor(name) {
+      var route = this.names[name],
+          result = [];
+      if (!route) {
+        throw new Error("There is no route named " + name);
+      }
+
+      for (var i = 0, l = route.handlers.length; i < l; i++) {
+        result.push(route.handlers[i]);
+      }
+
+      return result;
+    },
+
+    hasRoute: function hasRoute(name) {
+      return !!this.names[name];
+    },
+
+    generate: function generate(name, params) {
+      var route = this.names[name],
+          output = "";
+      if (!route) {
+        throw new Error("There is no route named " + name);
+      }
+
+      var segments = route.segments;
+
+      for (var i = 0, l = segments.length; i < l; i++) {
+        var segment = segments[i];
+
+        if (segment instanceof EpsilonSegment) {
+          continue;
+        }
+
+        output += "/";
+        output += segment.generate(params);
+      }
+
+      if (output.charAt(0) !== '/') {
+        output = '/' + output;
+      }
+
+      if (params && params.queryParams) {
+        output += this.generateQueryString(params.queryParams);
+      }
+
+      return output;
+    },
+
+    generateQueryString: function generateQueryString(params) {
+      var pairs = [];
+      var keys = [];
+      for (var key in params) {
+        if (params.hasOwnProperty(key)) {
+          keys.push(key);
+        }
+      }
+      keys.sort();
+      for (var i = 0, len = keys.length; i < len; i++) {
+        key = keys[i];
+        var value = params[key];
+        if (value == null) {
+          continue;
+        }
+        var pair = encodeURIComponent(key);
+        if (isArray(value)) {
+          for (var j = 0, l = value.length; j < l; j++) {
+            var arrayPair = key + '[]' + '=' + encodeURIComponent(value[j]);
+            pairs.push(arrayPair);
+          }
+        } else {
+          pair += "=" + encodeURIComponent(value);
+          pairs.push(pair);
+        }
+      }
+
+      if (pairs.length === 0) {
+        return '';
+      }
+
+      return "?" + pairs.join("&");
+    },
+
+    parseQueryString: function parseQueryString(queryString) {
+      var pairs = queryString.split("&"),
+          queryParams = {};
+      for (var i = 0; i < pairs.length; i++) {
+        var pair = pairs[i].split('='),
+            key = decodeQueryParamPart(pair[0]),
+            keyLength = key.length,
+            isArray = false,
+            value;
+        if (pair.length === 1) {
+          value = 'true';
+        } else {
+          //Handle arrays
+          if (keyLength > 2 && key.slice(keyLength - 2) === '[]') {
+            isArray = true;
+            key = key.slice(0, keyLength - 2);
+            if (!queryParams[key]) {
+              queryParams[key] = [];
+            }
+          }
+          value = pair[1] ? decodeQueryParamPart(pair[1]) : '';
+        }
+        if (isArray) {
+          queryParams[key].push(value);
+        } else {
+          queryParams[key] = value;
+        }
+      }
+      return queryParams;
+    },
+
+    recognize: function recognize(path) {
+      var states = [this.rootState],
+          pathLen,
+          i,
+          l,
+          queryStart,
+          queryParams = {},
+          isSlashDropped = false;
+
+      queryStart = path.indexOf('?');
+      if (queryStart !== -1) {
+        var queryString = path.substr(queryStart + 1, path.length);
+        path = path.substr(0, queryStart);
+        queryParams = this.parseQueryString(queryString);
+      }
+
+      path = decodeURI(path);
+
+      // DEBUG GROUP path
+
+      if (path.charAt(0) !== "/") {
+        path = "/" + path;
+      }
+
+      pathLen = path.length;
+      if (pathLen > 1 && path.charAt(pathLen - 1) === "/") {
+        path = path.substr(0, pathLen - 1);
+        isSlashDropped = true;
+      }
+
+      for (i = 0, l = path.length; i < l; i++) {
+        states = recognizeChar(states, path.charAt(i));
+        if (!states.length) {
+          break;
+        }
+      }
+
+      // END DEBUG GROUP
+
+      var solutions = [];
+      for (i = 0, l = states.length; i < l; i++) {
+        if (states[i].handlers) {
+          solutions.push(states[i]);
+        }
+      }
+
+      states = sortSolutions(solutions);
+
+      var state = solutions[0];
+
+      if (state && state.handlers) {
+        // if a trailing slash was dropped and a star segment is the last segment
+        // specified, put the trailing slash back
+        if (isSlashDropped && state.regex.source.slice(-5) === "(.+)$") {
+          path = path + "/";
+        }
+        return findHandler(state, path, queryParams);
+      }
+    }
+  };
+
+  RouteRecognizer.prototype.map = map;
+
+  RouteRecognizer.VERSION = '0.1.9';
+
+  var genQuery = RouteRecognizer.prototype.generateQueryString;
+
+  // export default for holding the Vue reference
+  var exports$1 = {};
+  /**
+   * Warn stuff.
+   *
+   * @param {String} msg
+   */
+
+  function warn(msg) {
+    /* istanbul ignore next */
+    if (window.console) {
+      console.warn('[vue-router] ' + msg);
+      if (!exports$1.Vue || exports$1.Vue.config.debug) {
+        console.warn(new Error('warning stack trace:').stack);
+      }
+    }
+  }
+
+  /**
+   * Resolve a relative path.
+   *
+   * @param {String} base
+   * @param {String} relative
+   * @param {Boolean} append
+   * @return {String}
+   */
+
+  function resolvePath(base, relative, append) {
+    var query = base.match(/(\?.*)$/);
+    if (query) {
+      query = query[1];
+      base = base.slice(0, -query.length);
+    }
+    // a query!
+    if (relative.charAt(0) === '?') {
+      return base + relative;
+    }
+    var stack = base.split('/');
+    // remove trailing segment if:
+    // - not appending
+    // - appending to trailing slash (last segment is empty)
+    if (!append || !stack[stack.length - 1]) {
+      stack.pop();
+    }
+    // resolve relative path
+    var segments = relative.replace(/^\//, '').split('/');
+    for (var i = 0; i < segments.length; i++) {
+      var segment = segments[i];
+      if (segment === '.') {
+        continue;
+      } else if (segment === '..') {
+        stack.pop();
+      } else {
+        stack.push(segment);
+      }
+    }
+    // ensure leading slash
+    if (stack[0] !== '') {
+      stack.unshift('');
+    }
+    return stack.join('/');
+  }
+
+  /**
+   * Forgiving check for a promise
+   *
+   * @param {Object} p
+   * @return {Boolean}
+   */
+
+  function isPromise(p) {
+    return p && typeof p.then === 'function';
+  }
+
+  /**
+   * Retrive a route config field from a component instance
+   * OR a component contructor.
+   *
+   * @param {Function|Vue} component
+   * @param {String} name
+   * @return {*}
+   */
+
+  function getRouteConfig(component, name) {
+    var options = component && (component.$options || component.options);
+    return options && options.route && options.route[name];
+  }
+
+  /**
+   * Resolve an async component factory. Have to do a dirty
+   * mock here because of Vue core's internal API depends on
+   * an ID check.
+   *
+   * @param {Object} handler
+   * @param {Function} cb
+   */
+
+  var resolver = undefined;
+
+  function resolveAsyncComponent(handler, cb) {
+    if (!resolver) {
+      resolver = {
+        resolve: exports$1.Vue.prototype._resolveComponent,
+        $options: {
+          components: {
+            _: handler.component
+          }
+        }
+      };
+    } else {
+      resolver.$options.components._ = handler.component;
+    }
+    resolver.resolve('_', function (Component) {
+      handler.component = Component;
+      cb(Component);
+    });
+  }
+
+  /**
+   * Map the dynamic segments in a path to params.
+   *
+   * @param {String} path
+   * @param {Object} params
+   * @param {Object} query
+   */
+
+  function mapParams(path, params, query) {
+    if (params === undefined) params = {};
+
+    path = path.replace(/:([^\/]+)/g, function (_, key) {
+      var val = params[key];
+      /* istanbul ignore if */
+      if (!val) {
+        warn('param "' + key + '" not found when generating ' + 'path for "' + path + '" with params ' + JSON.stringify(params));
+      }
+      return val || '';
+    });
+    if (query) {
+      path += genQuery(query);
+    }
+    return path;
+  }
+
+  var hashRE = /#.*$/;
+
+  var HTML5History = (function () {
+    function HTML5History(_ref) {
+      var root = _ref.root;
+      var onChange = _ref.onChange;
+      babelHelpers.classCallCheck(this, HTML5History);
+
+      if (root) {
+        // make sure there's the starting slash
+        if (root.charAt(0) !== '/') {
+          root = '/' + root;
+        }
+        // remove trailing slash
+        this.root = root.replace(/\/$/, '');
+        this.rootRE = new RegExp('^\\' + this.root);
+      } else {
+        this.root = null;
+      }
+      this.onChange = onChange;
+      // check base tag
+      var baseEl = document.querySelector('base');
+      this.base = baseEl && baseEl.getAttribute('href');
+    }
+
+    HTML5History.prototype.start = function start() {
+      var _this = this;
+
+      this.listener = function (e) {
+        var url = decodeURI(location.pathname + location.search);
+        if (_this.root) {
+          url = url.replace(_this.rootRE, '');
+        }
+        _this.onChange(url, e && e.state, location.hash);
+      };
+      window.addEventListener('popstate', this.listener);
+      this.listener();
+    };
+
+    HTML5History.prototype.stop = function stop() {
+      window.removeEventListener('popstate', this.listener);
+    };
+
+    HTML5History.prototype.go = function go(path, replace, append) {
+      var url = this.formatPath(path, append);
+      if (replace) {
+        history.replaceState({}, '', url);
+      } else {
+        // record scroll position by replacing current state
+        history.replaceState({
+          pos: {
+            x: window.pageXOffset,
+            y: window.pageYOffset
+          }
+        }, '', location.href);
+        // then push new state
+        history.pushState({}, '', url);
+      }
+      var hashMatch = path.match(hashRE);
+      var hash = hashMatch && hashMatch[0];
+      path = url
+      // strip hash so it doesn't mess up params
+      .replace(hashRE, '')
+      // remove root before matching
+      .replace(this.rootRE, '');
+      this.onChange(path, null, hash);
+    };
+
+    HTML5History.prototype.formatPath = function formatPath(path, append) {
+      return path.charAt(0) === '/'
+      // absolute path
+      ? this.root ? this.root + '/' + path.replace(/^\//, '') : path : resolvePath(this.base || location.pathname, path, append);
+    };
+
+    return HTML5History;
+  })();
+
+  var HashHistory = (function () {
+    function HashHistory(_ref) {
+      var hashbang = _ref.hashbang;
+      var onChange = _ref.onChange;
+      babelHelpers.classCallCheck(this, HashHistory);
+
+      this.hashbang = hashbang;
+      this.onChange = onChange;
+    }
+
+    HashHistory.prototype.start = function start() {
+      var self = this;
+      this.listener = function () {
+        var path = location.hash;
+        var raw = path.replace(/^#!?/, '');
+        // always
+        if (raw.charAt(0) !== '/') {
+          raw = '/' + raw;
+        }
+        var formattedPath = self.formatPath(raw);
+        if (formattedPath !== path) {
+          location.replace(formattedPath);
+          return;
+        }
+        // determine query
+        // note it's possible to have queries in both the actual URL
+        // and the hash fragment itself.
+        var query = location.search && path.indexOf('?') > -1 ? '&' + location.search.slice(1) : location.search;
+        self.onChange(decodeURI(path.replace(/^#!?/, '') + query));
+      };
+      window.addEventListener('hashchange', this.listener);
+      this.listener();
+    };
+
+    HashHistory.prototype.stop = function stop() {
+      window.removeEventListener('hashchange', this.listener);
+    };
+
+    HashHistory.prototype.go = function go(path, replace, append) {
+      path = this.formatPath(path, append);
+      if (replace) {
+        location.replace(path);
+      } else {
+        location.hash = path;
+      }
+    };
+
+    HashHistory.prototype.formatPath = function formatPath(path, append) {
+      var isAbsoloute = path.charAt(0) === '/';
+      var prefix = '#' + (this.hashbang ? '!' : '');
+      return isAbsoloute ? prefix + path : prefix + resolvePath(location.hash.replace(/^#!?/, ''), path, append);
+    };
+
+    return HashHistory;
+  })();
+
+  var AbstractHistory = (function () {
+    function AbstractHistory(_ref) {
+      var onChange = _ref.onChange;
+      babelHelpers.classCallCheck(this, AbstractHistory);
+
+      this.onChange = onChange;
+      this.currentPath = '/';
+    }
+
+    AbstractHistory.prototype.start = function start() {
+      this.onChange('/');
+    };
+
+    AbstractHistory.prototype.stop = function stop() {
+      // noop
+    };
+
+    AbstractHistory.prototype.go = function go(path, replace, append) {
+      path = this.currentPath = this.formatPath(path, append);
+      this.onChange(path);
+    };
+
+    AbstractHistory.prototype.formatPath = function formatPath(path, append) {
+      return path.charAt(0) === '/' ? path : resolvePath(this.currentPath, path, append);
+    };
+
+    return AbstractHistory;
+  })();
+
+  /**
+   * Determine the reusability of an existing router view.
+   *
+   * @param {Directive} view
+   * @param {Object} handler
+   * @param {Transition} transition
+   */
+
+  function canReuse(view, handler, transition) {
+    var component = view.childVM;
+    if (!component || !handler) {
+      return false;
+    }
+    // important: check view.Component here because it may
+    // have been changed in activate hook
+    if (view.Component !== handler.component) {
+      return false;
+    }
+    var canReuseFn = getRouteConfig(component, 'canReuse');
+    return typeof canReuseFn === 'boolean' ? canReuseFn : canReuseFn ? canReuseFn.call(component, {
+      to: transition.to,
+      from: transition.from
+    }) : true; // defaults to true
+  }
+
+  /**
+   * Check if a component can deactivate.
+   *
+   * @param {Directive} view
+   * @param {Transition} transition
+   * @param {Function} next
+   */
+
+  function canDeactivate(view, transition, next) {
+    var fromComponent = view.childVM;
+    var hook = getRouteConfig(fromComponent, 'canDeactivate');
+    if (!hook) {
+      next();
+    } else {
+      transition.callHook(hook, fromComponent, next, {
+        expectBoolean: true
+      });
+    }
+  }
+
+  /**
+   * Check if a component can activate.
+   *
+   * @param {Object} handler
+   * @param {Transition} transition
+   * @param {Function} next
+   */
+
+  function canActivate(handler, transition, next) {
+    resolveAsyncComponent(handler, function (Component) {
+      // have to check due to async-ness
+      if (transition.aborted) {
+        return;
+      }
+      // determine if this component can be activated
+      var hook = getRouteConfig(Component, 'canActivate');
+      if (!hook) {
+        next();
+      } else {
+        transition.callHook(hook, null, next, {
+          expectBoolean: true
+        });
+      }
+    });
+  }
+
+  /**
+   * Call deactivate hooks for existing router-views.
+   *
+   * @param {Directive} view
+   * @param {Transition} transition
+   * @param {Function} next
+   */
+
+  function deactivate(view, transition, next) {
+    var component = view.childVM;
+    var hook = getRouteConfig(component, 'deactivate');
+    if (!hook) {
+      next();
+    } else {
+      transition.callHooks(hook, component, next);
+    }
+  }
+
+  /**
+   * Activate / switch component for a router-view.
+   *
+   * @param {Directive} view
+   * @param {Transition} transition
+   * @param {Number} depth
+   * @param {Function} [cb]
+   */
+
+  function activate(view, transition, depth, cb, reuse) {
+    var handler = transition.activateQueue[depth];
+    if (!handler) {
+      saveChildView(view);
+      if (view._bound) {
+        view.setComponent(null);
+      }
+      cb && cb();
+      return;
+    }
+
+    var Component = view.Component = handler.component;
+    var activateHook = getRouteConfig(Component, 'activate');
+    var dataHook = getRouteConfig(Component, 'data');
+    var waitForData = getRouteConfig(Component, 'waitForData');
+
+    view.depth = depth;
+    view.activated = false;
+
+    var component = undefined;
+    var loading = !!(dataHook && !waitForData);
+
+    // "reuse" is a flag passed down when the parent view is
+    // either reused via keep-alive or as a child of a kept-alive view.
+    // of course we can only reuse if the current kept-alive instance
+    // is of the correct type.
+    reuse = reuse && view.childVM && view.childVM.constructor === Component;
+
+    if (reuse) {
+      // just reuse
+      component = view.childVM;
+      component.$loadingRouteData = loading;
+    } else {
+      saveChildView(view);
+
+      // unbuild current component. this step also destroys
+      // and removes all nested child views.
+      view.unbuild(true);
+
+      // build the new component. this will also create the
+      // direct child view of the current one. it will register
+      // itself as view.childView.
+      component = view.build({
+        _meta: {
+          $loadingRouteData: loading
+        },
+        created: function created() {
+          this._routerView = view;
+        }
+      });
+
+      // handle keep-alive.
+      // when a kept-alive child vm is restored, we need to
+      // add its cached child views into the router's view list,
+      // and also properly update current view's child view.
+      if (view.keepAlive) {
+        component.$loadingRouteData = loading;
+        var cachedChildView = component._keepAliveRouterView;
+        if (cachedChildView) {
+          view.childView = cachedChildView;
+          component._keepAliveRouterView = null;
+        }
+      }
+    }
+
+    // cleanup the component in case the transition is aborted
+    // before the component is ever inserted.
+    var cleanup = function cleanup() {
+      component.$destroy();
+    };
+
+    // actually insert the component and trigger transition
+    var insert = function insert() {
+      if (reuse) {
+        cb && cb();
+        return;
+      }
+      var router = transition.router;
+      if (router._rendered || router._transitionOnLoad) {
+        view.transition(component);
+      } else {
+        // no transition on first render, manual transition
+        /* istanbul ignore if */
+        if (view.setCurrent) {
+          // 0.12 compat
+          view.setCurrent(component);
+        } else {
+          // 1.0
+          view.childVM = component;
+        }
+        component.$before(view.anchor, null, false);
+      }
+      cb && cb();
+    };
+
+    var afterData = function afterData() {
+      // activate the child view
+      if (view.childView) {
+        activate(view.childView, transition, depth + 1, null, reuse || view.keepAlive);
+      }
+      insert();
+    };
+
+    // called after activation hook is resolved
+    var afterActivate = function afterActivate() {
+      view.activated = true;
+      if (dataHook && waitForData) {
+        // wait until data loaded to insert
+        loadData(component, transition, dataHook, afterData, cleanup);
+      } else {
+        // load data and insert at the same time
+        if (dataHook) {
+          loadData(component, transition, dataHook);
+        }
+        afterData();
+      }
+    };
+
+    if (activateHook) {
+      transition.callHooks(activateHook, component, afterActivate, {
+        cleanup: cleanup,
+        postActivate: true
+      });
+    } else {
+      afterActivate();
+    }
+  }
+
+  /**
+   * Reuse a view, just reload data if necessary.
+   *
+   * @param {Directive} view
+   * @param {Transition} transition
+   */
+
+  function reuse(view, transition) {
+    var component = view.childVM;
+    var dataHook = getRouteConfig(component, 'data');
+    if (dataHook) {
+      loadData(component, transition, dataHook);
+    }
+  }
+
+  /**
+   * Asynchronously load and apply data to component.
+   *
+   * @param {Vue} component
+   * @param {Transition} transition
+   * @param {Function} hook
+   * @param {Function} cb
+   * @param {Function} cleanup
+   */
+
+  function loadData(component, transition, hook, cb, cleanup) {
+    component.$loadingRouteData = true;
+    transition.callHooks(hook, component, function () {
+      component.$loadingRouteData = false;
+      component.$emit('route-data-loaded', component);
+      cb && cb();
+    }, {
+      cleanup: cleanup,
+      postActivate: true,
+      processData: function processData(data) {
+        // handle promise sugar syntax
+        var promises = [];
+        if (isPlainObject(data)) {
+          Object.keys(data).forEach(function (key) {
+            var val = data[key];
+            if (isPromise(val)) {
+              promises.push(val.then(function (resolvedVal) {
+                component.$set(key, resolvedVal);
+              }));
+            } else {
+              component.$set(key, val);
+            }
+          });
+        }
+        if (promises.length) {
+          return promises[0].constructor.all(promises);
+        }
+      }
+    });
+  }
+
+  /**
+   * Save the child view for a kept-alive view so that
+   * we can restore it when it is switched back to.
+   *
+   * @param {Directive} view
+   */
+
+  function saveChildView(view) {
+    if (view.keepAlive && view.childVM && view.childView) {
+      view.childVM._keepAliveRouterView = view.childView;
+    }
+    view.childView = null;
+  }
+
+  /**
+   * Check plain object.
+   *
+   * @param {*} val
+   */
+
+  function isPlainObject(val) {
+    return Object.prototype.toString.call(val) === '[object Object]';
+  }
+
+  /**
+   * A RouteTransition object manages the pipeline of a
+   * router-view switching process. This is also the object
+   * passed into user route hooks.
+   *
+   * @param {Router} router
+   * @param {Route} to
+   * @param {Route} from
+   */
+
+  var RouteTransition = (function () {
+    function RouteTransition(router, to, from) {
+      babelHelpers.classCallCheck(this, RouteTransition);
+
+      this.router = router;
+      this.to = to;
+      this.from = from;
+      this.next = null;
+      this.aborted = false;
+      this.done = false;
+    }
+
+    /**
+     * Abort current transition and return to previous location.
+     */
+
+    RouteTransition.prototype.abort = function abort() {
+      if (!this.aborted) {
+        this.aborted = true;
+        // if the root path throws an error during validation
+        // on initial load, it gets caught in an infinite loop.
+        var abortingOnLoad = !this.from.path && this.to.path === '/';
+        if (!abortingOnLoad) {
+          this.router.replace(this.from.path || '/');
+        }
+      }
+    };
+
+    /**
+     * Abort current transition and redirect to a new location.
+     *
+     * @param {String} path
+     */
+
+    RouteTransition.prototype.redirect = function redirect(path) {
+      if (!this.aborted) {
+        this.aborted = true;
+        if (typeof path === 'string') {
+          path = mapParams(path, this.to.params, this.to.query);
+        } else {
+          path.params = path.params || this.to.params;
+          path.query = path.query || this.to.query;
+        }
+        this.router.replace(path);
+      }
+    };
+
+    /**
+     * A router view transition's pipeline can be described as
+     * follows, assuming we are transitioning from an existing
+     * <router-view> chain [Component A, Component B] to a new
+     * chain [Component A, Component C]:
+     *
+     *  A    A
+     *  | => |
+     *  B    C
+     *
+     * 1. Reusablity phase:
+     *   -> canReuse(A, A)
+     *   -> canReuse(B, C)
+     *   -> determine new queues:
+     *      - deactivation: [B]
+     *      - activation: [C]
+     *
+     * 2. Validation phase:
+     *   -> canDeactivate(B)
+     *   -> canActivate(C)
+     *
+     * 3. Activation phase:
+     *   -> deactivate(B)
+     *   -> activate(C)
+     *
+     * Each of these steps can be asynchronous, and any
+     * step can potentially abort the transition.
+     *
+     * @param {Function} cb
+     */
+
+    RouteTransition.prototype.start = function start(cb) {
+      var transition = this;
+
+      // determine the queue of views to deactivate
+      var deactivateQueue = [];
+      var view = this.router._rootView;
+      while (view) {
+        deactivateQueue.unshift(view);
+        view = view.childView;
+      }
+      var reverseDeactivateQueue = deactivateQueue.slice().reverse();
+
+      // determine the queue of route handlers to activate
+      var activateQueue = this.activateQueue = toArray(this.to.matched).map(function (match) {
+        return match.handler;
+      });
+
+      // 1. Reusability phase
+      var i = undefined,
+          reuseQueue = undefined;
+      for (i = 0; i < reverseDeactivateQueue.length; i++) {
+        if (!canReuse(reverseDeactivateQueue[i], activateQueue[i], transition)) {
+          break;
+        }
+      }
+      if (i > 0) {
+        reuseQueue = reverseDeactivateQueue.slice(0, i);
+        deactivateQueue = reverseDeactivateQueue.slice(i).reverse();
+        activateQueue = activateQueue.slice(i);
+      }
+
+      // 2. Validation phase
+      transition.runQueue(deactivateQueue, canDeactivate, function () {
+        transition.runQueue(activateQueue, canActivate, function () {
+          transition.runQueue(deactivateQueue, deactivate, function () {
+            // 3. Activation phase
+
+            // Update router current route
+            transition.router._onTransitionValidated(transition);
+
+            // trigger reuse for all reused views
+            reuseQueue && reuseQueue.forEach(function (view) {
+              return reuse(view, transition);
+            });
+
+            // the root of the chain that needs to be replaced
+            // is the top-most non-reusable view.
+            if (deactivateQueue.length) {
+              var _view = deactivateQueue[deactivateQueue.length - 1];
+              var depth = reuseQueue ? reuseQueue.length : 0;
+              activate(_view, transition, depth, cb);
+            } else {
+              cb();
+            }
+          });
+        });
+      });
+    };
+
+    /**
+     * Asynchronously and sequentially apply a function to a
+     * queue.
+     *
+     * @param {Array} queue
+     * @param {Function} fn
+     * @param {Function} cb
+     */
+
+    RouteTransition.prototype.runQueue = function runQueue(queue, fn, cb) {
+      var transition = this;
+      step(0);
+      function step(index) {
+        if (index >= queue.length) {
+          cb();
+        } else {
+          fn(queue[index], transition, function () {
+            step(index + 1);
+          });
+        }
+      }
+    };
+
+    /**
+     * Call a user provided route transition hook and handle
+     * the response (e.g. if the user returns a promise).
+     *
+     * If the user neither expects an argument nor returns a
+     * promise, the hook is assumed to be synchronous.
+     *
+     * @param {Function} hook
+     * @param {*} [context]
+     * @param {Function} [cb]
+     * @param {Object} [options]
+     *                 - {Boolean} expectBoolean
+     *                 - {Boolean} postActive
+     *                 - {Function} processData
+     *                 - {Function} cleanup
+     */
+
+    RouteTransition.prototype.callHook = function callHook(hook, context, cb) {
+      var _ref = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
+
+      var _ref$expectBoolean = _ref.expectBoolean;
+      var expectBoolean = _ref$expectBoolean === undefined ? false : _ref$expectBoolean;
+      var _ref$postActivate = _ref.postActivate;
+      var postActivate = _ref$postActivate === undefined ? false : _ref$postActivate;
+      var processData = _ref.processData;
+      var cleanup = _ref.cleanup;
+
+      var transition = this;
+      var nextCalled = false;
+
+      // abort the transition
+      var abort = function abort() {
+        cleanup && cleanup();
+        transition.abort();
+      };
+
+      // handle errors
+      var onError = function onError(err) {
+        postActivate ? next() : abort();
+        if (err && !transition.router._suppress) {
+          warn('Uncaught error during transition: ');
+          throw err instanceof Error ? err : new Error(err);
+        }
+      };
+
+      // since promise swallows errors, we have to
+      // throw it in the next tick...
+      var onPromiseError = function onPromiseError(err) {
+        try {
+          onError(err);
+        } catch (e) {
+          setTimeout(function () {
+            throw e;
+          }, 0);
+        }
+      };
+
+      // advance the transition to the next step
+      var next = function next() {
+        if (nextCalled) {
+          warn('transition.next() should be called only once.');
+          return;
+        }
+        nextCalled = true;
+        if (transition.aborted) {
+          cleanup && cleanup();
+          return;
+        }
+        cb && cb();
+      };
+
+      var nextWithBoolean = function nextWithBoolean(res) {
+        if (typeof res === 'boolean') {
+          res ? next() : abort();
+        } else if (isPromise(res)) {
+          res.then(function (ok) {
+            ok ? next() : abort();
+          }, onPromiseError);
+        } else if (!hook.length) {
+          next();
+        }
+      };
+
+      var nextWithData = function nextWithData(data) {
+        var res = undefined;
+        try {
+          res = processData(data);
+        } catch (err) {
+          return onError(err);
+        }
+        if (isPromise(res)) {
+          res.then(next, onPromiseError);
+        } else {
+          next();
+        }
+      };
+
+      // expose a clone of the transition object, so that each
+      // hook gets a clean copy and prevent the user from
+      // messing with the internals.
+      var exposed = {
+        to: transition.to,
+        from: transition.from,
+        abort: abort,
+        next: processData ? nextWithData : next,
+        redirect: function redirect() {
+          transition.redirect.apply(transition, arguments);
+        }
+      };
+
+      // actually call the hook
+      var res = undefined;
+      try {
+        res = hook.call(context, exposed);
+      } catch (err) {
+        return onError(err);
+      }
+
+      if (expectBoolean) {
+        // boolean hooks
+        nextWithBoolean(res);
+      } else if (isPromise(res)) {
+        // promise
+        if (processData) {
+          res.then(nextWithData, onPromiseError);
+        } else {
+          res.then(next, onPromiseError);
+        }
+      } else if (processData && isPlainOjbect(res)) {
+        // data promise sugar
+        nextWithData(res);
+      } else if (!hook.length) {
+        next();
+      }
+    };
+
+    /**
+     * Call a single hook or an array of async hooks in series.
+     *
+     * @param {Array} hooks
+     * @param {*} context
+     * @param {Function} cb
+     * @param {Object} [options]
+     */
+
+    RouteTransition.prototype.callHooks = function callHooks(hooks, context, cb, options) {
+      var _this = this;
+
+      if (Array.isArray(hooks)) {
+        this.runQueue(hooks, function (hook, _, next) {
+          if (!_this.aborted) {
+            _this.callHook(hook, context, next, options);
+          }
+        }, cb);
+      } else {
+        this.callHook(hooks, context, cb, options);
+      }
+    };
+
+    return RouteTransition;
+  })();
+
+  function isPlainOjbect(val) {
+    return Object.prototype.toString.call(val) === '[object Object]';
+  }
+
+  function toArray(val) {
+    return val ? Array.prototype.slice.call(val) : [];
+  }
+
+  var internalKeysRE = /^(component|subRoutes)$/;
+
+  /**
+   * Route Context Object
+   *
+   * @param {String} path
+   * @param {Router} router
+   */
+
+  var Route = function Route(path, router) {
+    var _this = this;
+
+    babelHelpers.classCallCheck(this, Route);
+
+    var matched = router._recognizer.recognize(path);
+    if (matched) {
+      // copy all custom fields from route configs
+      [].forEach.call(matched, function (match) {
+        for (var key in match.handler) {
+          if (!internalKeysRE.test(key)) {
+            _this[key] = match.handler[key];
+          }
+        }
+      });
+      // set query and params
+      this.query = matched.queryParams;
+      this.params = [].reduce.call(matched, function (prev, cur) {
+        if (cur.params) {
+          for (var key in cur.params) {
+            prev[key] = cur.params[key];
+          }
+        }
+        return prev;
+      }, {});
+    }
+    // expose path and router
+    this.path = path;
+    this.router = router;
+    // for internal use
+    this.matched = matched || router._notFoundHandler;
+    // Important: freeze self to prevent observation
+    Object.freeze(this);
+  };
+
+  function applyOverride (Vue) {
+    var _Vue$util = Vue.util;
+    var extend = _Vue$util.extend;
+    var isArray = _Vue$util.isArray;
+    var defineReactive = _Vue$util.defineReactive;
+
+    // override Vue's init and destroy process to keep track of router instances
+    var init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      options = options || {};
+      var root = options._parent || options.parent || this;
+      var router = root.$router;
+      var route = root.$route;
+      if (router) {
+        // expose router
+        this.$router = router;
+        router._children.push(this);
+        /* istanbul ignore if */
+        if (this._defineMeta) {
+          // 0.12
+          this._defineMeta('$route', route);
+        } else {
+          // 1.0
+          defineReactive(this, '$route', route);
+        }
+      }
+      init.call(this, options);
+    };
+
+    var destroy = Vue.prototype._destroy;
+    Vue.prototype._destroy = function () {
+      if (!this._isBeingDestroyed && this.$router) {
+        this.$router._children.$remove(this);
+      }
+      destroy.apply(this, arguments);
+    };
+
+    // 1.0 only: enable route mixins
+    var strats = Vue.config.optionMergeStrategies;
+    var hooksToMergeRE = /^(data|activate|deactivate)$/;
+
+    if (strats) {
+      strats.route = function (parentVal, childVal) {
+        if (!childVal) return parentVal;
+        if (!parentVal) return childVal;
+        var ret = {};
+        extend(ret, parentVal);
+        for (var key in childVal) {
+          var a = ret[key];
+          var b = childVal[key];
+          // for data, activate and deactivate, we need to merge them into
+          // arrays similar to lifecycle hooks.
+          if (a && hooksToMergeRE.test(key)) {
+            ret[key] = (isArray(a) ? a : [a]).concat(b);
+          } else {
+            ret[key] = b;
+          }
+        }
+        return ret;
+      };
+    }
+  }
+
+  function View (Vue) {
+
+    var _ = Vue.util;
+    var componentDef =
+    // 0.12
+    Vue.directive('_component') ||
+    // 1.0
+    Vue.internalDirectives.component;
+    // <router-view> extends the internal component directive
+    var viewDef = _.extend({}, componentDef);
+
+    // with some overrides
+    _.extend(viewDef, {
+
+      _isRouterView: true,
+
+      bind: function bind() {
+        var route = this.vm.$route;
+        /* istanbul ignore if */
+        if (!route) {
+          warn('<router-view> can only be used inside a ' + 'router-enabled app.');
+          return;
+        }
+        // force dynamic directive so v-component doesn't
+        // attempt to build right now
+        this._isDynamicLiteral = true;
+        // finally, init by delegating to v-component
+        componentDef.bind.call(this);
+
+        // locate the parent view
+        var parentView = undefined;
+        var parent = this.vm;
+        while (parent) {
+          if (parent._routerView) {
+            parentView = parent._routerView;
+            break;
+          }
+          parent = parent.$parent;
+        }
+        if (parentView) {
+          // register self as a child of the parent view,
+          // instead of activating now. This is so that the
+          // child's activate hook is called after the
+          // parent's has resolved.
+          this.parentView = parentView;
+          parentView.childView = this;
+        } else {
+          // this is the root view!
+          var router = route.router;
+          router._rootView = this;
+        }
+
+        // handle late-rendered view
+        // two possibilities:
+        // 1. root view rendered after transition has been
+        //    validated;
+        // 2. child view rendered after parent view has been
+        //    activated.
+        var transition = route.router._currentTransition;
+        if (!parentView && transition.done || parentView && parentView.activated) {
+          var depth = parentView ? parentView.depth + 1 : 0;
+          activate(this, transition, depth);
+        }
+      },
+
+      unbind: function unbind() {
+        if (this.parentView) {
+          this.parentView.childView = null;
+        }
+        componentDef.unbind.call(this);
+      }
+    });
+
+    Vue.elementDirective('router-view', viewDef);
+  }
+
+  var trailingSlashRE = /\/$/;
+  var regexEscapeRE = /[-.*+?^${}()|[\]\/\\]/g;
+  var queryStringRE = /\?.*$/;
+
+  // install v-link, which provides navigation support for
+  // HTML5 history mode
+  function Link (Vue) {
+    var _Vue$util = Vue.util;
+    var _bind = _Vue$util.bind;
+    var isObject = _Vue$util.isObject;
+    var addClass = _Vue$util.addClass;
+    var removeClass = _Vue$util.removeClass;
+
+    Vue.directive('link-active', {
+      priority: 1001,
+      bind: function bind() {
+        this.el.__v_link_active = true;
+      }
+    });
+
+    Vue.directive('link', {
+      priority: 1000,
+
+      bind: function bind() {
+        var vm = this.vm;
+        /* istanbul ignore if */
+        if (!vm.$route) {
+          warn('v-link can only be used inside a router-enabled app.');
+          return;
+        }
+        this.router = vm.$route.router;
+        // update things when the route changes
+        this.unwatch = vm.$watch('$route', _bind(this.onRouteUpdate, this));
+        // check if active classes should be applied to a different element
+        this.activeEl = this.el;
+        var parent = this.el.parentNode;
+        while (parent) {
+          if (parent.__v_link_active) {
+            this.activeEl = parent;
+            break;
+          }
+          parent = parent.parentNode;
+        }
+        // no need to handle click if link expects to be opened
+        // in a new window/tab.
+        /* istanbul ignore if */
+        if (this.el.tagName === 'A' && this.el.getAttribute('target') === '_blank') {
+          return;
+        }
+        // handle click
+        this.handler = _bind(this.onClick, this);
+        this.el.addEventListener('click', this.handler);
+      },
+
+      update: function update(target) {
+        this.target = target;
+        if (isObject(target)) {
+          this.append = target.append;
+          this.exact = target.exact;
+          this.prevActiveClass = this.activeClass;
+          this.activeClass = target.activeClass;
+        }
+        this.onRouteUpdate(this.vm.$route);
+      },
+
+      onClick: function onClick(e) {
+        // don't redirect with control keys
+        /* istanbul ignore if */
+        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+        // don't redirect when preventDefault called
+        /* istanbul ignore if */
+        if (e.defaultPrevented) return;
+        // don't redirect on right click
+        /* istanbul ignore if */
+        if (e.button !== 0) return;
+
+        var target = this.target;
+        if (target) {
+          // v-link with expression, just go
+          e.preventDefault();
+          this.router.go(target);
+        } else {
+          // no expression, delegate for an <a> inside
+          var el = e.target;
+          while (el.tagName !== 'A' && el !== this.el) {
+            el = el.parentNode;
+          }
+          if (el.tagName === 'A' && sameOrigin(el)) {
+            e.preventDefault();
+            this.router.go({
+              path: el.pathname,
+              replace: target && target.replace,
+              append: target && target.append
+            });
+          }
+        }
+      },
+
+      onRouteUpdate: function onRouteUpdate(route) {
+        // router._stringifyPath is dependent on current route
+        // and needs to be called again whenver route changes.
+        var newPath = this.router._stringifyPath(this.target);
+        if (this.path !== newPath) {
+          this.path = newPath;
+          this.updateActiveMatch();
+          this.updateHref();
+        }
+        this.updateClasses(route.path);
+      },
+
+      updateActiveMatch: function updateActiveMatch() {
+        this.activeRE = this.path && !this.exact ? new RegExp('^' + this.path.replace(/\/$/, '').replace(queryStringRE, '').replace(regexEscapeRE, '\\$&') + '(\\/|$)') : null;
+      },
+
+      updateHref: function updateHref() {
+        if (this.el.tagName !== 'A') {
+          return;
+        }
+        var path = this.path;
+        var router = this.router;
+        var isAbsolute = path.charAt(0) === '/';
+        // do not format non-hash relative paths
+        var href = path && (router.mode === 'hash' || isAbsolute) ? router.history.formatPath(path, this.append) : path;
+        if (href) {
+          this.el.href = href;
+        } else {
+          this.el.removeAttribute('href');
+        }
+      },
+
+      updateClasses: function updateClasses(path) {
+        var el = this.activeEl;
+        var activeClass = this.activeClass || this.router._linkActiveClass;
+        // clear old class
+        if (this.prevActiveClass !== activeClass) {
+          removeClass(el, this.prevActiveClass);
+        }
+        // remove query string before matching
+        var dest = this.path.replace(queryStringRE, '');
+        path = path.replace(queryStringRE, '');
+        // add new class
+        if (this.exact) {
+          if (dest === path ||
+          // also allow additional trailing slash
+          dest.charAt(dest.length - 1) !== '/' && dest === path.replace(trailingSlashRE, '')) {
+            addClass(el, activeClass);
+          } else {
+            removeClass(el, activeClass);
+          }
+        } else {
+          if (this.activeRE && this.activeRE.test(path)) {
+            addClass(el, activeClass);
+          } else {
+            removeClass(el, activeClass);
+          }
+        }
+      },
+
+      unbind: function unbind() {
+        this.el.removeEventListener('click', this.handler);
+        this.unwatch && this.unwatch();
+      }
+    });
+
+    function sameOrigin(link) {
+      return link.protocol === location.protocol && link.hostname === location.hostname && link.port === location.port;
+    }
+  }
+
+  var historyBackends = {
+    abstract: AbstractHistory,
+    hash: HashHistory,
+    html5: HTML5History
+  };
+
+  // late bind during install
+  var Vue = undefined;
+
+  /**
+   * Router constructor
+   *
+   * @param {Object} [options]
+   */
+
+  var Router = (function () {
+    function Router() {
+      var _this = this;
+
+      var _ref = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+      var _ref$hashbang = _ref.hashbang;
+      var hashbang = _ref$hashbang === undefined ? true : _ref$hashbang;
+      var _ref$abstract = _ref.abstract;
+      var abstract = _ref$abstract === undefined ? false : _ref$abstract;
+      var _ref$history = _ref.history;
+      var history = _ref$history === undefined ? false : _ref$history;
+      var _ref$saveScrollPosition = _ref.saveScrollPosition;
+      var saveScrollPosition = _ref$saveScrollPosition === undefined ? false : _ref$saveScrollPosition;
+      var _ref$transitionOnLoad = _ref.transitionOnLoad;
+      var transitionOnLoad = _ref$transitionOnLoad === undefined ? false : _ref$transitionOnLoad;
+      var _ref$suppressTransitionError = _ref.suppressTransitionError;
+      var suppressTransitionError = _ref$suppressTransitionError === undefined ? false : _ref$suppressTransitionError;
+      var _ref$root = _ref.root;
+      var root = _ref$root === undefined ? null : _ref$root;
+      var _ref$linkActiveClass = _ref.linkActiveClass;
+      var linkActiveClass = _ref$linkActiveClass === undefined ? 'v-link-active' : _ref$linkActiveClass;
+      babelHelpers.classCallCheck(this, Router);
+
+      /* istanbul ignore if */
+      if (!Router.installed) {
+        throw new Error('Please install the Router with Vue.use() before ' + 'creating an instance.');
+      }
+
+      // Vue instances
+      this.app = null;
+      this._children = [];
+
+      // route recognizer
+      this._recognizer = new RouteRecognizer();
+      this._guardRecognizer = new RouteRecognizer();
+
+      // state
+      this._started = false;
+      this._startCb = null;
+      this._currentRoute = {};
+      this._currentTransition = null;
+      this._previousTransition = null;
+      this._notFoundHandler = null;
+      this._notFoundRedirect = null;
+      this._beforeEachHooks = [];
+      this._afterEachHooks = [];
+
+      // trigger transition on initial render?
+      this._rendered = false;
+      this._transitionOnLoad = transitionOnLoad;
+
+      // history mode
+      this._root = root;
+      this._abstract = abstract;
+      this._hashbang = hashbang;
+
+      // check if HTML5 history is available
+      var hasPushState = typeof window !== 'undefined' && window.history && window.history.pushState;
+      this._history = history && hasPushState;
+      this._historyFallback = history && !hasPushState;
+
+      // create history object
+      var inBrowser = Vue.util.inBrowser;
+      this.mode = !inBrowser || this._abstract ? 'abstract' : this._history ? 'html5' : 'hash';
+
+      var History = historyBackends[this.mode];
+      this.history = new History({
+        root: root,
+        hashbang: this._hashbang,
+        onChange: function onChange(path, state, anchor) {
+          _this._match(path, state, anchor);
+        }
+      });
+
+      // other options
+      this._saveScrollPosition = saveScrollPosition;
+      this._linkActiveClass = linkActiveClass;
+      this._suppress = suppressTransitionError;
+    }
+
+    /**
+     * Allow directly passing components to a route
+     * definition.
+     *
+     * @param {String} path
+     * @param {Object} handler
+     */
+
+    // API ===================================================
+
+    /**
+    * Register a map of top-level paths.
+    *
+    * @param {Object} map
+    */
+
+    Router.prototype.map = function map(_map) {
+      for (var route in _map) {
+        this.on(route, _map[route]);
+      }
+      return this;
+    };
+
+    /**
+     * Register a single root-level path
+     *
+     * @param {String} rootPath
+     * @param {Object} handler
+     *                 - {String} component
+     *                 - {Object} [subRoutes]
+     *                 - {Boolean} [forceRefresh]
+     *                 - {Function} [before]
+     *                 - {Function} [after]
+     */
+
+    Router.prototype.on = function on(rootPath, handler) {
+      if (rootPath === '*') {
+        this._notFound(handler);
+      } else {
+        this._addRoute(rootPath, handler, []);
+      }
+      return this;
+    };
+
+    /**
+     * Set redirects.
+     *
+     * @param {Object} map
+     */
+
+    Router.prototype.redirect = function redirect(map) {
+      for (var path in map) {
+        this._addRedirect(path, map[path]);
+      }
+      return this;
+    };
+
+    /**
+     * Set aliases.
+     *
+     * @param {Object} map
+     */
+
+    Router.prototype.alias = function alias(map) {
+      for (var path in map) {
+        this._addAlias(path, map[path]);
+      }
+      return this;
+    };
+
+    /**
+     * Set global before hook.
+     *
+     * @param {Function} fn
+     */
+
+    Router.prototype.beforeEach = function beforeEach(fn) {
+      this._beforeEachHooks.push(fn);
+      return this;
+    };
+
+    /**
+     * Set global after hook.
+     *
+     * @param {Function} fn
+     */
+
+    Router.prototype.afterEach = function afterEach(fn) {
+      this._afterEachHooks.push(fn);
+      return this;
+    };
+
+    /**
+     * Navigate to a given path.
+     * The path can be an object describing a named path in
+     * the format of { name: '...', params: {}, query: {}}
+     * The path is assumed to be already decoded, and will
+     * be resolved against root (if provided)
+     *
+     * @param {String|Object} path
+     * @param {Boolean} [replace]
+     */
+
+    Router.prototype.go = function go(path) {
+      var replace = false;
+      var append = false;
+      if (Vue.util.isObject(path)) {
+        replace = path.replace;
+        append = path.append;
+      }
+      path = this._stringifyPath(path);
+      if (path) {
+        this.history.go(path, replace, append);
+      }
+    };
+
+    /**
+     * Short hand for replacing current path
+     *
+     * @param {String} path
+     */
+
+    Router.prototype.replace = function replace(path) {
+      if (typeof path === 'string') {
+        path = { path: path };
+      }
+      path.replace = true;
+      this.go(path);
+    };
+
+    /**
+     * Start the router.
+     *
+     * @param {VueConstructor} App
+     * @param {String|Element} container
+     * @param {Function} [cb]
+     */
+
+    Router.prototype.start = function start(App, container, cb) {
+      /* istanbul ignore if */
+      if (this._started) {
+        warn('already started.');
+        return;
+      }
+      this._started = true;
+      this._startCb = cb;
+      if (!this.app) {
+        /* istanbul ignore if */
+        if (!App || !container) {
+          throw new Error('Must start vue-router with a component and a ' + 'root container.');
+        }
+        /* istanbul ignore if */
+        if (App instanceof Vue) {
+          throw new Error('Must start vue-router with a component, not a ' + 'Vue instance.');
+        }
+        this._appContainer = container;
+        var Ctor = this._appConstructor = typeof App === 'function' ? App : Vue.extend(App);
+        // give it a name for better debugging
+        Ctor.options.name = Ctor.options.name || 'RouterApp';
+      }
+
+      // handle history fallback in browsers that do not
+      // support HTML5 history API
+      if (this._historyFallback) {
+        var _location = window.location;
+        var _history = new HTML5History({ root: this._root });
+        var path = _history.root ? _location.pathname.replace(_history.rootRE, '') : _location.pathname;
+        if (path && path !== '/') {
+          _location.assign((_history.root || '') + '/' + this.history.formatPath(path) + _location.search);
+          return;
+        }
+      }
+
+      this.history.start();
+    };
+
+    /**
+     * Stop listening to route changes.
+     */
+
+    Router.prototype.stop = function stop() {
+      this.history.stop();
+      this._started = false;
+    };
+
+    // Internal methods ======================================
+
+    /**
+    * Add a route containing a list of segments to the internal
+    * route recognizer. Will be called recursively to add all
+    * possible sub-routes.
+    *
+    * @param {String} path
+    * @param {Object} handler
+    * @param {Array} segments
+    */
+
+    Router.prototype._addRoute = function _addRoute(path, handler, segments) {
+      guardComponent(path, handler);
+      handler.path = path;
+      handler.fullPath = (segments.reduce(function (path, segment) {
+        return path + segment.path;
+      }, '') + path).replace('//', '/');
+      segments.push({
+        path: path,
+        handler: handler
+      });
+      this._recognizer.add(segments, {
+        as: handler.name
+      });
+      // add sub routes
+      if (handler.subRoutes) {
+        for (var subPath in handler.subRoutes) {
+          // recursively walk all sub routes
+          this._addRoute(subPath, handler.subRoutes[subPath],
+          // pass a copy in recursion to avoid mutating
+          // across branches
+          segments.slice());
+        }
+      }
+    };
+
+    /**
+     * Set the notFound route handler.
+     *
+     * @param {Object} handler
+     */
+
+    Router.prototype._notFound = function _notFound(handler) {
+      guardComponent('*', handler);
+      this._notFoundHandler = [{ handler: handler }];
+    };
+
+    /**
+     * Add a redirect record.
+     *
+     * @param {String} path
+     * @param {String} redirectPath
+     */
+
+    Router.prototype._addRedirect = function _addRedirect(path, redirectPath) {
+      if (path === '*') {
+        this._notFoundRedirect = redirectPath;
+      } else {
+        this._addGuard(path, redirectPath, this.replace);
+      }
+    };
+
+    /**
+     * Add an alias record.
+     *
+     * @param {String} path
+     * @param {String} aliasPath
+     */
+
+    Router.prototype._addAlias = function _addAlias(path, aliasPath) {
+      this._addGuard(path, aliasPath, this._match);
+    };
+
+    /**
+     * Add a path guard.
+     *
+     * @param {String} path
+     * @param {String} mappedPath
+     * @param {Function} handler
+     */
+
+    Router.prototype._addGuard = function _addGuard(path, mappedPath, _handler) {
+      var _this2 = this;
+
+      this._guardRecognizer.add([{
+        path: path,
+        handler: function handler(match, query) {
+          var realPath = mapParams(mappedPath, match.params, query);
+          _handler.call(_this2, realPath);
+        }
+      }]);
+    };
+
+    /**
+     * Check if a path matches any redirect records.
+     *
+     * @param {String} path
+     * @return {Boolean} - if true, will skip normal match.
+     */
+
+    Router.prototype._checkGuard = function _checkGuard(path) {
+      var matched = this._guardRecognizer.recognize(path);
+      if (matched) {
+        matched[0].handler(matched[0], matched.queryParams);
+        return true;
+      } else if (this._notFoundRedirect) {
+        matched = this._recognizer.recognize(path);
+        if (!matched) {
+          this.replace(this._notFoundRedirect);
+          return true;
+        }
+      }
+    };
+
+    /**
+     * Match a URL path and set the route context on vm,
+     * triggering view updates.
+     *
+     * @param {String} path
+     * @param {Object} [state]
+     * @param {String} [anchor]
+     */
+
+    Router.prototype._match = function _match(path, state, anchor) {
+      var _this3 = this;
+
+      if (this._checkGuard(path)) {
+        return;
+      }
+
+      var currentRoute = this._currentRoute;
+      var currentTransition = this._currentTransition;
+
+      if (currentTransition) {
+        if (currentTransition.to.path === path) {
+          // do nothing if we have an active transition going to the same path
+          return;
+        } else if (currentRoute.path === path) {
+          // We are going to the same path, but we also have an ongoing but
+          // not-yet-validated transition. Abort that transition and reset to
+          // prev transition.
+          currentTransition.aborted = true;
+          this._currentTransition = this._prevTransition;
+          return;
+        } else {
+          // going to a totally different path. abort ongoing transition.
+          currentTransition.aborted = true;
+        }
+      }
+
+      // construct new route and transition context
+      var route = new Route(path, this);
+      var transition = new RouteTransition(this, route, currentRoute);
+
+      // current transition is updated right now.
+      // however, current route will only be updated after the transition has
+      // been validated.
+      this._prevTransition = currentTransition;
+      this._currentTransition = transition;
+
+      if (!this.app) {
+        (function () {
+          // initial render
+          var router = _this3;
+          _this3.app = new _this3._appConstructor({
+            el: _this3._appContainer,
+            created: function created() {
+              this.$router = router;
+            },
+            _meta: {
+              $route: route
+            }
+          });
+        })();
+      }
+
+      // check global before hook
+      var beforeHooks = this._beforeEachHooks;
+      var startTransition = function startTransition() {
+        transition.start(function () {
+          _this3._postTransition(route, state, anchor);
+        });
+      };
+
+      if (beforeHooks.length) {
+        transition.runQueue(beforeHooks, function (hook, _, next) {
+          if (transition === _this3._currentTransition) {
+            transition.callHook(hook, null, next, {
+              expectBoolean: true
+            });
+          }
+        }, startTransition);
+      } else {
+        startTransition();
+      }
+
+      if (!this._rendered && this._startCb) {
+        this._startCb.call(null);
+      }
+
+      // HACK:
+      // set rendered to true after the transition start, so
+      // that components that are acitvated synchronously know
+      // whether it is the initial render.
+      this._rendered = true;
+    };
+
+    /**
+     * Set current to the new transition.
+     * This is called by the transition object when the
+     * validation of a route has succeeded.
+     *
+     * @param {Transition} transition
+     */
+
+    Router.prototype._onTransitionValidated = function _onTransitionValidated(transition) {
+      // set current route
+      var route = this._currentRoute = transition.to;
+      // update route context for all children
+      if (this.app.$route !== route) {
+        this.app.$route = route;
+        this._children.forEach(function (child) {
+          child.$route = route;
+        });
+      }
+      // call global after hook
+      if (this._afterEachHooks.length) {
+        this._afterEachHooks.forEach(function (hook) {
+          return hook.call(null, {
+            to: transition.to,
+            from: transition.from
+          });
+        });
+      }
+      this._currentTransition.done = true;
+    };
+
+    /**
+     * Handle stuff after the transition.
+     *
+     * @param {Route} route
+     * @param {Object} [state]
+     * @param {String} [anchor]
+     */
+
+    Router.prototype._postTransition = function _postTransition(route, state, anchor) {
+      // handle scroll positions
+      // saved scroll positions take priority
+      // then we check if the path has an anchor
+      var pos = state && state.pos;
+      if (pos && this._saveScrollPosition) {
+        Vue.nextTick(function () {
+          window.scrollTo(pos.x, pos.y);
+        });
+      } else if (anchor) {
+        Vue.nextTick(function () {
+          var el = document.getElementById(anchor.slice(1));
+          if (el) {
+            window.scrollTo(window.scrollX, el.offsetTop);
+          }
+        });
+      }
+    };
+
+    /**
+     * Normalize named route object / string paths into
+     * a string.
+     *
+     * @param {Object|String|Number} path
+     * @return {String}
+     */
+
+    Router.prototype._stringifyPath = function _stringifyPath(path) {
+      var fullPath = '';
+      if (path && typeof path === 'object') {
+        if (path.name) {
+          var extend = Vue.util.extend;
+          var currentParams = this._currentTransition && this._currentTransition.to.params;
+          var targetParams = path.params || {};
+          var params = currentParams ? extend(extend({}, currentParams), targetParams) : targetParams;
+          if (path.query) {
+            params.queryParams = path.query;
+          }
+          fullPath = this._recognizer.generate(path.name, params);
+        } else if (path.path) {
+          fullPath = path.path;
+          if (path.query) {
+            var query = this._recognizer.generateQueryString(path.query);
+            if (fullPath.indexOf('?') > -1) {
+              fullPath += '&' + query.slice(1);
+            } else {
+              fullPath += query;
+            }
+          }
+        }
+      } else {
+        fullPath = path ? path + '' : '';
+      }
+      return encodeURI(fullPath);
+    };
+
+    return Router;
+  })();
+
+  function guardComponent(path, handler) {
+    var comp = handler.component;
+    if (Vue.util.isPlainObject(comp)) {
+      comp = handler.component = Vue.extend(comp);
+    }
+    /* istanbul ignore if */
+    if (typeof comp !== 'function') {
+      handler.component = null;
+      warn('invalid component for route "' + path + '".');
+    }
+  }
+
+  /* Installation */
+
+  Router.installed = false;
+
+  /**
+   * Installation interface.
+   * Install the necessary directives.
+   */
+
+  Router.install = function (externalVue) {
+    /* istanbul ignore if */
+    if (Router.installed) {
+      warn('already installed.');
+      return;
+    }
+    Vue = externalVue;
+    applyOverride(Vue);
+    View(Vue);
+    Link(Vue);
+    exports$1.Vue = Vue;
+    Router.installed = true;
+  };
+
+  // auto install
+  /* istanbul ignore if */
+  if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.use(Router);
+  }
+
+  return Router;
+
+}));
+},{}],50:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.17
@@ -36669,7 +39343,7 @@ if (devtools) {
 module.exports = Vue;
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"_process":39}],50:[function(require,module,exports){
+},{"_process":39}],51:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -36689,7 +39363,7 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}],51:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36768,7 +39442,7 @@ exports.default = {
     }
 };
 
-},{"lodash":38}],52:[function(require,module,exports){
+},{"lodash":38}],53:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36797,7 +39471,7 @@ exports.default = {
     }
 };
 
-},{"local-storage":35}],53:[function(require,module,exports){
+},{"local-storage":35}],54:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37233,7 +39907,7 @@ exports.default = {
 	}
 };
 
-},{"../config":27,"../stores/album":55,"../stores/artist":56,"../stores/preference":59,"../stores/queue":60,"../stores/song":63,"../stubs/album":65,"../stubs/artist":66,"jquery":34,"lodash":38}],54:[function(require,module,exports){
+},{"../config":27,"../stores/album":56,"../stores/artist":57,"../stores/preference":60,"../stores/queue":61,"../stores/song":64,"../stubs/album":66,"../stubs/artist":67,"jquery":34,"lodash":38}],55:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37284,7 +39958,7 @@ exports.default = {
     }
 };
 
-},{}],55:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37361,7 +40035,7 @@ exports.default = {
     }
 };
 
-},{"../services/utils":54,"../stubs/album":65,"./song":63,"lodash":38}],56:[function(require,module,exports){
+},{"../services/utils":55,"../stubs/album":66,"./song":64,"lodash":38}],57:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37461,7 +40135,7 @@ exports.default = {
     }
 };
 
-},{"../config":27,"./album":55,"lodash":38}],57:[function(require,module,exports){
+},{"../config":27,"./album":56,"lodash":38}],58:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37586,7 +40260,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":51,"../services/utils":54,"lodash":38}],58:[function(require,module,exports){
+},{"../services/http":52,"../services/utils":55,"lodash":38}],59:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37701,7 +40375,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":51,"../stubs/playlist":67,"./shared":62,"./song":63,"lodash":38}],59:[function(require,module,exports){
+},{"../services/http":52,"../stubs/playlist":68,"./shared":63,"./song":64,"lodash":38}],60:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37747,7 +40421,7 @@ exports.default = {
     }
 };
 
-},{"../services/ls":52,"lodash":38}],60:[function(require,module,exports){
+},{"../services/ls":53,"lodash":38}],61:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37909,7 +40583,7 @@ exports.default = {
     }
 };
 
-},{"../stubs/song":69,"lodash":38}],61:[function(require,module,exports){
+},{"../stubs/song":70,"lodash":38}],62:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37951,7 +40625,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":51,"../stubs/settings":68}],62:[function(require,module,exports){
+},{"../services/http":52,"../stubs/settings":69}],63:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38031,7 +40705,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":51,"./artist":56,"./playlist":58,"./preference":59,"./queue":60,"./setting":61,"./song":63,"./user":64,"lodash":38}],63:[function(require,module,exports){
+},{"../services/http":52,"./artist":57,"./playlist":59,"./preference":60,"./queue":61,"./setting":62,"./song":64,"./user":65,"lodash":38}],64:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38240,7 +40914,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":51,"../services/utils":54,"../stubs/song":69,"./favorite":57,"./user":64,"lodash":38}],64:[function(require,module,exports){
+},{"../services/http":52,"../services/utils":55,"../stubs/song":70,"./favorite":58,"./user":65,"lodash":38}],65:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38440,7 +41114,7 @@ exports.default = {
     }
 };
 
-},{"../services/http":51,"../stubs/user":70,"./shared":62,"blueimp-md5":32,"lodash":38}],65:[function(require,module,exports){
+},{"../services/http":52,"../stubs/user":71,"./shared":63,"blueimp-md5":32,"lodash":38}],66:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38466,7 +41140,7 @@ exports.default = {
     songs: []
 };
 
-},{"../config":27,"./artist":66}],66:[function(require,module,exports){
+},{"../config":27,"./artist":67}],67:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38479,7 +41153,7 @@ exports.default = {
     albums: []
 };
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38490,7 +41164,7 @@ exports.default = {
     songs: []
 };
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38500,7 +41174,7 @@ exports.default = {
     media_path: ''
 };
 
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -38526,7 +41200,7 @@ exports.default = {
 	files: {}
 };
 
-},{"./album":65}],70:[function(require,module,exports){
+},{"./album":66}],71:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

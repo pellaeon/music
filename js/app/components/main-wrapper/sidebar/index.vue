@@ -6,23 +6,22 @@
             <ul class="menu">
                 <li>
                     <a class="queue" 
-                        :class="[currentView == 'queue' ? 'active' : '']"
-                        @click.prevent="$root.loadMainView('queue')"
+                        v-link="{ path: '/queue', activeClass: 'active' }"
                         @dragleave="removeDroppableState"
                         @dragover.prevent="allowDrop"
                         @drop.stop="handleDrop($event)">Current Queue</a>
                 </li>
                 <li>
-                    <a class="songs" :class="[currentView == 'songs' ? 'active' : '']" 
-                        @click.prevent="$root.loadMainView('songs')">All Songs</a>
+                    <a class="songs"
+                        v-link="{ path: '/songs', activeClass: 'active' }">All Songs</a>
                 </li>
                 <li>
-                    <a class="albums" :class="[currentView == 'albums' ? 'active' : '']" 
-                        @click.prevent="$root.loadMainView('albums')">Albums</a>
+                    <a class="albums"
+                        v-link="{ path: '/albums', activeClass: 'active' }">Albums</a>
                 </li>
                 <li>
-                    <a class="artists" :class="[currentView == 'artists' ? 'active' : '']" 
-                        @click.prevent="$root.loadMainView('artists')">Artists</a>
+                    <a class="artists"
+                        v-link="{ path: '/artists', activeClass: 'active' }">Artists</a>
                 </li>
             </ul>
         </section>
@@ -30,6 +29,7 @@
         <playlists :current-view="currentView"></playlists>
         
         <section v-if="user.current.is_admin" class="manage">
+            <!-- TODO remove-->
             <h1>Manage</h1>
 
             <ul class="menu">
@@ -69,7 +69,6 @@
 
         data() {
             return {
-                currentView: 'queue',
                 user: userStore.state,
                 showing: !isMobile.phone,
                 sharedState: sharedStore.state,
@@ -121,15 +120,6 @@
         },
 
         events: {
-            'main-content-view:load': function (view) {
-                this.currentView = view;
-
-                // Hide the sidebar if on mobile
-                if (isMobile.phone) {
-                    this.showing = false;
-                }
-            },
-
             /**
              * Listen to sidebar:toggle event to show or hide the sidebar.
              * This should only be triggered on a mobile device.

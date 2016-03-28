@@ -49,7 +49,7 @@
         },
 
         events: {
-            'main-content-view:load': function (view) {
+            'main-content-view:load': function (view) {// FIXME this should be handled by router.on()
                 // Hide the panel away if a main view is triggered on mobile.
                 if (isMobile.phone) {
                     this.prefs.showExtraPanel = false;
