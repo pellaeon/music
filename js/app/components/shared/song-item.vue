@@ -44,6 +44,12 @@
 
                 return true;
             },
+
+            'song:stop': function () {
+                this.playing = false;
+
+                return true;
+            },
         },
     };
 </script>

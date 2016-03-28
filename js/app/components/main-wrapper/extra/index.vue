@@ -68,6 +68,8 @@
                     this.$broadcast('song:info-loaded', song);
                 });
             },
+
+            // TODO song:stop
         },
     };
 </script>

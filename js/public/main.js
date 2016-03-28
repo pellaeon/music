@@ -451,6 +451,7 @@ exports.default = {
                 _this.$broadcast('song:info-loaded', song);
             });
         }
+
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
@@ -2086,6 +2087,12 @@ exports.default = {
          */
         'song:play': function songPlay(song) {
             this.playing = this.song.id === song.id;
+
+            return true;
+        },
+
+        'song:stop': function songStop() {
+            this.playing = false;
 
             return true;
         }
