@@ -948,6 +948,12 @@ exports.default = {
             this.albumCover = song.album.cover === _album2.default.stub.cover ? null : song.album.cover;
 
             return true;
+        },
+
+        'song:stop': function songStop() {
+            this.albumCover = null;
+
+            return true;
         }
     }
 };
