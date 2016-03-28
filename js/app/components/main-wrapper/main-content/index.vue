@@ -41,6 +41,12 @@
                 this.albumCover = song.album.cover ===  albumStore.stub.cover ? null : song.album.cover;
 
                 return true;
+            },
+
+            'song:stop': function () {
+                this.albumCover = null;
+
+                return true;
             }
         },
     };
