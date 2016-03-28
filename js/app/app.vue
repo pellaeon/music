@@ -141,7 +141,7 @@
              */
             loadMainView(view) {
                 //this.$broadcast('main-content-view:load', view);
-                router.go(view);//for capability
+                this.$route.router.go(view);//for capability
             },
 
             /**
