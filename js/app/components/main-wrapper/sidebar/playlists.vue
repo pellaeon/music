@@ -15,8 +15,8 @@
         <ul class="menu">
             <li>
                 <a class="favorites" 
+                    v-link="{ path: '/favorites', activeClass: 'active' }"
                     @click.prevent="loadFavorites"
-                    :class="[currentView == 'favorites' ? 'active' : '']"
                     @dragleave="removeDroppableState"
                     @dragover.prevent="allowDrop"
                     @drop.stop="handleDrop(null, $event)">Favorites</a>
@@ -33,7 +33,7 @@
                     @drop.stop="handleDrop(p, $event)"
 
                     :class="[(currentView == 'playlist' && currentPlaylist == p)  ? 'active' : '']"
-                >
+                ><!-- TODO handle playlists router -->
                     {{ p.name }}
                 </a>
 
@@ -84,7 +84,6 @@
              */
             loadFavorites() {
                 this.currentPlaylist = null;
-                this.$root.loadFavorites();
             },
 
             /**

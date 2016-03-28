@@ -140,7 +140,8 @@
              * @param string view The view, which can be found under components/main-wrapper/main-content.
              */
             loadMainView(view) {
-                this.$broadcast('main-content-view:load', view);
+                //this.$broadcast('main-content-view:load', view);
+                router.go(view);//for capability
             },
 
             /**
@@ -151,13 +152,6 @@
             loadPlaylist(playlist) {
                 this.$broadcast('playlist:load', playlist);
                 this.loadMainView('playlist');
-            },
-
-            /**
-             * Load the Favorites view.
-             */
-            loadFavorites() {
-                this.loadMainView('favorites');
             },
 
             /**
