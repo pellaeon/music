@@ -264,6 +264,7 @@
              */
             'song:stop': function () {
                 this.playing = false;
+                this.song = songStore.stub;
             },
 
             /**

@@ -160,7 +160,7 @@ exports.default = {
          */
         loadMainView: function loadMainView(view) {
             //this.$broadcast('main-content-view:load', view);
-            router.go(view); //for capability
+            this.$route.router.go(view); //for capability
         },
 
 
@@ -430,6 +430,7 @@ exports.default = {
 
     events: {
         'main-content-view:load': function mainContentViewLoad(view) {
+            // FIXME this should be handled by router.on()
             // Hide the panel away if a main view is triggered on mobile.
             if (_ismobilejs2.default.phone) {
                 this.prefs.showExtraPanel = false;
@@ -2782,6 +2783,7 @@ exports.default = {
          */
         'song:stop': function songStop() {
             this.playing = false;
+            this.song = _song2.default.stub;
         },
 
         /**
@@ -2892,7 +2894,7 @@ router.map({
 	}
 });
 
-/*
+/* FIXME this doesn't work yet
 router.beforeEach(function (transition) {
 	if (isMobile.phone) {
 		preferenceStore.state.showExtraPanel = false;
@@ -39783,6 +39785,10 @@ exports.default = {
   * Completely stop playback.
   */
 	stop: function stop() {
+		this.state.progress = 0;
+		this.state.duration = 0;
+		this.state.buffer = 0;
+
 		(0, _jquery2.default)('title').text(_config2.default.appTitle);
 		this.player.stop();
 
