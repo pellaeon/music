@@ -257,6 +257,10 @@ export default {
 	 * Completely stop playback.
 	 */
 	stop() {
+		this.state.progress = 0;
+		this.state.duration = 0;
+		this.state.buffer = 0;
+
 		$('title').text(config.appTitle);
 		this.player.stop();
 
