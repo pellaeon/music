@@ -606,6 +606,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = {
     mixins: [_infiniteScroll2.default, _shuffleSelected2.default],
     components: { albumItem: _albumItem2.default, songList: _songList2.default },
+    route: {
+        data: function data(transition) {
+            var newCurrentAlb = _album2.default.byId(parseInt(transition.to.params.id));
+            if (newCurrentAlb != null) {
+                this.playState.currentAlbum = newCurrentAlb;
+            } else {
+                console.log('WARNING: album not found');
+            }
+        }
+    },
 
     data: function data() {
         return {
@@ -630,12 +640,19 @@ exports.default = {
          * When the application is ready, load the first batch of items.
          */
         'koel:ready': function koelReady() {
-            console.log('album-list-songs ready');
+            // if the initial load url is /#!/album/<id> , there would be no transition,
+            // we need to set currentAlbum manually
+            var newCurrentAlb = _album2.default.byId(parseInt(this.$route.params.id));
+            if (newCurrentAlb != null) {
+                this.playState.currentAlbum = newCurrentAlb;
+            } else {
+                console.log('WARNING: album not found');
+            }
         }
     }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div id=\"albumSongsWrapper\">\n        <h1 class=\"heading\">\n            <span>{{ album.name }}\n                <i class=\"fa fa-chevron-down toggler\" v-show=\"isPhone &amp;&amp; !showingControls\" @click=\"showingControls = true\"></i>\n                <i class=\"fa fa-chevron-up toggler\" v-show=\"isPhone &amp;&amp; showingControls\" @click.prevent=\"showingControls = false\"></i>\n            </span>\n        </h1>\n\n        <song-list :items=\"playState.currentAlbum.songs\" :selected-songs.sync=\"selectedSongs\" type=\"queue\"></song-list>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n    <div id=\"albumSongsWrapper\">\n        <h1 class=\"heading\" v-show=\"album\">\n            <span>{{ album.name }}\n                <i class=\"fa fa-chevron-down toggler\" v-show=\"isPhone &amp;&amp; !showingControls\" @click=\"showingControls = true\"></i>\n                <i class=\"fa fa-chevron-up toggler\" v-show=\"isPhone &amp;&amp; showingControls\" @click.prevent=\"showingControls = false\"></i>\n            </span>\n        </h1>\n        <h1 class=\"heading\" v-else=\"\"><span>Album does not exist</span></h1><!-- FIXME currentAlbum will never be null so this won't happen-->\n\n        <song-list :items=\"playState.currentAlbum.songs\" :selected-songs.sync=\"selectedSongs\" type=\"queue\"></song-list>\n    </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -2892,6 +2909,10 @@ router.map({
 	},
 	'/albums': {
 		component: albums
+	},
+	'/album/:id': {
+		name: 'album',
+		component: albumSongs
 	},
 	'/artists': {
 		component: artists
@@ -40051,6 +40072,18 @@ exports.default = {
         }, 0);
 
         return album.fmtLength = _utils2.default.secondsToHis(album.length);
+    },
+
+
+    /**
+     * Get an album by its ID
+     * 
+     * @param  {String} id
+     * 
+     * @return {Object}
+     */
+    byId: function byId(id) {
+        return _lodash2.default.find(this.state.albums, { id: id });
     }
 };
 

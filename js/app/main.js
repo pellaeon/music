@@ -31,6 +31,10 @@ router.map({
 	'/albums': {
 		component: albums
 	},
+	'/album/:id': {
+		name: 'album',
+		component: albumSongs
+	},
 	'/artists': {
 		component: artists
 	},

@@ -50,4 +50,15 @@ export default {
 
         return (album.fmtLength = utils.secondsToHis(album.length));
     },
+
+    /**
+     * Get an album by its ID
+     * 
+     * @param  {String} id
+     * 
+     * @return {Object}
+     */
+    byId(id) {
+        return _.find(this.state.albums, {id});
+    },
 };
