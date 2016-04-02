@@ -1,12 +1,12 @@
 <template>
     <article class="item" v-if="album.songs.length">
-        <span class="cover" :style="{ backgroundImage: 'url(' + album.cover + ')' }">
-            <a class="control" @click.prevent="play">
+        <span v-link="{name: 'album', params: { id: album.id }}" class="cover" :style="{ backgroundImage: 'url(' + album.cover + ')' }">
+            <a class="control" v-link="{name: 'album', params: { id: album.id }}" @click.prevent="play">
                 <i class="fa fa-play"></i>
             </a>
         </span>
         <footer>
-            <p class="name">{{ album.name }}</p>
+            <p class="name"><a v-link="{name: 'album', params: { id: album.id }}">{{ album.name }}</a></p>
             <p class="artist">{{ album.artist.name }}</p>
             <p class="meta">
                 {{ album.songs.length }} song{{ album.songs.length == 1 ? '' : 's' }} 
@@ -19,6 +19,7 @@
 
 <script>
     import playback from '../../services/playback';
+    import queueStore from '../../stores/queue';
 
     export default {
         props: ['album'],
@@ -28,7 +29,10 @@
              * Play all songs in the current album.
              */
             play() {
-                playback.playAllInAlbum(this.album);
+                playback.stop();
+                queueStore.clear();
+                queueStore.queue(this.album.songs, true);
+                playback.playFirstInQueue();
             },
         },
     };
