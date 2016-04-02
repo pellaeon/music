@@ -42,6 +42,14 @@ a, a:link, a:visited {
     cursor: pointer;
 }
 
+#mainContent a {
+    color: $colorMainText;
+}
+
+#mainContent a:hover {
+    text-decoration: underline;
+}
+
 .clear, .clearfix {
     &::after {
         content: " ";

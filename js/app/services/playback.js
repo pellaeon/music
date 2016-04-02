@@ -305,7 +305,7 @@ export default {
 
 		queueStore.queue(songs, true);
 
-		this.app.loadMainView('queue');
+		this.$route.router.go('/queue');
 
 		// Wrap this inside a nextTick() to wait for the DOM to complete updating
 		// and then play the first song in the queue.
