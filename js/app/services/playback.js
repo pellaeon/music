@@ -108,7 +108,7 @@ export default {
 
 		this.app.$broadcast('song:play', song);
 
-		$('title').text(`${song.title} ♫ Koel`);
+		$('title').text(`${song.title} ♫ ${config.appTitle}`);
 		this.player.fromURL(this.getPlayableFileURL(song));
 		this.player.play();
 
