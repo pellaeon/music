@@ -13,4 +13,5 @@ export default {
   liked: false,
   playCount: 0,
   playbackState: 'stopped',
+  files: {},
 };

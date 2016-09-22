@@ -9,7 +9,6 @@
       @keydown.mediaNext = "playNext"
       @keydown.mediaToggle = "togglePlayback"
     >
-      <site-header></site-header>
       <main-wrapper></main-wrapper>
       <site-footer></site-footer>
       <overlay ref="overlay"></overlay>
@@ -26,7 +25,6 @@
 import Vue from 'vue';
 import $ from 'jquery';
 
-import siteHeader from './components/site-header/index.vue';
 import siteFooter from './components/site-footer/index.vue';
 import mainWrapper from './components/main-wrapper/index.vue';
 import overlay from './components/shared/overlay.vue';
@@ -40,11 +38,12 @@ import { focusDirective, clickawayDirective } from './directives';
 import router from './router';
 
 export default {
-  components: { siteHeader, siteFooter, mainWrapper, overlay, loginForm, editSongsForm },
+  components: { siteFooter, mainWrapper, overlay, loginForm, editSongsForm },
 
   data() {
     return {
       authenticated: false,
+      sharedState: sharedStore.state,// TODO remove
     };
   },
 
@@ -256,7 +255,6 @@ Vue.directive('koel-clickaway',clickawayDirective);
 
 #main, .login-wrapper {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
 
   background: $colorMainBgr;

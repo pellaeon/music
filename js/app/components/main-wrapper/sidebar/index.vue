@@ -33,6 +33,7 @@
     <playlists :current-view="currentView"></playlists>
 
     <section v-if="user.current.is_admin" class="manage">
+	<!-- TODO remove-->
       <h1>Manage</h1>
 
       <ul class="menu">

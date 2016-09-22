@@ -8,8 +8,9 @@ import { http } from './services';
  * Gloria, gloria perpetua
  * in this dawn of victory
  */
+// TODO might still need tweaking, see git diff -U10 a6501ae vue
 new Vue({
-  el: '#app',
+  el: 'div#content',
   render: h => h(require('./app.vue')),
   created() {
     event.init();

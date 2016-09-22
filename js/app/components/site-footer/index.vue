@@ -28,8 +28,16 @@
             <a class="album" :href="'/#!/album/' + song.album.id">{{ song.album.name }}</a>
           </p>
 
-          <div class="plyr">
-            <audio crossorigin="anonymous" controls></audio>
+          <div class="player player-audio">
+            <div class="player-controls">
+              <div class="player-progress">
+                <progress class="player-progress-played" max="100" value="{{ (playstate.progress/playstate.duration)*100 }}">
+                <span>{{ (playstate.progress/playstate.duration)*100 }}</span>% played</progress>
+                <progress class="player-progress-buffer" max="100" value="{{ playstate.buffer }}"><span>{{ playstate.buffer }}</span>% buffer
+              </div>
+              <span class="player-controls-left"></span>
+              <span class="player-controls-right"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -84,6 +92,8 @@ export default {
       viewingQueue: false,
 
       prefs: preferenceStore.state,
+	  playstate: playback.state,
+
       showEqualizer: false,
 
       /**
@@ -479,6 +489,16 @@ export default {
 
   .plyr__controls--left, .plyr__controls--right {
     display: none;
+  }
+
+  .player-audio .player-progress {
+    bottom: auto;
+    top: 0;
+    background: #313131;
+  }
+
+  h3.title {
+    margin: 0;
   }
 
 

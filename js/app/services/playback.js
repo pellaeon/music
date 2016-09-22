@@ -5,6 +5,7 @@ import Vue from 'vue';
 
 import { event } from '../utils';
 import { queueStore, sharedStore, userStore, songStore, artistStore, preferenceStore as preferences } from '../stores';
+import { artistStub, albumStub } from '../stubs';
 import config from '../config';
 import router from '../router';
 
@@ -13,6 +14,14 @@ export const playback = {
   $volumeInput: null,
   repeatModes: ['NO_REPEAT', 'REPEAT_ALL', 'REPEAT_ONE'],
   initialized: false,
+  state: {
+      progress: 0,//msec
+      buffer: 0,//percent
+      duration: 0,//msec
+
+      currentAlbum: albumStub,
+      currentArtist: artistStub,
+  },
 
   /**
    * Initialize the playback service for this whole Koel app.
@@ -23,9 +32,7 @@ export const playback = {
       return;
     }
 
-    this.player = plyr.setup({
-      controls: [],
-    })[0];
+    this.player = new PlayerWrapper();
 
     this.audio = $('audio');
 
@@ -34,14 +41,14 @@ export const playback = {
     /**
      * Listen to 'error' event on the audio player and play the next song if any.
      */
-    document.querySelector('.plyr').addEventListener('error', e => {
+    this.player.on('error', e => {
       this.playNext();
-    }, true);
+    });
 
     /**
-     * Listen to 'ended' event on the audio player and play the next song in the queue.
+     * Listen to 'end' event on the audio player and play the next song in the queue.
      */
-    document.querySelector('.plyr').addEventListener('ended', e => {
+    this.player.on('end', e => {
       if (sharedStore.state.useLastfm && userStore.current.preferences.lastfm_session_key) {
         songStore.scrobble(queueStore.current);
       }
@@ -55,24 +62,14 @@ export const playback = {
       this.playNext();
     });
 
-    /**
-     * Attempt to preload the next song if the current song is about to end.
-     */
-    document.querySelector('.plyr').addEventListener('timeupdate', e => {
-      if (!this.player.media.duration || this.player.media.currentTime + 10 < this.player.media.duration) {
-        return;
-      }
-
-      // The current song has only 10 seconds left to play.
-      const nextSong = queueStore.next;
-      if (!nextSong || nextSong.preloaded) {
-        return;
-      }
-
-      const $preloader = $('<audio>');
-      $preloader.attr('src', songStore.getSourceUrl(nextSong));
-
-      nextSong.preloaded = true;
+    this.player.on('progress', e => {
+        this.state.progress = e;
+    });
+    this.player.on('buffer', e => {
+        this.state.buffer = e;
+    });
+    this.player.on('duration', e => {
+        this.state.duration = e;
     });
 
     /**
@@ -108,6 +105,8 @@ export const playback = {
       return;
     }
 
+    this.stop();
+
     if (queueStore.current) {
       queueStore.current.playbackState = 'stopped';
     }
@@ -125,7 +124,7 @@ export const playback = {
     this.player.media.src = songStore.getSourceUrl(song);
 
     $('title').text(`${song.title} ♫ ${config.appTitle}`);
-    $('.plyr audio').attr('title', `${song.artist.name} - ${song.title}`);
+    this.player.fromURL(this.getPlayableFileURL(song));
 
     // We'll just "restart" playing the song, which will handle notification, scrobbling etc.
     this.restart();
@@ -234,11 +233,10 @@ export const playback = {
 
     const prev = this.previous;
 
-    if (!prev && preferences.repeatMode === 'NO_REPEAT') {
-      this.stop();
+    this.stop();
 
+    if (!prev && preferences.repeatMode === 'NO_REPEAT')
       return;
-    }
 
     this.play(prev);
   },
@@ -250,12 +248,10 @@ export const playback = {
   playNext() {
     const next = this.next;
 
-    if (!next && preferences.repeatMode === 'NO_REPEAT') {
-      //  Nothing lasts forever, even cold November rain.
-      this.stop();
+    this.stop();
 
+    if (!next && preferences.repeatMode === 'NO_REPEAT')
       return;
-    }
 
     this.play(next);
   },
@@ -299,9 +295,11 @@ export const playback = {
    * Completely stop playback.
    */
   stop() {
+    this.state.progress = 0;
+    this.state.duration = 0;
+    this.state.buffer = 0;
     $('title').text(config.appTitle);
-    this.player.pause();
-    this.player.seek(0);
+    this.player.stop();
 
     if (queueStore.current) {
       queueStore.current.playbackState = 'stopped';
@@ -343,6 +341,8 @@ export const playback = {
     if (shuffled) {
       songs = shuffle(songs);
     }
+
+    this.stop();
 
     queueStore.queue(songs, true);
 
@@ -386,11 +386,31 @@ export const playback = {
    */
   playAllInAlbum(album, shuffled = true) {
     if (!shuffled) {
-      this.queueAndPlay(orderBy(album.songs, 'track'));
+      this.state.currentAlbum = album;
+      queueStore.queue(album.songs, true);
+      this.app.loadMainView('albumSongs');
 
       return;
     }
 
     this.queueAndPlay(album.songs, true);
   },
+
+  /**
+   * Get file webdav URL
+   *
+   * @param       {Object}        song
+   */
+  getPlayableFileURL(song) {
+    for(var mimeType in song.files) {
+      if(mimeType=='audio/flac' || mimeType=='audio/mpeg' || mimeType=='audio/ogg') {
+        return {
+          'type': mimeType,
+          'url': song.files[mimeType] + '?requesttoken=' + encodeURIComponent(OC.requestToken)
+        };
+      }
+    }
+
+    return null;//TODO catch
+  }
 };

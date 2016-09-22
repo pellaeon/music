@@ -180,4 +180,15 @@ export const albumStore = {
 
     return take(orderBy(applicable, 'created_at', 'desc'), n);
   },
+
+  /**
+   * Get an album by its ID
+   *
+   * @param  {String} id
+   *
+   * @return {Object}
+   */
+  byId(id) {
+    return _.find(this.state.albums, {id});
+  },
 };

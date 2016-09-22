@@ -1,6 +1,5 @@
 import { extend, has, each } from 'lodash';
 
-import { userStore } from '.';
 import { ls } from '../services';
 
 export const preferenceStore = {
@@ -23,15 +22,9 @@ export const preferenceStore = {
 
   /**
    * Init the store.
-   *
-   * @param  {Object} user The user whose preferences we are managing.
    */
-  init(user = null) {
-    if (!user) {
-      user = userStore.current;
-    }
-
-    this.storeKey = `preferences_${user.id}`;
+  init() {
+    this.storeKey = `preferences`;
     extend(this.state, ls.get(this.storeKey, this.state));
     this.setupProxy();
   },
