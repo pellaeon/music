@@ -1,93 +1,101 @@
-import _ from 'lodash';
+import { each, map, difference, union } from 'lodash';
 
-import http from '../services/http';
-import utils from '../services/utils';
+import { http } from '../services';
 
-export default {
-    state: {
-        songs: [],
-    },
-    
-    all() {
-        return this.state.songs;
-    },
+export const favoriteStore = {
+  state: {
+    songs: [],
+    length: 0,
+    fmtLength: '',
+  },
 
-    /**
-     * Toggle like/unlike a song. 
-     * A request to the server will be made.
-     *
-     * @param {Object}        The song object
-     * @param {Function}  The function to execute afterwards
-     */
-    toggleOne(song, cb = null) {
-        // Don't wait for the HTTP response to update the status, just toggle right away.
-        // This may cause a minor problem if the request fails somehow, but do we care?
-        song.liked = !song.liked;
+  /**
+   * All songs favorite'd by the current user.
+   *
+   * @return {Array.<Object>}
+   */
+  get all() {
+    return this.state.songs;
+  },
 
-        if (song.liked) {
-            this.add(song);
-        } else {
-            this.remove(song);
-        }
+  /**
+   * Set all favorite'd songs.
+   *
+   * @param  {Array.<Object>} value
+   */
+  set all(value) {
+    this.state.songs = value;
+  },
 
-        http.post('interaction/like', { id: song.id }, data => {
-            if (cb) {
-                cb();
-            }
-        });
-    },
+  /**
+   * Toggle like/unlike a song.
+   * A request to the server will be made.
+   *
+   * @param {Object}   song
+   */
+  toggleOne(song) {
+    // Don't wait for the HTTP response to update the status, just toggle right away.
+    // This may cause a minor problem if the request fails somehow, but do we care?
+    song.liked = !song.liked;
+    song.liked ? this.add(song) : this.remove(song);
 
-    /**
-     * Add a song into the store.
-     *
-     * @param {Object} The song object
-     */
-    add(song) {
-        this.state.songs.push(song);
-    },
+    return new Promise((resolve, reject) => {
+      http.post('interaction/like', { song: song.id }, data => resolve(data), r => reject(r));
+    });
+  },
 
-    /**
-     * Remove a song from the store.
-     *
-     * @param {Object} The song object
-     */
-    remove(song) {
-        this.state.songs = _.difference(this.state.songs, [song]);
-    },
+  /**
+   * Add a song/songs into the store.
+   *
+   * @param {Array.<Object>|Object} songs
+   */
+  add(songs) {
+    this.all = union(this.all, [].concat(songs));
+  },
 
-    /**
-     * Like a bunch of songs.
-     * 
-     * @param  {Array} An array of songs to like
-     */
-    like(songs, cb = null) {
-        // Don't wait for the HTTP response to update the status, just set them to Liked right away.
-        // This may cause a minor problem if the request fails somehow, but do we care?
-        _.each(songs, song => song.liked = true);
-        this.state.songs = _.union(this.state.songs, songs);
+  /**
+   * Remove a song/songs from the store.
+   *
+   * @param {Array.<Object>|Object} songs
+   */
+  remove(songs) {
+    this.all = difference(this.all, [].concat(songs));
+  },
 
-        http.post('interaction/batch/like', { ids: _.pluck(songs, 'id') }, data => {
-            if (cb) {
-                cb();
-            }
-        });
-    },
+  /**
+   * Remove all favorites.
+   */
+  clear() {
+    this.all = [];
+  },
 
-    /**
-     * Unlike a bunch of songs.
-     * 
-     * @param  {Array} An array of songs to unlike
-     */
-    unlike(songs, cb = null) {
-        // Don't wait for the HTTP response to update the status, just set them to Unliked right away.
-        // This may cause a minor problem if the request fails somehow, but do we care?
-        _.each(songs, song => song.liked = false);
-        this.state.songs = _.difference(this.state.songs, songs);
+  /**
+   * Like a bunch of songs.
+   *
+   * @param {Array.<Object>}  songs
+   */
+  like(songs) {
+    // Don't wait for the HTTP response to update the status, just set them to Liked right away.
+    // This may cause a minor problem if the request fails somehow, but do we care?
+    each(songs, song => song.liked = true);
+    this.add(songs);
 
-        http.post('interaction/batch/unlike', { ids: _.pluck(songs, 'id') }, data => {
-            if (cb) {
-                cb();
-            }
-        });
-    },
+    return new Promise((resolve, reject) => {
+      http.post('interaction/batch/like', { songs: map(songs, 'id') }, data => resolve(data), r => reject(r));
+    });
+  },
+
+  /**
+   * Unlike a bunch of songs.
+   *
+   * @param {Array.<Object>}  songs
+   */
+  unlike(songs) {
+    each(songs, song => song.liked = false);
+    this.remove(songs);
+
+    return new Promise((resolve, reject) => {
+      http.post('interaction/batch/unlike', { songs: map(songs, 'id') }, data => resolve(data), r => reject(r));
+    });
+  },
 };

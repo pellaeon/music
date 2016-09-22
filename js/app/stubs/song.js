@@ -1,14 +1,16 @@
 import album from './album';
+import artist from './artist';
 
 export default {
-	album,
-	id: null,
-	album_id: 0,
-	title: '',
-	length: 0,
-	fmtLength: '00:00',
-	lyrics: '',
-	playing: false,
-	liked: false,
-	files: {},
+  album,
+  artist,
+  id: null,
+  album_id: 0,
+  title: '',
+  length: 0,
+  fmtLength: '00:00',
+  lyrics: '',
+  liked: false,
+  playCount: 0,
+  playbackState: 'stopped',
 };

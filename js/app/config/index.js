@@ -1,4 +1,4 @@
 export default {
-    unknownCover: '/public/img/covers/unknown-album.png',
-    appTitle: 'Music - ownCloud',
+  unknownCover: (typeof window !== 'undefined' ? window.location.href : '/') + 'public/img/covers/unknown-album.png',
+  appTitle: 'Koel',
 };

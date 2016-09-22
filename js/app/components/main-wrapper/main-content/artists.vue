@@ -1,92 +1,80 @@
 <template>
-    <div id="artistsWrapper">
-        <h1 class="heading">
-            <span>
-                Artists
-                <i class="fa fa-chevron-down toggler" 
-                    v-show="isPhone && !showingControls" 
-                    @click="showingControls = true"></i>
-                <i class="fa fa-chevron-up toggler" 
-                    v-show="isPhone && showingControls" 
-                    @click.prevent="showingControls = false"></i>
-            </span>
-            <input 
-                v-show="!isPhone || showingControls"
-                type="search" 
-                v-model="q" 
-                :class="{ dirty: q }" 
-                debounce="100" 
-                placeholder="Search">
-        </h1>
-    
-        <div class="artists main-scroll-wrap" v-el:wrapper @scroll="scrolling">
-            <artist-item v-for="item in items 
-                | filterBy q in 'name' 
-                | limitBy numOfItems" :artist="item"></artist-item>
+  <section id="artistsWrapper">
+    <h1 class="heading">
+      <span>Artists</span>
+      <view-mode-switch :mode="viewMode" for="artists"></view-mode-switch>
+    </h1>
 
-            <!-- 
-            Add several more items to make sure the last row is left-aligned.
-            Credits: http://codepen.io/dalgard/pen/Dbnus
-            -->
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-        </div>
+    <div class="artists main-scroll-wrap" :class="'as-' + viewMode" @scroll="scrolling">
+      <artist-item v-for="item in displayedItems" :artist="item"></artist-item>
+      <span class="item filler" v-for="n in 6"></span>
+      <to-top-button :showing="showBackToTop"></to-top-button>
     </div>
+  </section>
 </template>
 
 <script>
-    import isMobile from 'ismobilejs';
+import { filterBy, limitBy, event } from '../../../utils';
+import { artistStore } from '../../../stores';
 
-    import artistItem from '../../shared/artist-item.vue';
-    import infiniteScroll from '../../../mixins/infinite-scroll';
-    import artistStore from '../../../stores/artist';
+import artistItem from '../../shared/artist-item.vue';
+import viewModeSwitch from '../../shared/view-mode-switch.vue';
+import infiniteScroll from '../../../mixins/infinite-scroll';
 
-    export default {
-        mixins: [infiniteScroll],
+export default {
+  mixins: [infiniteScroll],
 
-        components: { artistItem },
+  components: { artistItem, viewModeSwitch },
 
-        data() {
-            return {
-                perPage: 9,
-                numOfItems: 9,
-                state: artistStore.state,
-                q: '',
-                isPhone: isMobile.phone,
-                showingControls: false,
-            };
-        },
-
-        computed: {
-            items() {
-                return this.state.artists;
-            },
-        },
-
-        events: {
-            /**
-             * When the application is ready, load the first batch of items.
-             */
-            'koel:ready': function () {
-                this.displayMore();
-            },
-        },
+  data() {
+    return {
+      perPage: 9,
+      numOfItems: 9,
+      q: '',
+      viewMode: null,
     };
+  },
+
+  computed: {
+    displayedItems() {
+      return limitBy(
+        filterBy(artistStore.all, this.q, 'name'),
+        this.numOfItems
+      );
+    },
+  },
+
+  methods: {
+    changeViewMode(mode) {
+      this.viewMode = mode;
+    },
+  },
+
+  created() {
+    event.on({
+      /**
+       * When the application is ready, load the first batch of items.
+       */
+      'koel:ready': () => this.displayMore(),
+
+      'koel:teardown': () => {
+        this.q = '';
+        this.numOfItems = 9;
+      },
+
+      'filter:changed': q => this.q = q,
+    });
+  },
+};
 </script>
 
 <style lang="sass">
-    @import "../../sass/partials/_vars.scss";
-    @import "../../sass/partials/_mixins.scss";
+@import "../../../../sass/partials/_vars.scss";
+@import "../../../../sass/partials/_mixins.scss";
 
-    #artistsWrapper {
-        .artists {
-            @include artist-album-card();
-        }
-    }
+#artistsWrapper {
+  .artists {
+    @include artist-album-wrapper();
+  }
+}
 </style>

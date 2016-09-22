@@ -1,199 +1,177 @@
 <template>
-    <section id="extra" :class="{ showing: prefs.showExtraPanel }">
-        <div class="tabs">
-            <div class="header clear">
-                <a @click.prevent="currentView = 'lyrics'" 
-                    :class="{ active: currentView == 'lyrics' }">Lyrics</a>
-                <a @click.prevent="currentView = 'artistInfo'" 
-                :class="{ active: currentView == 'artistInfo' }">Artist</a>
-                <a @click.prevent="currentView = 'albumInfo'" 
-                :class="{ active: currentView == 'albumInfo' }">Album</a>
-            </div>
+  <section id="extra" :class="{ showing: state.showExtraPanel }">
+    <div class="tabs">
+      <div class="header clear">
+        <a @click.prevent="currentView = 'lyrics'"
+          :class="{ active: currentView === 'lyrics' }">Lyrics</a>
+        <a @click.prevent="currentView = 'artistInfo'"
+          :class="{ active: currentView === 'artistInfo' }">Artist</a>
+        <a @click.prevent="currentView = 'albumInfo'"
+          :class="{ active: currentView === 'albumInfo' }">Album</a>
+        <a @click.prevent="currentView = 'youtube'"
+          v-if="sharedState.useYouTube"
+          :class="{ active: currentView === 'youtube' }"><i class="fa fa-youtube-play"></i></a>
+      </div>
 
-            <div class="panes">
-                <lyrics v-ref:lyrics v-show="currentView == 'lyrics'"></lyrics>
-                <artist-info v-ref:artist-info v-show="currentView == 'artistInfo'"></artist-info>
-                <album-info v-ref:album-info v-show="currentView == 'albumInfo'"></album-info>
-            </div>
-        </div>
-    </section>
+      <div class="panes">
+        <lyrics :song="song" ref="lyrics" v-show="currentView === 'lyrics'"></lyrics>
+        <artist-info v-if="song.artist.id"
+          :artist="song.artist"
+          :mode="'sidebar'"
+          ref="artist-info"
+          v-show="currentView === 'artistInfo'">
+        </artist-info>
+        <album-info v-if="song.album.id"
+          :album="song.album"
+          :mode="'sidebar'"
+          ref="album-info"
+          v-show="currentView === 'albumInfo'">
+        </album-info>
+        <youtube v-if="sharedState.useYouTube"
+          :song="song" :youtube="song.youtube"
+          ref="youtube"
+          v-show="currentView === 'youtube'">
+        </youtube>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
-    import isMobile from 'ismobilejs';
-    import _ from 'lodash';
-    
-    import lyrics from './lyrics.vue';
-    import artistInfo from './artist-info.vue'
-    import albumInfo from './album-info.vue'
-    import preferenceStore from '../../../stores/preference';
-    import songStore from '../../../stores/song';
-    
-    export default {
-        components: { lyrics, artistInfo, albumInfo },
+import isMobile from 'ismobilejs';
+import { invokeMap } from 'lodash';
+import $ from 'jquery';
 
-        data() {
-            return {
-                prefs: preferenceStore.state,
-                currentView: 'lyrics',
-            };
-        },
+import { event } from '../../../utils';
+import { sharedStore, songStore, preferenceStore as preferences } from '../../../stores';
+import { songInfo } from '../../../services';
 
-        ready() {
-            if (isMobile.phone) {
-                // On a mobile device, we always hide the panel initially regardless of 
-                // the saved preference.
-                this.prefs.showExtraPanel = false;
-                preferenceStore.save();
-            }
-        },
+import lyrics from './lyrics.vue';
+import artistInfo from './artist-info.vue';
+import albumInfo from './album-info.vue';
+import youtube from './youtube.vue';
 
-        events: {
-            'main-content-view:load': function (view) {// FIXME this should be handled by router.on()
-                // Hide the panel away if a main view is triggered on mobile.
-                if (isMobile.phone) {
-                    this.prefs.showExtraPanel = false;
-                }
-            },
+export default {
+  name: 'main-wrapper--extra--index',
+  components: { lyrics, artistInfo, albumInfo, youtube },
 
-            'song:play': function (song) {
-                // Reset all applicable child components' states
-                _.each(this.$refs, child => {
-                    if (typeof child.resetState === 'function') {
-                        child.resetState();
-                    }
-                });
-
-                songStore.getInfo(song, () => {
-                    this.$broadcast('song:info-loaded', song);
-                });
-            },
-
-            // TODO song:stop
-        },
+  data() {
+    return {
+      song: songStore.stub,
+      state: preferences.state,
+      sharedState: sharedStore.state,
+      currentView: 'lyrics',
     };
+  },
+
+  watch: {
+    /**
+     * Watch the "showExtraPanel" property to add/remove the corresponding class
+     * to/from the html tag.
+     * Some element's CSS can then be controlled based on this class.
+     */
+    'state.showExtraPanel': function (newVal) {
+      if (newVal && !isMobile.any) {
+        $('html').addClass('with-extra-panel');
+      } else {
+        $('html').removeClass('with-extra-panel');
+      }
+    },
+  },
+
+  mounted() {
+    // On ready, add 'with-extra-panel' class.
+    if (!isMobile.any) {
+      $('html').addClass('with-extra-panel');
+    }
+
+    if (isMobile.phone) {
+      // On a mobile device, we always hide the panel initially regardless of
+      // the saved preference.
+      preferences.showExtraPanel = false;
+    }
+  },
+
+  methods: {
+    /**
+     * Reset all self and applicable child components' states.
+     */
+    resetState() {
+      this.currentView = 'lyrics';
+      this.song = songStore.stub;
+      invokeMap(this.$refs, 'resetState');
+    },
+  },
+
+  created() {
+    event.on({
+      'main-content-view:load': view => {
+        // Hide the panel away if a main view is triggered on mobile.
+        if (isMobile.phone) {
+          preferences.showExtraPanel = false;
+        }
+      },
+
+      'song:played': song => {
+        songInfo.fetch(song).then(song => {
+          this.song = song;
+        });
+      },
+
+      'koel:teardown': () => this.resetState(),
+    });
+  },
+};
 </script>
 
 <style lang="sass">
-    @import "../../sass/partials/_vars.scss";
-    @import "../../sass/partials/_mixins.scss";
-        
-    #extra {
-        flex: 0 0 334px;
-        padding: 24px 16px $footerHeight;
-        background: $colorExtraBgr;
-        max-height: calc(100vh - #{$headerHeight + $footerHeight});
-        overflow: auto;
+@import "../../../../sass/partials/_vars.scss";
+@import "../../../../sass/partials/_mixins.scss";
 
-        // Enable scroll with momentum on touch devices
-        overflow-y: scroll; 
-        -webkit-overflow-scrolling: touch;
-        
-        display: none;
-        color: $color2ndText;
+#extra {
+  flex: 0 0 $extraPanelWidth;
+  padding: 24px 16px $footerHeight;
+  background: $colorExtraBgr;
+  max-height: calc(100vh - #{$headerHeight + $footerHeight});
+  display: none;
+  color: $color2ndText;
+  overflow: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 
-        &.showing {
-            display: block;
-        }
+  html.touchevents & {
+    // Enable scroll with momentum on touch devices
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
 
-        h1 {
-            font-weight: $fontWeight_UltraThin;
-            font-size: 28px;
-            margin-bottom: 16px;
-            line-height: 36px;
+  &.showing {
+    display: block;
+  }
 
-            @include vertical-center();
-            align-items: initial;
+  h1 {
+    font-weight: $fontWeight_UltraThin;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    line-height: 2.8rem;
+  }
 
-            span {
-                flex: 1;
-                margin-right: 12px;
-            }
+  @media only screen and (max-width : 1024px) {
+    position: fixed;
+    height: calc(100vh - #{$headerHeight + $footerHeight});
+    padding-bottom: $footerHeight; // make sure the footer can never overlap the content
+    width: $extraPanelWidth;
+    z-index: 5;
+    top: $headerHeight;
+    right: -100%;
+    transition: right .3s ease-in;
 
-            a {
-                font-size: 14px;
-
-                &:hover {
-                    color: $colorHighlight;
-                }
-            }
-        }
-
-        .tabs {
-            .header {
-                $tabColor: #5c5c5c;
-                border-bottom: 1px solid $tabColor;
-
-
-                a {
-                    padding: 8px 12px;
-                    margin-left: 4px;
-                    border-radius: 4px 4px 0 0;
-                    text-transform: uppercase;
-                    color: lighten($tabColor, 50%);
-                    opacity: .4;
-                    border: 1px solid $tabColor;
-                    margin-bottom: -1px;
-                    float: left;
-
-                    &.active {
-                        border-bottom: 1px solid $colorExtraBgr;
-                        opacity: 1;
-                    }
-                }
-            }
-
-            .panes {
-                padding: 16px 0;
-            }
-        }
-
-        .more {
-            margin-top: 8px;
-            border-radius: 3px;
-            background: $colorBlue;
-            color: #fff;
-            padding: 4px 8px;
-            display: inline-block;
-            text-transform: uppercase;
-            font-size: 80%;
-        }
-
-        footer {
-            margin-top: 24px;
-            font-size: 90%;
-
-            a {
-                color: #fff; 
-                font-weight: $fontWeight_Normal;
-
-                &:hover {
-                    color: #b90000;
-                }
-            }
-        }
-
-
-        @media only screen 
-        and (max-device-width : 1024px) {
-            position: fixed;
-            height: calc(100vh - #{$headerHeight + $footerHeight});
-            padding-bottom: $footerHeight; // make sure the footer can never overlap the content
-            width: 334px;
-            z-index: 5;
-            top: $headerHeight;
-            right: -100%;
-            transition: right .3s ease-in;
-
-            &.showing {
-                right: 0;
-            }
-        }
-
-        @media only screen 
-        and (max-device-width : 667px) 
-        and (orientation : portrait) {
-            width: 100%;
-        }
+    &.showing {
+      right: 0;
     }
+  }
+
+  @media only screen and (max-width : 667px) {
+    width: 100%;
+  }
+}
 </style>

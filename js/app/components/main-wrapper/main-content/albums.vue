@@ -1,92 +1,78 @@
 <template>
-    <div id="albumsWrapper">
-        <h1 class="heading">
-            <span>Albums
-                <i class="fa fa-chevron-down toggler" 
-                    v-show="isPhone && !showingControls" 
-                    @click="showingControls = true"></i>
-                <i class="fa fa-chevron-up toggler" 
-                    v-show="isPhone && showingControls" 
-                    @click.prevent="showingControls = false"></i>
-            </span>
+  <section id="albumsWrapper">
+    <h1 class="heading">
+      <span>Albums</span>
+      <view-mode-switch :mode="viewMode" for="albums"></view-mode-switch>
+    </h1>
 
-            <input 
-                v-show="!isPhone || showingControls"
-                type="search" 
-                v-model="q" 
-                :class="{ dirty: q }" 
-                debounce="100" 
-                placeholder="Search">
-        </h1>
-
-        <div class="albums main-scroll-wrap" v-el:wrapper @scroll="scrolling">
-            <album-item v-for="item in items 
-                | orderBy 'name'
-                | filterBy q in 'name' 'artist.name' 
-                | limitBy numOfItems" :album="item"></album-item>
-
-            <!-- 
-            Add several more items to make sure the last row is left-aligned.
-            Credits: http://codepen.io/dalgard/pen/Dbnus
-            -->
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-            <span class="item"></span>
-        </div>
+    <div class="albums main-scroll-wrap" :class="'as-' + viewMode" @scroll="scrolling">
+      <album-item v-for="item in displayedItems" :album="item"></album-item>
+      <span class="item filler" v-for="n in 6"></span>
+      <to-top-button :showing="showBackToTop"></to-top-button>
     </div>
+  </section>
 </template>
 
 <script>
-    import isMobile from 'ismobilejs';
-    
-    import albumItem from '../../shared/album-item.vue';
-    import infiniteScroll from '../../../mixins/infinite-scroll';
-    import albumStore from '../../../stores/album';
-    
-    export default {
-        mixins: [infiniteScroll],
-        components: { albumItem },
+import { filterBy, limitBy, event } from '../../../utils';
+import { albumStore } from '../../../stores';
+import albumItem from '../../shared/album-item.vue';
+import viewModeSwitch from '../../shared/view-mode-switch.vue';
+import infiniteScroll from '../../../mixins/infinite-scroll';
 
-        data() {
-            return {
-                perPage: 9,
-                numOfItems: 9,
-                state: albumStore.state,
-                q: '',
-                isPhone: isMobile.phone,
-                showingControls: false,
-            };
-        },
+export default {
+  mixins: [infiniteScroll],
+  components: { albumItem, viewModeSwitch },
 
-        computed: {
-            items() {
-                return this.state.albums;  
-            },
-        },
-
-        events: {
-            /**
-             * When the application is ready, load the first batch of items.
-             */
-            'koel:ready': function () {
-                this.displayMore();
-            },
-        },
+  data() {
+    return {
+      perPage: 9,
+      numOfItems: 9,
+      q: '',
+      viewMode: null,
     };
+  },
+
+  computed: {
+    displayedItems() {
+      return limitBy(
+        filterBy(albumStore.all, this.q, 'name', 'artist.name'),
+        this.numOfItems
+      );
+    },
+  },
+
+  methods: {
+    changeViewMode(mode) {
+      this.viewMode = mode;
+    },
+  },
+
+  created() {
+    event.on({
+      /**
+       * When the application is ready, load the first batch of items.
+       */
+      'koel:ready': () => this.displayMore(),
+
+      'koel:teardown': () => {
+        this.q = '';
+        this.numOfItems = 9;
+      },
+
+      'filter:changed': q => this.q = q,
+    });
+  },
+};
 </script>
 
 <style lang="sass">
-    @import "../../sass/partials/_vars.scss";
-    @import "../../sass/partials/_mixins.scss";
+@import "../../../../sass/partials/_vars.scss";
+@import "../../../../sass/partials/_mixins.scss";
 
-    #albumsWrapper {
-        .albums {
-            @include artist-album-card();
-        }
-    }
+#albumsWrapper {
+  .albums {
+    @include artist-album-wrapper();
+  }
+}
 </style>

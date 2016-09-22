@@ -1,234 +1,278 @@
 <template>
-    <div id="app" tabindex="0" 
-        @keydown.space="togglePlayback"
-        @keydown.j = "playNext"
-        @keydown.k = "playPrev"
-        @keydown.f = "search"
-        @keydown.177 = "playPrev"
-        @keydown.176 = "playNext"
-        @keydown.179 = "togglePlayback"
+  <div id="app">
+    <div id="main" tabindex="0" v-show="authenticated"
+      @keydown.space="togglePlayback"
+      @keydown.j = "playNext"
+      @keydown.k = "playPrev"
+      @keydown.f = "search"
+      @keydown.mediaPrev = "playPrev"
+      @keydown.mediaNext = "playNext"
+      @keydown.mediaToggle = "togglePlayback"
     >
-        <main-wrapper></main-wrapper>
-        <site-footer></site-footer>
-        <overlay :state.sync="overlayState"></overlay>
+      <site-header></site-header>
+      <main-wrapper></main-wrapper>
+      <site-footer></site-footer>
+      <overlay ref="overlay"></overlay>
+      <edit-songs-form ref="editSongsForm"></edit-songs-form>
     </div>
+
+    <div class="login-wrapper" v-if="!authenticated">
+      <login-form></login-form>
+    </div>
+  </div>
 </template>
 
 <script>
-    import $ from 'jquery';
-    
-    import siteFooter from './components/site-footer/index.vue';
-    import mainWrapper from './components/main-wrapper/index.vue';
-    import overlay from './components/shared/overlay.vue';
+import Vue from 'vue';
+import $ from 'jquery';
 
-    import sharedStore from './stores/shared';
-    import preferenceStore from './stores/preference';
-    import playback from './services/playback';
+import siteHeader from './components/site-header/index.vue';
+import siteFooter from './components/site-footer/index.vue';
+import mainWrapper from './components/main-wrapper/index.vue';
+import overlay from './components/shared/overlay.vue';
+import loginForm from './components/auth/login-form.vue';
+import editSongsForm from './components/modals/edit-songs-form.vue';
 
-    export default {
-        components: { siteFooter, mainWrapper, overlay },
+import { event, showOverlay, hideOverlay, forceReloadWindow, url } from './utils';
+import { sharedStore, songStore, userStore, preferenceStore as preferences } from './stores';
+import { playback, ls } from './services';
+import { focusDirective, clickawayDirective } from './directives';
+import router from './router';
 
-        replace: false,
+export default {
+  components: { siteHeader, siteFooter, mainWrapper, overlay, loginForm, editSongsForm },
 
-        data() {
-            return {
-                prefs: preferenceStore.state,
-
-                overlayState: {
-                    showing: true,
-                    dismissable: false,
-                    type: 'loading',
-                    message: '',
-                },
-
-                sharedState: sharedStore.state,
-            };
-        },
-
-        ready() {
-            this.showOverlay();
-
-            // Make the most important HTTP request to get all necessary data from the server.
-            // Afterwards, init all mandatory stores and services.
-            sharedStore.init(() => {
-                playback.init(this);
-
-                this.hideOverlay();
-
-                // Ask for user's notification permission.
-                this.requestNotifPermission();
-
-                // Let all other components know we're ready.
-                this.$broadcast('koel:ready');
-            });
-        },
-
-        methods: {
-            /**
-             * Toggle playback when user presses Space key.
-             *
-             * @param {Object} e The keydown event
-             */
-            togglePlayback(e) {
-                if ($(e.target).is('input,textarea,button,select')) {
-                    return true;
-                }
-
-                // Ah... Good ol' jQuery. Whatever play/pause control is there, we blindly click it.
-                $('#mainFooter .play:visible, #mainFooter .pause:visible').click();
-                e.preventDefault();
-            },
-
-            /**
-             * Play the previous song when user presses K.
-             *
-             * @param {Object} e The keydown event
-             */
-            playPrev(e) {
-                if ($(e.target).is('input,textarea')) {
-                    return true;
-                }
-
-                playback.playPrev();
-                e.preventDefault();
-            },
-
-            /**
-             * Play the next song when user presses J.
-             *
-             * @param {Object} e The keydown event
-             */
-            playNext(e) {
-                if ($(e.target).is('input,textarea')) {
-                    return true;
-                }
-
-                playback.playNext();
-                e.preventDefault();
-            },
-
-            /**
-             * Put focus into the search field when user presses F.
-             *
-             * @param {Object} e The keydown event
-             */
-            search(e) {
-                if ($(e.target).is('input,textarea') || e.metaKey || e.ctrlKey) {
-                    return true;
-                }
-
-                $('#searchForm input[type="search"]').focus().select();
-                e.preventDefault();
-            },
-
-            /**
-             * Request for notification permission if it's not provided and the user is OK with notifs.
-             */
-            requestNotifPermission() {
-                if (window.Notification && this.prefs.notify && Notification.permission !== 'granted') {
-                    Notification.requestPermission(result => {
-                        if (result === 'denied') {
-                            preferenceStore.set('notify', false);
-                        }
-                    });
-                }
-            },
-
-            /**
-             * Load (display) a main panel (view).
-             *
-             * @param string view The view, which can be found under components/main-wrapper/main-content.
-             */
-            loadMainView(view) {
-                //this.$broadcast('main-content-view:load', view);
-                this.$route.router.go(view);//for capability
-            },
-
-            /**
-             * Load a playlist into the main panel.
-             *
-             * @param {Object} playlist The playlist object
-             */
-            loadPlaylist(playlist) {
-                this.$broadcast('playlist:load', playlist);
-                this.loadMainView('playlist');
-            },
-
-            /**
-             * Shows the overlay.
-             * 
-             * @param {String}  message     The message to display.
-             * @param {String}  type        (loading|success|info|warning|error)
-             * @param {Boolean} dismissable Whether to show the Close button
-             */
-            showOverlay(message = 'Just a little patience…', type = 'loading', dismissable = false) {
-                this.overlayState.message = message;
-                this.overlayState.type = type;
-                this.overlayState.dismissable = dismissable;
-                this.overlayState.showing = true;
-            },
-
-            /**
-             * Hides the overlay.
-             */
-            hideOverlay() {
-                this.overlayState.showing = false;
-            },
-
-            /**
-             * Shows the close button, allowing the user to close the overlay.
-             */
-            setOverlayDimissable() {
-                this.overlayState.dismissable = true;
-            },
-        },
+  data() {
+    return {
+      authenticated: false,
     };
+  },
+
+  mounted() {
+    // The app has just been initialized, check if we can get the user data with an already existing token
+    const token = ls.get('jwt-token');
+    if (token) {
+      this.authenticated = true;
+      this.init();
+    }
+
+    // Create the element to be the ghost drag image.
+    $('<div id="dragGhost"></div>').appendTo('body');
+
+    // And the textarea to copy stuff
+    $('<textarea id="copyArea"></textarea>').appendTo('body');
+
+    // Add an ugly mac/non-mac class for OS-targeting styles.
+    // I'm crying inside.
+    $('html').addClass(navigator.userAgent.indexOf('Mac') !== -1 ? 'mac' : 'non-mac');
+  },
+
+  methods: {
+    init() {
+      showOverlay();
+
+      // Make the most important HTTP request to get all necessary data from the server.
+      // Afterwards, init all mandatory stores and services.
+      sharedStore.init().then(() => {
+        playback.init();
+        hideOverlay();
+
+        // Ask for user's notification permission.
+        this.requestNotifPermission();
+
+        // To confirm or not to confirm closing, it's a question.
+        window.onbeforeunload = e => {
+          if (!preferences.confirmClosing) {
+            return;
+          }
+
+          return 'You asked Koel to confirm before closing, so here it is.';
+        };
+
+        // Let all other components know we're ready.
+        event.emit('koel:ready');
+      }).catch(() => this.authenticated = false);
+    },
 
     /**
-     * Modified version of orderBy that is case insensitive
+     * Toggle playback when user presses Space key.
      *
-     * @source https://github.com/vuejs/vue/blob/dev/src/filters/array-filters.js
+     * @param {Object} e The keydown event
      */
-    Vue.filter('caseInsensitiveOrderBy', (arr, sortKey, reverse) => {
-        if (!sortKey) {
-            return arr;
-        }
+    togglePlayback(e) {
+      if ($(e.target).is('input,textarea,button,select')) {
+        return true;
+      }
 
-        var order = (reverse && reverse < 0) ? -1 : 1
-        
-        // sort on a copy to avoid mutating original array
-        return arr.slice().sort((a, b) => {
-            a = Vue.util.isObject(a) ? Vue.parsers.path.getPath(a, sortKey) : a
-            b = Vue.util.isObject(b) ? Vue.parsers.path.getPath(b, sortKey) : b
+      // Ah... Good ol' jQuery. Whatever play/pause control is there, we blindly click it.
+      $('#mainFooter .play:visible, #mainFooter .pause:visible').click();
+      e.preventDefault();
+    },
 
-            a = a === undefined ? a : a.toLowerCase()
-            b = b === undefined ? b : b.toLowerCase()
+    /**
+     * Play the previous song when user presses K.
+     *
+     * @param {Object} e The keydown event
+     */
+    playPrev(e) {
+      if ($(e.target).is('input,textarea')) {
+        return true;
+      }
 
-            return a === b ? 0 : a > b ? order : -order
+      playback.playPrev();
+      e.preventDefault();
+    },
+
+    /**
+     * Play the next song when user presses J.
+     *
+     * @param {Object} e The keydown event
+     */
+    playNext(e) {
+      if ($(e.target).is('input,textarea')) {
+        return true;
+      }
+
+      playback.playNext();
+      e.preventDefault();
+    },
+
+    /**
+     * Put focus into the search field when user presses F.
+     *
+     * @param {Object} e The keydown event
+     */
+    search(e) {
+      if ($(e.target).is('input,textarea') || e.metaKey || e.ctrlKey) {
+        return true;
+      }
+
+      $('#searchForm input[type="search"]').focus().select();
+      e.preventDefault();
+    },
+
+    /**
+     * Request for notification permission if it's not provided and the user is OK with notifs.
+     */
+    requestNotifPermission() {
+      if (window.Notification && preferences.notify && Notification.permission !== 'granted') {
+        Notification.requestPermission(result => {
+          if (result === 'denied') {
+            preferences.notify = false;
+          }
         });
-    });
+      }
+    },
+  },
 
-    // Register the global directives
-    Vue.directive('koel-focus', require('./directives/focus'));
+  created() {
+    event.on({
+      /**
+       * When the user logs in, set the whole app to be "authenticated" and initialize it.
+       */
+       'user:loggedin': () => {
+        this.authenticated = true;
+        this.init();
+      },
+
+      /**
+       * Shows the "Edit Song" form.
+       *
+       * @param {Array.<Object>} An array of songs to edit
+       */
+      'songs:edit': songs => this.$refs.editSongsForm.open(songs),
+
+      /**
+       * Log the current user out and reset the application state.
+       */
+      logout() {
+        userStore.logout().then((r) => {
+          ls.remove('jwt-token');
+          forceReloadWindow();
+        });
+      },
+
+      /**
+       * Init our basic, custom router on ready to determine app state.
+       */
+      'koel:ready': () => {
+        router.init();
+      },
+    });
+  },
+};
+
+// Register our custom key codes
+Vue.config.keyCodes = {
+  a: 65,
+  j: 74,
+  k: 75,
+  f: 70,
+  mediaNext: 176,
+  mediaPrev: 177,
+  mediaToggle: 179
+};
+
+// …and the global directives
+Vue.directive('koel-focus', focusDirective);
+Vue.directive('koel-clickaway',clickawayDirective);
 </script>
 
 <style lang="sass">
-    @import "../../sass/partials/_vars.scss";
-    @import "../../sass/partials/_mixins.scss";
-    @import "../../sass/partials/_shared.scss";
+@import "resources/assets/sass/partials/_vars.scss";
+@import "resources/assets/sass/partials/_mixins.scss";
+@import "resources/assets/sass/partials/_shared.scss";
 
-    #app {
-        display: flex;
-        flex-direction: column;
-        
-        background: $colorMainBgr;
-        color: $colorMainText;
+#dragGhost {
+  position: relative;
+  display: inline-block;
+  background: $colorGreen;
+  padding: .8rem;
+  border-radius: .2rem;
+  color: #fff;
+  font-family: $fontFamily;
+  font-size: 1rem;
+  font-weight: $fontWeight_Thin;
 
-        font-family: $fontFamily;
-        font-size: $fontSize;
-        line-height: $fontSize * 1.5;
-        font-weight: $fontWeight_Thin;
+  /**
+   * We can totally hide this element on touch devices, because there's
+   * no drag and drop support there anyway.
+   */
+  html.touchevents & {
+    display: none;
+  }
+}
 
-        padding-bottom: $footerHeight;
-    }
+#copyArea {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+
+  html.touchevents & {
+    display: none;
+  }
+}
+
+#main, .login-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  background: $colorMainBgr;
+  color: $colorMainText;
+
+  font-family: $fontFamily;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: $fontWeight_Thin;
+
+  padding-bottom: $footerHeight;
+}
+
+.login-wrapper {
+  @include vertical-center();
+
+  padding-bottom: 0;
+}
 </style>

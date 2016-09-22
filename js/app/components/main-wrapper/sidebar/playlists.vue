@@ -1,235 +1,91 @@
 <template>
-    <section id="playlists">
-        <h1>Playlists <i class="fa fa-plus-circle control" @click="this.creating = !this.creating"></i></h1>
+  <section id="playlists">
+    <h1>Playlists
+      <i class="fa fa-plus-circle control create"
+        :class="{ creating: creating }"
+        @click="creating = !creating"></i>
+    </h1>
 
-        <form v-show="creating" @submit.prevent="store" class="create">
-            <input type="text" 
-                @keyup.esc.prevent="creating = false"
-                v-model="newName" 
-                v-koel-focus="creating"
-                placeholder="↵ to save"
-                required
-            >
-        </form>
+    <form v-show="creating" @submit.prevent="store" class="create">
+      <input type="text"
+        @keyup.esc.prevent="creating = false"
+        v-model="newName"
+        v-koel-focus="creating"
+        placeholder="↵ to save"
+        required
+      >
+    </form>
 
-        <ul class="menu">
-            <li>
-                <a class="favorites" 
-                    v-link="{ path: '/favorites', activeClass: 'active' }"
-                    @click.prevent="loadFavorites"
-                    @dragleave="removeDroppableState"
-                    @dragover.prevent="allowDrop"
-                    @drop.stop="handleDrop(null, $event)">Favorites</a>
-            </li>
-
-            <li v-for="p in state.playlists" 
-                @dblclick.prevent="edit(p)" 
-                class="playlist"
-                :class="{ editing: p == editedPlaylist }"
-            >
-                <a @click.prevent="load(p)"
-                    @dragleave="removeDroppableState"
-                    @dragover.prevent="allowDrop"
-                    @drop.stop="handleDrop(p, $event)"
-
-                    :class="[(currentView == 'playlist' && currentPlaylist == p)  ? 'active' : '']"
-                ><!-- TODO handle playlists router -->
-                    {{ p.name }}
-                </a>
-
-                <input type="text" 
-                    @keyup.esc="cancelEdit(p)"
-                    @keyup.enter="update(p)"
-                    @blur="update(p)"
-                    v-model="p.name" 
-                    v-koel-focus="p == editedPlaylist"
-                    required
-                >
-            </li>
-        </ul>
-    </section>
+    <ul class="menu">
+      <playlist-item
+        type="favorites"
+        :playlist="{ name: 'Favorites', songs: favoriteState.songs }"></playlist-item>
+      <playlist-item
+        v-for="playlist in playlistState.playlists"
+        type="playlist"
+        :playlist="playlist"></playlist-item>
+    </ul>
+  </section>
 </template>
 
 <script>
-    import songStore from '../../../stores/song';
-    import playlistStore from '../../../stores/playlist';
-    import favoriteStore from '../../../stores/favorite';
-    import $ from 'jquery';
-    
-    export default {
-        props: ['currentView'],
+import { playlistStore, favoriteStore } from '../../../stores';
+import router from '../../../router';
 
-        data() {
-            return {
-                state: playlistStore.state,
-                creating: false,
-                newName: '',
-                currentPlaylist: null,
-                editedPlaylist: playlistStore.stub,
-            };
-        },
+import playlistItem from './playlist-item.vue';
 
-        methods: {
-            /**
-             * Load a playlist.
-             * 
-             * @param  object p The playlist.
-             */
-            load(p) {
-                this.$root.loadPlaylist(this.currentPlaylist = p);
-            },
+export default {
+  name: 'sidebar--playlists',
+  props: ['currentView'],
+  components: { playlistItem },
 
-            /**
-             * Load the Favorite playlist.
-             */
-            loadFavorites() {
-                this.currentPlaylist = null;
-            },
-
-            /**
-             * Store/create a new playlist.
-             */
-            store() {
-                this.creating = false;
-
-                playlistStore.store(this.newName, [], () => this.newName = '');
-            },
-
-            /**
-             * Show the form to edit a playlist.
-             * 
-             * @param  object p The playlist
-             */
-            edit(p) {
-                this.beforeEditCache = p.name;
-                this.editedPlaylist = p;
-            },
-
-            /**
-             * Update a playlist's name.
-             * 
-             * @param  object p The playlist
-             */
-            update(p) {
-                if (!this.editedPlaylist) {
-                    return;
-                }
-
-                this.editedPlaylist = null;
-
-                p.name = p.name.trim();
-                if (!p.name) {
-                    p.name = this.beforeEditCache;
-                    return;
-                }
-
-                playlistStore.update(p);
-            },
-
-            /**
-             * Cancel editing the currently edited playlist.
-             * 
-             * @param  object p The playlist.
-             */
-            cancelEdit(p) {
-                this.editedPlaylist = null;
-                p.name = this.beforeEditCache;
-            },
-
-            /**
-             * Remove the droppable state when a dragleave event occurs on the playlist's DOM element. 
-             * 
-             * @param  object e The dragleave event.
-             */
-            removeDroppableState(e) {
-                $(e.target).removeClass('droppable');
-            },
-
-            /**
-             * Add a "droppable" class and set the drop effect when an item is dragged over the playlist's
-             * DOM element.
-             * 
-             * @param  object e The dragover event.
-             */
-            allowDrop(e) {
-                $(e.target).addClass('droppable');
-                e.dataTransfer.dropEffect = 'move';
-
-                return false;
-            },
-
-            /**
-             * Handle songs dropped to our favorite or playlist menu item.
-             * 
-             * @param  object|null  playlist The playlist object, or null if dropping to Favorites.
-             * @param  object       e        The event
-             *
-             * @return false
-             */
-            handleDrop(playlist, e) {
-                this.removeDroppableState(e);
-
-                var songs = songStore.byIds(e.dataTransfer.getData('text/plain').split(','));
-
-                if (!songs.length) {
-                    return false;
-                }
-
-                if (playlist) {
-                    playlistStore.addSongs(playlist, songs);
-                } else {
-                    favoriteStore.like(songs);
-                }
-
-                return false;
-            },
-        },
+  data() {
+    return {
+      playlistState: playlistStore.state,
+      favoriteState: favoriteStore.state,
+      creating: false,
+      newName: '',
     };
+  },
+
+  methods: {
+    /**
+     * Store/create a new playlist.
+     */
+    store() {
+      this.creating = false;
+
+      playlistStore.store(this.newName).then(p => {
+        this.newName = '';
+        // Activate the new playlist right away
+        this.$nextTick(() => router.go(`playlist/${p.id}`));
+      });
+    },
+  },
+};
 </script>
 
 <style lang="sass">
-    @import "../../sass/partials/_vars.scss";
-    @import "../../sass/partials/_mixins.scss";
+@import "../../../../sass/partials/_vars.scss";
+@import "../../../../sass/partials/_mixins.scss";
 
-    #playlists {
-        .menu {
-            a::before {
-                content: "\f0f6";
-            }
+#playlists {
+  .control.create {
+    margin-top: 2px;
+    font-size: 16px;
+    transition: .3s;
 
-            a.favorites::before {
-                content: "\f004";
-                color: $colorHeart;
-            }
-
-            .playlist {
-                user-select: none;
-
-                input {
-                    display: none;
-
-                    width: calc(100% - 32px);
-                    margin: 5px 16px;
-                }
-
-                &.editing {
-                    a {
-                        display: none;
-                    }
-
-                    input {
-                        display: block;
-                    }
-                }
-            }
-        }
-
-        form.create {
-            padding: 8px 16px;
-
-            input[type="text"] {
-                width: 100%;
-            }
-        }
+    &.creating {
+      transform: rotate(135deg);
     }
+  }
+
+  form.create {
+    padding: 8px 16px;
+
+    input[type="text"] {
+      width: 100%;
+    }
+  }
+}
 </style>

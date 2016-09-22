@@ -1,57 +1,65 @@
-import { extend } from 'lodash';
+import Vue from 'vue';
+import $ from 'jquery';
+import NProgress from 'nprogress';
+
+import { event } from '../utils';
+import { ls } from '../services';
 
 /**
  * Responsible for all HTTP requests.
- * 
- * IMPORTANT:
- * If the user has a good enough connection to stream music, he or she shouldn't 
- * encounter any HTTP errors. That's why Koel doesn't handle HTTP errors.
- * After all, even if there were errors, how bad can it be?
  */
-export default {
-    request(method, url, data, cb = null, options = {}) {
-        options = extend({
-            error: (data, status, request) => {
-                if (status === 401) {
-                    document.location.href = "/login";
-                }
-            },
-        }, options);
+export const http = {
+  request(method, url, data, successCb = null, errorCb = null) {
+    return $.ajax({
+      data,
+      dataType: 'json',
+      url: `/api/${url}`,
+      method: method.toUpperCase(),
+      headers: {
+        Authorization: `Bearer ${ls.get('jwt-token')}`,
+      }
+    }).done(successCb).fail(errorCb);
+  },
 
-        switch (method) {
-            case 'get':
-                return Vue.http.get(url, data, cb, options);
-            case 'post':
-                return Vue.http.post(url, data, cb, options);
-            case 'put':
-                return Vue.http.put(url, data, cb, options);
-            case 'delete':
-                return Vue.http.delete(url, data, cb, options);
-            default:
-                break;
+  get(url, successCb = null, errorCb = null) {
+    return this.request('get', url, {}, successCb, errorCb);
+  },
+
+  post(url, data, successCb = null, errorCb = null) {
+    return this.request('post', url, data, successCb, errorCb);
+  },
+
+  put(url, data, successCb = null, errorCb = null) {
+    return this.request('put', url, data, successCb, errorCb);
+  },
+
+  delete(url, data = {}, successCb = null, errorCb = null) {
+    return this.request('delete', url, data, successCb, errorCb);
+  },
+
+  /**
+   * Init the service.
+   */
+  init() {
+    $(document).ajaxComplete((e, r, settings) => {
+      NProgress.done();
+
+      if (r.status === 400 || r.status === 401) {
+        if (!(settings.method === 'POST' && /\/api\/me\/?$/.test(settings.url))) {
+          // This is not a failed login. Log out then.
+          event.emit('logout');
+          return;
         }
-    },
+      }
 
-    get(url, data = {}, cb = null, options = {}) {
-        return this.request('get', url, data, cb, options);
-    },
+      const token = r.getResponseHeader('Authorization');
+      if (token) {
+        ls.set('jwt-token', token);
+      }
 
-    post(url, data, cb = null, options = {}) {
-        return this.request('post', url, data, cb, options);
-    },
-
-    put(url, data, cb = null, options = {}) {
-        return this.request('put', url, data, cb, options);
-    },
-
-    delete(url, data = {}, cb = null, options = {}) {
-        return this.request('delete', url, data, cb, options);
-    },
-
-    /**
-     * A shortcut method to ping and check if the user session is still valid.
-     */
-    ping() {
-        return this.get('/');
-    },
+      if (r.responseJSON && r.responseJSON.token && r.responseJSON.token.length > 10) {
+        ls.set('jwt-token', r.responseJSON.token);
+      }
+    });
+  },
 };
